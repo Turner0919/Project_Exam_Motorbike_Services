@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MotorbikeServices.BLL/MotorbikeServices.BLL.csproj" />
+  <Project Path="MotorbikeServices.GUI/MotorbikeServices.GUI.csproj" />
+  <Project Path="MotorbikeServices/MotorbikeServices.DAL.csproj" />
+</Solution>
