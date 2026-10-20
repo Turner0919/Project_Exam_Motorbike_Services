@@ -1,10 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MotorbikeServices.DAL.Models.Account
 {
-    internal class User
+    public class User
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string TenTaiKhoan { get; set; } = null!;
+
+        [Required]
+        public string MatKhau { get; set; } = null!;
+
+        [Required]
+        public string CauHoiBaoMat { get; set; } = null!;
+
+        [Required]
+        public string DapAnBaoMat { get; set; } = null!;
     }
 }
+

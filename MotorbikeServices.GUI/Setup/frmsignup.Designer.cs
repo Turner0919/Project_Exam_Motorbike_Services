@@ -103,6 +103,7 @@
             btnHuy.TabIndex = 17;
             btnHuy.Text = "HỦY";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
             // 
             // btnDangKy
             // 
@@ -115,6 +116,7 @@
             btnDangKy.TabIndex = 16;
             btnDangKy.Text = "ĐĂNG KÝ";
             btnDangKy.UseVisualStyleBackColor = false;
+            btnDangKy.Click += btnDangKy_Click;
             // 
             // txtDapAnChoCauHoi
             // 
@@ -123,7 +125,6 @@
             txtDapAnChoCauHoi.PlaceholderText = "Viết thường, không dấu, không khoảng cách...";
             txtDapAnChoCauHoi.Size = new Size(395, 27);
             txtDapAnChoCauHoi.TabIndex = 15;
-            txtDapAnChoCauHoi.UseSystemPasswordChar = true;
             // 
             // label8
             // 
@@ -142,7 +143,6 @@
             txtDatCauHoi.PlaceholderText = "Dành cho trường hợp quên mật khẩu...";
             txtDatCauHoi.Size = new Size(395, 27);
             txtDatCauHoi.TabIndex = 13;
-            txtDatCauHoi.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -217,6 +217,7 @@
             cboTaoSoHuu.Name = "cboTaoSoHuu";
             cboTaoSoHuu.Size = new Size(171, 28);
             cboTaoSoHuu.TabIndex = 5;
+            cboTaoSoHuu.SelectedIndexChanged += cboTaoSoHuu_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -277,6 +278,7 @@
             Name = "frmsignup";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Đăng Ký Tài Khoản";
+            Load += frmsignup_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

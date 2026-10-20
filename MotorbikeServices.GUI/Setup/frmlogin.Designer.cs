@@ -132,6 +132,7 @@
             cboSoHuu.Name = "cboSoHuu";
             cboSoHuu.Size = new Size(167, 28);
             cboSoHuu.TabIndex = 6;
+            cboSoHuu.SelectedIndexChanged += cboSoHuu_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -267,6 +268,7 @@
             Text = "ỨNG DỤNG QUẢN DƯỠNG VÀ QUẢN LÝ";
             WindowState = FormWindowState.Maximized;
             Load += frmlogin_Load;
+            Click += btnDangNhap_Click;
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);

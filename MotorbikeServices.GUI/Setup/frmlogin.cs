@@ -1,4 +1,5 @@
-﻿using MotorbikeServices.GUI.Setup;
+﻿using MotorbikeServices.BLL.Services;
+using MotorbikeServices.GUI.Setup;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +12,14 @@ namespace MotorbikeServices.GUI.SETUP
 {
     public partial class frmlogin : Form
     {
+        private readonly AuthService _authService = new AuthService();
         private Image[] danhSachAnh;
         private string[] danhSachThongDiep;
         private int currentIndex = 0;
         public frmlogin()
         {
             InitializeComponent();
-
+            InitData();
             danhSachAnh = new Image[]
             {
                Properties.Resources.img1,
@@ -31,6 +33,28 @@ namespace MotorbikeServices.GUI.SETUP
                 "Hỗ trợ am hiểu và chuyên nghiệp"
             };
             HienThiSlide(0);
+        }
+        private void InitData()
+        {
+            cboSoHuu.Items.Clear();
+            cboSoHuu.Items.Add("User");
+            cboSoHuu.Items.Add("Admin");
+            cboSoHuu.SelectedIndex = 0;
+        }
+        private void cboSoHuu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedRole = cboSoHuu.SelectedItem?.ToString() ?? "";
+
+            if (selectedRole == "Admin")
+            {
+                // Nếu là Admin -> Mờ/Vô hiệu hóa link Quên mật khẩu
+                linklblQuenMatKhau.Enabled = false;
+            }
+            else
+            {
+                // Nếu là User -> Bật lại bình thường
+                linklblQuenMatKhau.Enabled = true;
+            }
         }
         private void HienThiSlide(int index)
         {
@@ -64,14 +88,51 @@ namespace MotorbikeServices.GUI.SETUP
 
         private void linklblQuenMatKhau_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmchangepassword Frmchangepassword = new frmchangepassword();
-            Frmchangepassword.ShowDialog();
+            string username = txtTaiKhoan.Text.Trim();
+            if (string.IsNullOrEmpty(username))
+            {
+                MessageBox.Show("Vui lòng nhập tên Tài khoản vào ô 'Tài Khoản' trước khi nhấn Quên mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTaiKhoan.Focus();
+                return;
+            }
+
+            frmchangepassword formChangePass = new frmchangepassword(username);
+            formChangePass.ShowDialog();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            frmaccountuser Frmaccountuser = new frmaccountuser();
-            Frmaccountuser.ShowDialog();
+            string username = txtTaiKhoan.Text.Trim();
+            string password = txtMatKhau.Text;
+            string role = cboSoHuu.SelectedItem?.ToString() ?? "";
+
+            var result = _authService.DangNhap(username, password, role);
+
+            if (result.IsSuccess)
+            {
+                MessageBox.Show(result.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (role == "Admin")
+                {
+                    // Mở Form Admin (frmaccountadmin)
+                    frmaccountadmin formAdmin = new frmaccountadmin();
+                    this.Hide();
+                    formAdmin.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    // Mở Form User (frmaccountuser) và truyền UserInfo sang
+                    frmaccountuser formUser = new frmaccountuser();
+                    this.Hide();
+                    formUser.ShowDialog();
+                    this.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -32,18 +32,18 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel1 = new Panel();
             panel3 = new Panel();
-            button1 = new Button();
-            textBox1 = new TextBox();
+            btnXacNhanDatLai = new Button();
+            txtXacNhanMatKhau1 = new TextBox();
+            txtDatLaiMatKhau = new TextBox();
+            label5 = new Label();
+            label4 = new Label();
+            btnXacNhan = new Button();
+            txtDapAn = new TextBox();
             label3 = new Label();
             lblCauHoi = new Label();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            label4 = new Label();
-            label5 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            button2 = new Button();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -78,8 +78,8 @@
             // panel1
             // 
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(btnXacNhan);
+            panel1.Controls.Add(txtDapAn);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(lblCauHoi);
             panel1.Controls.Add(label2);
@@ -93,9 +93,9 @@
             // panel3
             // 
             panel3.BackColor = Color.PapayaWhip;
-            panel3.Controls.Add(button2);
-            panel3.Controls.Add(textBox3);
-            panel3.Controls.Add(textBox2);
+            panel3.Controls.Add(btnXacNhanDatLai);
+            panel3.Controls.Add(txtXacNhanMatKhau1);
+            panel3.Controls.Add(txtDatLaiMatKhau);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label4);
             panel3.Dock = DockStyle.Bottom;
@@ -104,23 +104,71 @@
             panel3.Size = new Size(554, 243);
             panel3.TabIndex = 8;
             // 
-            // button1
+            // btnXacNhanDatLai
             // 
-            button1.BackColor = Color.Gold;
-            button1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            button1.Location = new Point(273, 143);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 40);
-            button1.TabIndex = 7;
-            button1.Text = "Xác Nhận";
-            button1.UseVisualStyleBackColor = false;
+            btnXacNhanDatLai.BackColor = Color.Yellow;
+            btnXacNhanDatLai.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnXacNhanDatLai.ForeColor = Color.Red;
+            btnXacNhanDatLai.Location = new Point(195, 149);
+            btnXacNhanDatLai.Name = "btnXacNhanDatLai";
+            btnXacNhanDatLai.Size = new Size(172, 49);
+            btnXacNhanDatLai.TabIndex = 9;
+            btnXacNhanDatLai.Text = "Xác Nhận Đặt Lại";
+            btnXacNhanDatLai.UseVisualStyleBackColor = false;
+            btnXacNhanDatLai.Click += btnXacNhanDatLai_Click;
             // 
-            // textBox1
+            // txtXacNhanMatKhau1
             // 
-            textBox1.Location = new Point(18, 151);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(219, 27);
-            textBox1.TabIndex = 6;
+            txtXacNhanMatKhau1.Location = new Point(195, 102);
+            txtXacNhanMatKhau1.Name = "txtXacNhanMatKhau1";
+            txtXacNhanMatKhau1.Size = new Size(300, 27);
+            txtXacNhanMatKhau1.TabIndex = 11;
+            // 
+            // txtDatLaiMatKhau
+            // 
+            txtDatLaiMatKhau.Location = new Point(195, 54);
+            txtDatLaiMatKhau.Name = "txtDatLaiMatKhau";
+            txtDatLaiMatKhau.Size = new Size(300, 27);
+            txtDatLaiMatKhau.TabIndex = 9;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            label5.Location = new Point(18, 104);
+            label5.Name = "label5";
+            label5.Size = new Size(171, 25);
+            label5.TabIndex = 10;
+            label5.Text = "Xác Nhận Mật Khẩu:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            label4.Location = new Point(18, 56);
+            label4.Name = "label4";
+            label4.Size = new Size(150, 25);
+            label4.TabIndex = 9;
+            label4.Text = "Đặt Lại Mật Khẩu:";
+            // 
+            // btnXacNhan
+            // 
+            btnXacNhan.BackColor = Color.Gold;
+            btnXacNhan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnXacNhan.Location = new Point(273, 143);
+            btnXacNhan.Name = "btnXacNhan";
+            btnXacNhan.Size = new Size(137, 40);
+            btnXacNhan.TabIndex = 7;
+            btnXacNhan.Text = "Xác Nhận";
+            btnXacNhan.UseVisualStyleBackColor = false;
+            btnXacNhan.Click += btnXacNhan_Click;
+            // 
+            // txtDapAn
+            // 
+            txtDapAn.Location = new Point(18, 151);
+            txtDapAn.Name = "txtDapAn";
+            txtDapAn.Size = new Size(219, 27);
+            txtDapAn.TabIndex = 6;
             // 
             // label3
             // 
@@ -173,54 +221,6 @@
             panel2.Size = new Size(114, 444);
             panel2.TabIndex = 2;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label4.Location = new Point(18, 56);
-            label4.Name = "label4";
-            label4.Size = new Size(150, 25);
-            label4.TabIndex = 9;
-            label4.Text = "Đặt Lại Mật Khẩu:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label5.Location = new Point(18, 104);
-            label5.Name = "label5";
-            label5.Size = new Size(171, 25);
-            label5.TabIndex = 10;
-            label5.Text = "Xác Nhận Mật Khẩu:";
-            //label5.Click += this.label5_Click;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(195, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(300, 27);
-            textBox2.TabIndex = 9;
-            //textBox2.TextChanged += this.textBox2_TextChanged;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(195, 102);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(300, 27);
-            textBox3.TabIndex = 11;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Yellow;
-            button2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            button2.ForeColor = Color.Red;
-            button2.Location = new Point(195, 149);
-            button2.Name = "button2";
-            button2.Size = new Size(172, 49);
-            button2.TabIndex = 9;
-            button2.Text = "Xác Nhận Đặt Lại";
-            button2.UseVisualStyleBackColor = false;
-            // 
             // frmchangepassword
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -230,6 +230,7 @@
             Name = "frmchangepassword";
             StartPosition = FormStartPosition.CenterParent;
             Text = "frmchangepassword";
+            Load += frmchangepassword_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -247,14 +248,14 @@
         private Label label1;
         private Label label2;
         private Label lblCauHoi;
-        private Button button1;
-        private TextBox textBox1;
+        private Button btnXacNhan;
+        private TextBox txtDapAn;
         private Label label3;
         private Panel panel3;
-        private TextBox textBox2;
+        private TextBox txtDatLaiMatKhau;
         private Label label5;
         private Label label4;
-        private Button button2;
-        private TextBox textBox3;
+        private Button btnXacNhanDatLai;
+        private TextBox txtXacNhanMatKhau1;
     }
 }
