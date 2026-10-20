@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+using MotorbikeServices.GUI.AdminControls;
 
 namespace MotorbikeServices.GUI.Setup
 {
@@ -13,6 +9,16 @@ namespace MotorbikeServices.GUI.Setup
         public frmaccountadmin()
         {
             InitializeComponent();
+
+            LoadPage(new UcDashboard());
+        }
+
+        private void LoadPage(UserControl page)
+        {
+            pnlContent.Controls.Clear();
+
+            page.Dock = DockStyle.Fill;
+            pnlContent.Controls.Add(page);
         }
     }
 }
