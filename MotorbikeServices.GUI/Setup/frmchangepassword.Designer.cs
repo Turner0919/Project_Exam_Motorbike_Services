@@ -192,7 +192,7 @@
             label5.Size = new Size(171, 25);
             label5.TabIndex = 10;
             label5.Text = "Xác Nhận Mật Khẩu:";
-            label5.Click += this.label5_Click;
+            //label5.Click += this.label5_Click;
             // 
             // textBox2
             // 
@@ -200,7 +200,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(300, 27);
             textBox2.TabIndex = 9;
-            textBox2.TextChanged += this.textBox2_TextChanged;
+            //textBox2.TextChanged += this.textBox2_TextChanged;
             // 
             // textBox3
             // 
