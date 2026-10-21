@@ -78,6 +78,67 @@ namespace MotorbikeServices.DAL.Migrations
 
                     b.ToTable("Users");
                 });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.DongXe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("HangXeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenDongXe")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HangXeId");
+
+                    b.ToTable("DongXes");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.HangXe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("QuocGia")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("TenHang")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HangXes");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.DongXe", b =>
+                {
+                    b.HasOne("MotorbikeServices.DAL.Models.HangXe", "HangXe")
+                        .WithMany("DongXes")
+                        .HasForeignKey("HangXeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HangXe");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.HangXe", b =>
+                {
+                    b.Navigation("DongXes");
+                });
 #pragma warning restore 612, 618
         }
     }

@@ -34,12 +34,12 @@
             lblSubtitle = new Label();
             lblLogo = new Label();
             pnlSidebar = new Panel();
+            btnAccount = new Button();
             btnQuyChuan = new Button();
             btnHangXe = new Button();
             btnDashboard = new Button();
             lblMenuTitle = new Label();
             pnlContent = new Panel();
-            btnAccount = new Button();
             tlpMain.SuspendLayout();
             pnlHeader.SuspendLayout();
             pnlSidebar.SuspendLayout();
@@ -130,12 +130,29 @@
             pnlSidebar.Size = new Size(220, 543);
             pnlSidebar.TabIndex = 1;
             // 
+            // btnAccount
+            // 
+            btnAccount.Cursor = Cursors.Hand;
+            btnAccount.FlatAppearance.BorderSize = 0;
+            btnAccount.FlatStyle = FlatStyle.Flat;
+            btnAccount.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
+            btnAccount.ForeColor = Color.White;
+            btnAccount.Location = new Point(10, 205);
+            btnAccount.Name = "btnAccount";
+            btnAccount.Padding = new Padding(12, 0, 0, 0);
+            btnAccount.Size = new Size(200, 44);
+            btnAccount.TabIndex = 4;
+            btnAccount.Text = "Quản lý tài khoản";
+            btnAccount.TextAlign = ContentAlignment.MiddleLeft;
+            btnAccount.UseVisualStyleBackColor = true;
+            btnAccount.Click += btnAccount_Click;
+            // 
             // btnQuyChuan
             // 
             btnQuyChuan.Cursor = Cursors.Hand;
             btnQuyChuan.FlatAppearance.BorderSize = 0;
             btnQuyChuan.FlatStyle = FlatStyle.Flat;
-            btnQuyChuan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnQuyChuan.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
             btnQuyChuan.ForeColor = Color.White;
             btnQuyChuan.Location = new Point(10, 155);
             btnQuyChuan.Name = "btnQuyChuan";
@@ -145,13 +162,14 @@
             btnQuyChuan.Text = "Quy chuẩn bảo dưỡng";
             btnQuyChuan.TextAlign = ContentAlignment.MiddleLeft;
             btnQuyChuan.UseVisualStyleBackColor = true;
+            btnQuyChuan.Click += btnQuyChuan_Click;
             // 
             // btnHangXe
             // 
             btnHangXe.Cursor = Cursors.Hand;
             btnHangXe.FlatAppearance.BorderSize = 0;
             btnHangXe.FlatStyle = FlatStyle.Flat;
-            btnHangXe.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnHangXe.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
             btnHangXe.ForeColor = Color.White;
             btnHangXe.Location = new Point(10, 105);
             btnHangXe.Name = "btnHangXe";
@@ -161,14 +179,15 @@
             btnHangXe.Text = "Hãng xe và dòng xe";
             btnHangXe.TextAlign = ContentAlignment.MiddleLeft;
             btnHangXe.UseVisualStyleBackColor = true;
+            btnHangXe.Click += btnHangXe_Click;
             // 
             // btnDashboard
             // 
-            btnDashboard.BackColor = Color.MidnightBlue;
+            btnDashboard.BackColor = Color.FromArgb(25, 57, 94);
             btnDashboard.Cursor = Cursors.Hand;
             btnDashboard.FlatAppearance.BorderSize = 0;
             btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnDashboard.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(10, 55);
             btnDashboard.Name = "btnDashboard";
@@ -178,6 +197,7 @@
             btnDashboard.Text = "Tổng quan";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // lblMenuTitle
             // 
@@ -199,22 +219,6 @@
             pnlContent.Padding = new Padding(20);
             pnlContent.Size = new Size(856, 537);
             pnlContent.TabIndex = 2;
-            // 
-            // btnAccount
-            // 
-            btnAccount.Cursor = Cursors.Hand;
-            btnAccount.FlatAppearance.BorderSize = 0;
-            btnAccount.FlatStyle = FlatStyle.Flat;
-            btnAccount.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnAccount.ForeColor = Color.White;
-            btnAccount.Location = new Point(10, 205);
-            btnAccount.Name = "btnAccount";
-            btnAccount.Padding = new Padding(12, 0, 0, 0);
-            btnAccount.Size = new Size(200, 44);
-            btnAccount.TabIndex = 4;
-            btnAccount.Text = "Quản lý tài khoản";
-            btnAccount.TextAlign = ContentAlignment.MiddleLeft;
-            btnAccount.UseVisualStyleBackColor = true;
             // 
             // frmaccountadmin
             // 

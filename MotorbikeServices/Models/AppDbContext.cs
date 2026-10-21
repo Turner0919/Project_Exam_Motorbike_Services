@@ -11,6 +11,8 @@ namespace MotorbikeServices.DAL.Models
     {
         public DbSet<Admin> Admins { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<HangXe> HangXes { get; set; }
+        public DbSet<DongXe> DongXes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
