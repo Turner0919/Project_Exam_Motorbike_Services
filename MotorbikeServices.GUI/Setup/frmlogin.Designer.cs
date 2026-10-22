@@ -48,11 +48,13 @@
             linklblDangKyTaiKhoan = new LinkLabel();
             timer1 = new System.Windows.Forms.Timer(components);
             panel5 = new Panel();
+            errorProvider1 = new ErrorProvider(components);
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -158,6 +160,7 @@
             txtTaiKhoan.Name = "txtTaiKhoan";
             txtTaiKhoan.Size = new Size(304, 27);
             txtTaiKhoan.TabIndex = 3;
+            txtTaiKhoan.TextChanged += txtTaiKhoan_TextChanged;
             // 
             // label3
             // 
@@ -253,6 +256,10 @@
             panel5.Size = new Size(920, 567);
             panel5.TabIndex = 1;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // frmlogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -276,6 +283,7 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -300,5 +308,6 @@
         private Label lblThongDiep;
         private Panel panel4;
         private Panel panel5;
+        private ErrorProvider errorProvider1;
     }
 }

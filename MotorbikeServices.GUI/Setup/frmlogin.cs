@@ -102,19 +102,41 @@ namespace MotorbikeServices.GUI.SETUP
         // push 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            // 1. Xóa các dấu lỗi đỏ cũ trước khi kiểm tra lại
+            errorProvider1.SetError(txtTaiKhoan, "");
+            errorProvider1.SetError(txtMatKhau, "");
+
             string username = txtTaiKhoan.Text.Trim();
             string password = txtMatKhau.Text;
             string role = cboSoHuu.SelectedItem?.ToString() ?? "";
 
+            // 2. Validate ngay tại GUI nếu chưa nhập
+            bool hasError = false;
+
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                errorProvider1.SetError(txtTaiKhoan, "Vui lòng nhập Tài khoản!");
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                errorProvider1.SetError(txtMatKhau, "Vui lòng nhập Mật khẩu!");
+                hasError = true;
+            }
+
+            // Nếu chưa nhập đủ thì dừng lại, không gọi xuống BLL/Database
+            if (hasError) return;
+
+            // 3. Gọi hàm BLL kiểm tra đăng nhập
             var result = _authService.DangNhap(username, password, role);
 
             if (result.IsSuccess)
             {
-                MessageBox.Show(result.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(result.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 if (role == "Admin")
                 {
-                    // Mở Form Admin (frmaccountadmin)
                     frmaccountadmin formAdmin = new frmaccountadmin();
                     this.Hide();
                     formAdmin.ShowDialog();
@@ -122,7 +144,6 @@ namespace MotorbikeServices.GUI.SETUP
                 }
                 else
                 {
-                    // Mở Form User (frmaccountuser) và truyền UserInfo sang
                     frmaccountuser formUser = new frmaccountuser();
                     this.Hide();
                     formUser.ShowDialog();
@@ -131,8 +152,15 @@ namespace MotorbikeServices.GUI.SETUP
             }
             else
             {
-                MessageBox.Show(result.Message, "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Sai tài khoản/mật khẩu -> Hiển thị dấu X đỏ ở cả 2 ô
+                string errorMsg = "Mat Khau hoac tai khoan chua dung";
+                errorProvider1.SetError(txtTaiKhoan, errorMsg);
+                errorProvider1.SetError(txtMatKhau, errorMsg);
             }
+        }
+
+        private void txtTaiKhoan_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
