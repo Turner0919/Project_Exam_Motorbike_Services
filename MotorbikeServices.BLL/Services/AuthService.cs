@@ -43,7 +43,8 @@ namespace MotorbikeServices.BLL.Services
                 }
             }
 
-            return (false, "Tài khoản, mật khẩu hoặc quyền đăng nhập không chính xác!", null);
+            // Câu thông báo khi không tìm thấy tài khoản/mật khẩu khớp trong DB
+            return (false, "Mat Khau hoac tai khoan chua dung", null);
         }
 
         /// <summary>
