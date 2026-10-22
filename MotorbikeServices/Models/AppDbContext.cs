@@ -14,20 +14,20 @@
             public DbSet<HangXe> HangXes { get; set; }
             public DbSet<DongXe> DongXes { get; set; }
 
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
             {
-                if (!optionsBuilder.IsConfigured)
-                {
-                    optionsBuilder.UseSqlServer("Server=localhost;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
-                }
+                optionsBuilder.UseSqlServer("Server=LAPTOP-R5OJKQCA\\SQLEXPRESS;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
             }
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
-            {
-                base.OnModelCreating(modelBuilder);
-                // Đảm bảo TenTaiKhoan là duy nhất (Unique)
-                modelBuilder.Entity<Admin>()
-                    .HasIndex(a => a.TenTaiKhoan)
-                    .IsUnique();
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            // Đảm bảo TenTaiKhoan là duy nhất (Unique)
+            modelBuilder.Entity<Admin>()
+                .HasIndex(a => a.TenTaiKhoan)
+                .IsUnique();
 
                 modelBuilder.Entity<User>()
                     .HasIndex(u => u.TenTaiKhoan)
