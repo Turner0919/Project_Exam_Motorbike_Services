@@ -7,12 +7,53 @@ namespace MotorbikeServices.GUI.Setup
 {
     public partial class frmaccountadmin : Form
     {
+        private Button activeButton;
         public frmaccountadmin()
         {
             InitializeComponent();
 
+            SetupSidebar();
             LoadPage(new UcDashboard());
             SetActiveButton(btnDashboard);
+        }
+
+        private void SetupSidebar()
+        {
+
+            Button[] sidebarButtons =
+            {
+                btnDashboard,
+                btnHangXe,
+                btnQuyChuan,
+                btnAccount
+            };
+
+            foreach (Button btn in sidebarButtons)
+            {
+                btn.FlatStyle = FlatStyle.Flat;
+                btn.FlatAppearance.BorderSize = 0;
+                btn.UseVisualStyleBackColor = false;
+
+                btn.TextAlign = ContentAlignment.MiddleLeft;
+                btn.TextImageRelation = TextImageRelation.Overlay;
+                btn.Padding = new Padding(12, 0, 4, 0);
+
+                btn.AutoSize = false;
+                btn.Height = 44;
+                btn.Width = 250;
+
+                btn.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+                btn.Cursor = Cursors.Hand;
+
+                // Không để hiệu ứng nhấn làm thay đổi màu nền ngoài ý muốn
+                btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(68, 140, 198);
+
+                btn.MouseEnter -= SidebarButton_MouseEnter;
+                btn.MouseLeave -= SidebarButton_MouseLeave;
+
+                btn.MouseEnter += SidebarButton_MouseEnter;
+                btn.MouseLeave += SidebarButton_MouseLeave;
+            }
         }
 
         private void LoadPage(UserControl page)
@@ -27,25 +68,18 @@ namespace MotorbikeServices.GUI.Setup
 
         private void SetActiveButton(Button selectedButton)
         {
+            activeButton = selectedButton;
+
             Button[] sidebarButtons =
             {
-        btnDashboard,
-        btnHangXe,
-        btnQuyChuan,
-        btnAccount
-    };
+                btnDashboard,
+                btnHangXe,
+                btnQuyChuan,
+                btnAccount
+            };
 
-            // Màu nút chưa được chọn
             Color normalColor = Color.FromArgb(36, 69, 103);
-
-            // Màu khi rê chuột lên nút chưa chọn
-            Color hoverColor = Color.FromArgb(48, 88, 128);
-
-            // Màu nút đang được chọn
             Color activeColor = Color.FromArgb(55, 126, 184);
-
-            // Màu khi rê chuột lên nút đang chọn
-            Color activeHoverColor = Color.FromArgb(68, 140, 198);
 
             foreach (Button btn in sidebarButtons)
             {
@@ -54,25 +88,52 @@ namespace MotorbikeServices.GUI.Setup
                 btn.UseVisualStyleBackColor = false;
 
                 btn.BackColor = normalColor;
-                btn.ForeColor = Color.FromArgb(240, 245, 250);
-                btn.Font = new Font(
-                    "Segoe UI", 9, FontStyle.Regular);
+                btn.ForeColor = Color.FromArgb(205, 218, 235);
+                btn.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
 
-                btn.FlatAppearance.MouseOverBackColor = hoverColor;
-                btn.FlatAppearance.MouseDownBackColor = activeColor;
+                btn.FlatAppearance.MouseOverBackColor =
+                    Color.FromArgb(48, 88, 128);
+
+                btn.FlatAppearance.MouseDownBackColor =
+                    Color.FromArgb(55, 126, 184);
             }
 
-            // Đánh dấu nút đang được chọn
+            // Giữ trạng thái nổi bật cho nút đang được chọn.
             selectedButton.BackColor = activeColor;
             selectedButton.ForeColor = Color.White;
             selectedButton.Font = new Font(
-                "Segoe UI", 9, FontStyle.Bold);
+                "Segoe UI", 9F, FontStyle.Bold);
 
             selectedButton.FlatAppearance.MouseOverBackColor =
-                activeHoverColor;
+                Color.FromArgb(68, 140, 198);
 
             selectedButton.FlatAppearance.MouseDownBackColor =
-                activeHoverColor;
+                Color.FromArgb(68, 140, 198);
+        }
+
+        private void SidebarButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is not Button btn) return;
+
+            btn.ForeColor = Color.White;
+            btn.BackColor = Color.FromArgb(55, 105, 150);
+            btn.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+        }
+
+        private void SidebarButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender is not Button btn) return;
+
+            if (btn == activeButton)
+            {
+                btn.BackColor = Color.FromArgb(55, 126, 184);
+                btn.ForeColor = Color.White;
+            }
+            else
+            {
+                btn.BackColor = Color.FromArgb(36, 69, 103);
+                btn.ForeColor = Color.FromArgb(205, 218, 235);
+            }
         }
 
 

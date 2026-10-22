@@ -1,4 +1,6 @@
-﻿namespace MotorbikeServices.GUI.Setup
+﻿using System.Security.Principal;
+
+namespace MotorbikeServices.GUI.Setup
 {
     partial class frmaccountadmin
     {
@@ -48,7 +50,7 @@
             // tlpMain
             // 
             tlpMain.ColumnCount = 2;
-            tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 220F));
+            tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 260F));
             tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpMain.Controls.Add(pnlHeader, 0, 0);
             tlpMain.Controls.Add(pnlSidebar, 0, 1);
@@ -58,7 +60,7 @@
             tlpMain.Margin = new Padding(0);
             tlpMain.Name = "tlpMain";
             tlpMain.RowCount = 2;
-            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 80F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpMain.Size = new Size(1082, 603);
             tlpMain.TabIndex = 0;
@@ -74,7 +76,7 @@
             pnlHeader.Location = new Point(0, 0);
             pnlHeader.Margin = new Padding(0);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(1082, 60);
+            pnlHeader.Size = new Size(1082, 80);
             pnlHeader.TabIndex = 0;
             // 
             // btnProfile
@@ -124,10 +126,10 @@
             pnlSidebar.Controls.Add(btnDashboard);
             pnlSidebar.Controls.Add(lblMenuTitle);
             pnlSidebar.Dock = DockStyle.Fill;
-            pnlSidebar.Location = new Point(0, 60);
+            pnlSidebar.Location = new Point(0, 80);
             pnlSidebar.Margin = new Padding(0);
             pnlSidebar.Name = "pnlSidebar";
-            pnlSidebar.Size = new Size(220, 543);
+            pnlSidebar.Size = new Size(260, 523);
             pnlSidebar.TabIndex = 1;
             // 
             // btnAccount
@@ -135,16 +137,16 @@
             btnAccount.Cursor = Cursors.Hand;
             btnAccount.FlatAppearance.BorderSize = 0;
             btnAccount.FlatStyle = FlatStyle.Flat;
-            btnAccount.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
+            btnAccount.Font = new Font("Segoe UI", 9F);
             btnAccount.ForeColor = Color.White;
             btnAccount.Location = new Point(10, 205);
             btnAccount.Name = "btnAccount";
-            btnAccount.Padding = new Padding(12, 0, 0, 0);
-            btnAccount.Size = new Size(200, 44);
-            btnAccount.TabIndex = 4;
-            btnAccount.Text = "Quản lý tài khoản";
+            btnAccount.Padding = new Padding(12, 0, 4, 0);
+            btnAccount.Size = new Size(240, 44);
+            btnAccount.TabIndex = 0;
+            btnAccount.Text = "♙   Quản lý tài khoản";
             btnAccount.TextAlign = ContentAlignment.MiddleLeft;
-            btnAccount.UseVisualStyleBackColor = true;
+            btnAccount.UseVisualStyleBackColor = false;
             btnAccount.Click += btnAccount_Click;
             // 
             // btnQuyChuan
@@ -152,16 +154,16 @@
             btnQuyChuan.Cursor = Cursors.Hand;
             btnQuyChuan.FlatAppearance.BorderSize = 0;
             btnQuyChuan.FlatStyle = FlatStyle.Flat;
-            btnQuyChuan.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
+            btnQuyChuan.Font = new Font("Segoe UI", 9F);
             btnQuyChuan.ForeColor = Color.White;
             btnQuyChuan.Location = new Point(10, 155);
             btnQuyChuan.Name = "btnQuyChuan";
-            btnQuyChuan.Padding = new Padding(12, 0, 0, 0);
-            btnQuyChuan.Size = new Size(200, 44);
+            btnQuyChuan.Padding = new Padding(12, 0, 4, 0);
+            btnQuyChuan.Size = new Size(240, 44);
             btnQuyChuan.TabIndex = 3;
-            btnQuyChuan.Text = "Quy chuẩn bảo dưỡng";
+            btnQuyChuan.Text = "⚙   Quy chuẩn bảo dưỡng";
             btnQuyChuan.TextAlign = ContentAlignment.MiddleLeft;
-            btnQuyChuan.UseVisualStyleBackColor = true;
+            btnQuyChuan.UseVisualStyleBackColor = false;
             btnQuyChuan.Click += btnQuyChuan_Click;
             // 
             // btnHangXe
@@ -169,16 +171,16 @@
             btnHangXe.Cursor = Cursors.Hand;
             btnHangXe.FlatAppearance.BorderSize = 0;
             btnHangXe.FlatStyle = FlatStyle.Flat;
-            btnHangXe.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
+            btnHangXe.Font = new Font("Segoe UI", 9F);
             btnHangXe.ForeColor = Color.White;
             btnHangXe.Location = new Point(10, 105);
             btnHangXe.Name = "btnHangXe";
-            btnHangXe.Padding = new Padding(12, 0, 0, 0);
-            btnHangXe.Size = new Size(200, 44);
+            btnHangXe.Padding = new Padding(12, 0, 4, 0);
+            btnHangXe.Size = new Size(240, 44);
             btnHangXe.TabIndex = 2;
-            btnHangXe.Text = "Hãng xe và dòng xe";
+            btnHangXe.Text = "🚘   Hãng xe và dòng xe";
             btnHangXe.TextAlign = ContentAlignment.MiddleLeft;
-            btnHangXe.UseVisualStyleBackColor = true;
+            btnHangXe.UseVisualStyleBackColor = false;
             btnHangXe.Click += btnHangXe_Click;
             // 
             // btnDashboard
@@ -187,14 +189,14 @@
             btnDashboard.Cursor = Cursors.Hand;
             btnDashboard.FlatAppearance.BorderSize = 0;
             btnDashboard.FlatStyle = FlatStyle.Flat;
-            btnDashboard.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold);
+            btnDashboard.Font = new Font("Segoe UI", 9F);
             btnDashboard.ForeColor = Color.White;
             btnDashboard.Location = new Point(10, 55);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Padding = new Padding(12, 0, 0, 0);
-            btnDashboard.Size = new Size(200, 44);
+            btnDashboard.Padding = new Padding(12, 0, 4, 0);
+            btnDashboard.Size = new Size(240, 44);
             btnDashboard.TabIndex = 1;
-            btnDashboard.Text = "Tổng quan";
+            btnDashboard.Text = "▦   Tổng quan";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += btnDashboard_Click;
@@ -214,10 +216,10 @@
             // pnlContent
             // 
             pnlContent.Dock = DockStyle.Fill;
-            pnlContent.Location = new Point(223, 63);
+            pnlContent.Location = new Point(263, 83);
             pnlContent.Name = "pnlContent";
             pnlContent.Padding = new Padding(20);
-            pnlContent.Size = new Size(856, 537);
+            pnlContent.Size = new Size(816, 517);
             pnlContent.TabIndex = 2;
             // 
             // frmaccountadmin
