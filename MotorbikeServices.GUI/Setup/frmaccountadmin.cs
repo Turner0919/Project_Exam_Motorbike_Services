@@ -160,5 +160,11 @@ namespace MotorbikeServices.GUI.Setup
             LoadPage(new UcAccount());
             SetActiveButton(btnAccount);
         }
+
+        private void btnHoiAI_Click(object sender, EventArgs e)
+        {
+            frmAIChat formAI = new frmAIChat();
+            formAI.ShowDialog();
+        }
     }
 }
