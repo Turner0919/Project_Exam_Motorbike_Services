@@ -28,130 +28,192 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
-            panel1 = new Panel();
-            button4 = new Button();
-            button3 = new Button();
-            btn1 = new Button();
+            btnThuNho = new Button();
+            btnDangKyXeMoi = new Button();
+            lblLogo = new Label();
+            btnLichSuSuaChua = new Button();
+            btnThongTinCaNhan = new Button();
+            btnGopY = new Button();
+            lblSubtitle = new Label();
             button2 = new Button();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
-            tableLayoutPanel1.SuspendLayout();
+            panel2 = new Panel();
+            panel1 = new Panel();
+            panelMain = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // btnThuNho
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.8779335F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 73.12206F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Controls.Add(pictureBox1, 1, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(852, 525);
-            tableLayoutPanel1.TabIndex = 0;
+            btnThuNho.BackgroundImageLayout = ImageLayout.None;
+            btnThuNho.Location = new Point(23, 34);
+            btnThuNho.Name = "btnThuNho";
+            btnThuNho.Size = new Size(62, 62);
+            btnThuNho.TabIndex = 13;
+            btnThuNho.Text = "☰";
+            btnThuNho.UseVisualStyleBackColor = true;
+            btnThuNho.Click += btnThuNho_Click;
             // 
-            // panel1
+            // btnDangKyXeMoi
             // 
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(btn1);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(223, 519);
-            panel1.TabIndex = 0;
+            btnDangKyXeMoi.BackColor = Color.Transparent;
+            btnDangKyXeMoi.Location = new Point(0, 242);
+            btnDangKyXeMoi.Name = "btnDangKyXeMoi";
+            btnDangKyXeMoi.Size = new Size(230, 61);
+            btnDangKyXeMoi.TabIndex = 1;
+            btnDangKyXeMoi.Text = "🚗 Đăng ký xe mới";
+            btnDangKyXeMoi.UseVisualStyleBackColor = false;
+            btnDangKyXeMoi.Click += btnDangKyXeMoi_Click;
             // 
-            // button4
+            // lblLogo
             // 
-            button4.Location = new Point(-3, 263);
-            button4.Name = "button4";
-            button4.Size = new Size(229, 63);
-            button4.TabIndex = 4;
-            button4.Text = "  Chi phí dự kiến và tổng";
-            button4.UseVisualStyleBackColor = true;
+            lblLogo.AutoSize = true;
+            lblLogo.BackColor = Color.Transparent;
+            lblLogo.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLogo.ForeColor = Color.White;
+            lblLogo.Location = new Point(3, 18);
+            lblLogo.Name = "lblLogo";
+            lblLogo.Size = new Size(168, 38);
+            lblLogo.TabIndex = 2;
+            lblLogo.Text = "VehicleCare";
             // 
-            // button3
+            // btnLichSuSuaChua
             // 
-            button3.Location = new Point(-6, 194);
-            button3.Name = "button3";
-            button3.Size = new Size(229, 63);
-            button3.TabIndex = 3;
-            button3.Text = "   Lịch sử bảo dưỡng";
-            button3.UseVisualStyleBackColor = true;
+            btnLichSuSuaChua.BackColor = Color.Transparent;
+            btnLichSuSuaChua.Location = new Point(-3, 309);
+            btnLichSuSuaChua.Name = "btnLichSuSuaChua";
+            btnLichSuSuaChua.Size = new Size(233, 61);
+            btnLichSuSuaChua.TabIndex = 2;
+            btnLichSuSuaChua.Text = "🛠️ Lịch sử sửa chữa ";
+            btnLichSuSuaChua.UseVisualStyleBackColor = false;
+            btnLichSuSuaChua.Click += btnLichSuSuaChua_Click;
             // 
-            // btn1
+            // btnThongTinCaNhan
             // 
-            btn1.Location = new Point(-3, 56);
-            btn1.Name = "btn1";
-            btn1.Size = new Size(229, 63);
-            btn1.TabIndex = 1;
-            btn1.Text = "Thông tin cá nhân";
-            btn1.UseVisualStyleBackColor = true;
-            btn1.Click += btn1_Click;
+            btnThongTinCaNhan.BackColor = Color.Transparent;
+            btnThongTinCaNhan.Location = new Point(0, 175);
+            btnThongTinCaNhan.Name = "btnThongTinCaNhan";
+            btnThongTinCaNhan.Size = new Size(230, 61);
+            btnThongTinCaNhan.TabIndex = 3;
+            btnThongTinCaNhan.Text = "👤 Thông tin cá nhân";
+            btnThongTinCaNhan.UseVisualStyleBackColor = false;
+            btnThongTinCaNhan.Click += btnThongTinCaNhan_Click;
+            // 
+            // btnGopY
+            // 
+            btnGopY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnGopY.Location = new Point(-3, 376);
+            btnGopY.Name = "btnGopY";
+            btnGopY.Size = new Size(233, 58);
+            btnGopY.TabIndex = 12;
+            btnGopY.Text = "Góp ý";
+            btnGopY.UseVisualStyleBackColor = true;
+            btnGopY.Click += button1_Click;
+            // 
+            // lblSubtitle
+            // 
+            lblSubtitle.AutoSize = true;
+            lblSubtitle.BackColor = Color.Transparent;
+            lblSubtitle.Font = new Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSubtitle.ForeColor = Color.LightSteelBlue;
+            lblSubtitle.Location = new Point(177, 34);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(39, 17);
+            lblSubtitle.TabIndex = 3;
+            lblSubtitle.Text = "USER";
             // 
             // button2
             // 
-            button2.Location = new Point(-6, 125);
+            button2.BackColor = Color.Transparent;
+            button2.Location = new Point(0, 99);
             button2.Name = "button2";
-            button2.Size = new Size(229, 63);
-            button2.TabIndex = 2;
-            button2.Text = "    Lịch bảo dưỡng ";
-            button2.UseVisualStyleBackColor = true;
+            button2.Size = new Size(230, 61);
+            button2.TabIndex = 5;
+            button2.Text = "Trở về trang chủ";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // label1
+            // panel2
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13F);
-            label1.Location = new Point(0, -3);
-            label1.Name = "label1";
-            label1.Size = new Size(223, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Thông tin người dùng";
-            label1.Click += label1_Click;
+            panel2.BackColor = Color.FromArgb(30, 41, 59);
+            panel2.Controls.Add(button2);
+            panel2.Controls.Add(lblSubtitle);
+            panel2.Controls.Add(btnGopY);
+            panel2.Controls.Add(btnThongTinCaNhan);
+            panel2.Controls.Add(btnLichSuSuaChua);
+            panel2.Controls.Add(lblLogo);
+            panel2.Controls.Add(btnDangKyXeMoi);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(230, 625);
+            panel2.TabIndex = 1;
             // 
-            // pictureBox1
+            // panel1
             // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(232, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(617, 519);
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            panel1.BackColor = SystemColors.ButtonHighlight;
+            panel1.Controls.Add(btnThuNho);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(951, 125);
+            panel1.TabIndex = 2;
+            // 
+            // panelMain
+            // 
+            panelMain.Dock = DockStyle.Fill;
+            panelMain.Location = new Point(3, 134);
+            panelMain.Name = "panelMain";
+            panelMain.Size = new Size(951, 500);
+            panelMain.TabIndex = 3;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panelMain, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(230, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.Size = new Size(957, 625);
+            tableLayoutPanel1.TabIndex = 4;
             // 
             // frmaccountuser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(852, 525);
+            ClientSize = new Size(1187, 625);
             Controls.Add(tableLayoutPanel1);
+            Controls.Add(panel2);
             Name = "frmaccountuser";
-            Text = "frmaccountuser";
+            Text = "Menu User";
             WindowState = FormWindowState.Maximized;
             Load += frmaccountuser_Load;
-            tableLayoutPanel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel1;
-        private PictureBox pictureBox1;
-        private Button button4;
-        private Button button3;
-        private Button btn1;
+        private Button btnThuNho;
+        private Button btnDangKyXeMoi;
+        private Label lblLogo;
+        private Button btnLichSuSuaChua;
+        private Button btnThongTinCaNhan;
+        private Button btnGopY;
+        private Label lblSubtitle;
         private Button button2;
-        private Label label1;
+        private Panel panel2;
+        private Panel panel1;
+        private Panel panelMain;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

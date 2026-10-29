@@ -36,13 +36,13 @@ namespace MotorbikeServices.GUI.Setup
             lblSubtitle = new Label();
             lblLogo = new Label();
             pnlSidebar = new Panel();
+            btnHoiAI = new Button();
             btnAccount = new Button();
             btnQuyChuan = new Button();
             btnHangXe = new Button();
             btnDashboard = new Button();
             lblMenuTitle = new Label();
             pnlContent = new Panel();
-            btnHoiAI = new Button();
             tlpMain.SuspendLayout();
             pnlHeader.SuspendLayout();
             pnlSidebar.SuspendLayout();
@@ -134,6 +134,23 @@ namespace MotorbikeServices.GUI.Setup
             pnlSidebar.Size = new Size(260, 523);
             pnlSidebar.TabIndex = 1;
             // 
+            // btnHoiAI
+            // 
+            btnHoiAI.Cursor = Cursors.Hand;
+            btnHoiAI.FlatAppearance.BorderSize = 0;
+            btnHoiAI.FlatStyle = FlatStyle.Flat;
+            btnHoiAI.Font = new Font("Segoe UI", 9F);
+            btnHoiAI.ForeColor = Color.White;
+            btnHoiAI.Location = new Point(10, 255);
+            btnHoiAI.Name = "btnHoiAI";
+            btnHoiAI.Padding = new Padding(12, 0, 4, 0);
+            btnHoiAI.Size = new Size(240, 44);
+            btnHoiAI.TabIndex = 4;
+            btnHoiAI.Text = "♙   Trợ Lý AI";
+            btnHoiAI.TextAlign = ContentAlignment.MiddleLeft;
+            btnHoiAI.UseVisualStyleBackColor = false;
+            btnHoiAI.Click += btnHoiAI_Click;
+            // 
             // btnAccount
             // 
             btnAccount.Cursor = Cursors.Hand;
@@ -223,23 +240,6 @@ namespace MotorbikeServices.GUI.Setup
             pnlContent.Padding = new Padding(20);
             pnlContent.Size = new Size(816, 517);
             pnlContent.TabIndex = 2;
-            // 
-            // btnHoiAI
-            // 
-            btnHoiAI.Cursor = Cursors.Hand;
-            btnHoiAI.FlatAppearance.BorderSize = 0;
-            btnHoiAI.FlatStyle = FlatStyle.Flat;
-            btnHoiAI.Font = new Font("Segoe UI", 9F);
-            btnHoiAI.ForeColor = Color.White;
-            btnHoiAI.Location = new Point(10, 255);
-            btnHoiAI.Name = "btnHoiAI";
-            btnHoiAI.Padding = new Padding(12, 0, 4, 0);
-            btnHoiAI.Size = new Size(240, 44);
-            btnHoiAI.TabIndex = 4;
-            btnHoiAI.Text = "♙   Trợ Lý AI";
-            btnHoiAI.TextAlign = ContentAlignment.MiddleLeft;
-            btnHoiAI.UseVisualStyleBackColor = false;
-            btnHoiAI.Click += btnHoiAI_Click;
             // 
             // frmaccountadmin
             // 
