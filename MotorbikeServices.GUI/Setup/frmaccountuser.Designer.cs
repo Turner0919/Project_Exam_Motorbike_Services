@@ -38,6 +38,7 @@
             button2 = new Button();
             panel2 = new Panel();
             panel1 = new Panel();
+            button5 = new Button();
             panelMain = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel2.SuspendLayout();
@@ -154,12 +155,24 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ButtonHighlight;
+            panel1.Controls.Add(button5);
             panel1.Controls.Add(btnThuNho);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(951, 125);
             panel1.TabIndex = 2;
+            // 
+            // button5
+            // 
+            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button5.Location = new Point(857, 32);
+            button5.Name = "button5";
+            button5.Size = new Size(73, 64);
+            button5.TabIndex = 14;
+            button5.Text = "->";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
             // 
             // panelMain
             // 
@@ -215,5 +228,6 @@
         private Panel panel1;
         private Panel panelMain;
         private TableLayoutPanel tableLayoutPanel1;
+        private Button button5;
     }
 }

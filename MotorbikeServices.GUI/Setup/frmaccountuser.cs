@@ -77,21 +77,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void button5_Click(object sender, EventArgs e)
         {
-
-            DialogResult result = MessageBox.Show(
-                "Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?",
-                "Xác nhận đăng xuất",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-                frmlogin login = new frmlogin();
-                login.ShowDialog();
-                this.Close();
-            }
+ 
         }
         private void ShowHomeButtonOnly()
         {
@@ -130,6 +116,24 @@ namespace MotorbikeServices.GUI.Setup
         private void panelMain_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?",
+                "Xác nhận đăng xuất",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                frmlogin login = new frmlogin();
+                login.ShowDialog();
+                this.Close();
+            }
         }
     }
 }
