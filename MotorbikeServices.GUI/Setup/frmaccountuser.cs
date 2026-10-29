@@ -9,22 +9,28 @@ using System.Windows.Forms;
 
 namespace MotorbikeServices.GUI.Setup
 {
+
     public partial class frmaccountuser : Form
     {
+        private bool isDarkMode = true; //default là chế độ tối
+
         public frmaccountuser()
         {
             InitializeComponent();
         }
+        private readonly Color colorDarkSidebar = Color.FromArgb(24, 34, 52); 
 
+        private readonly Color colorLightBlack = Color.FromArgb(50, 50, 50);
         private void frmaccountuser_Load(object sender, EventArgs e)
         {
             button2.Visible = false;
             btnThongTinCaNhan.Visible = true;
             btnDangKyXeMoi.Visible = true;
             btnLichSuSuaChua.Visible = true;
+            btnGopY.Visible = true;
             panel1.Visible = true;
             panel1.BringToFront();
-
+          
 
         }
 
@@ -77,7 +83,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void button5_Click(object sender, EventArgs e)
         {
- 
+
         }
         private void ShowHomeButtonOnly()
         {
@@ -135,5 +141,10 @@ namespace MotorbikeServices.GUI.Setup
                 this.Close();
             }
         }
+
+   
+
+      
     }
+  
 }
