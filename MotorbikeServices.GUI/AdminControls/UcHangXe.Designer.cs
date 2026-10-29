@@ -1,245 +1,361 @@
 ﻿
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace MotorbikeServices.GUI.AdminControls
 {
     partial class UcHangXe
     {
         private System.ComponentModel.IContainer components = null;
 
-        private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Panel pnlToolbar;
-        private System.Windows.Forms.TextBox txtTimKiem;
-        private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnLamMoi;
-        private System.Windows.Forms.DataGridView dgvHangXe;
+        private SplitContainer splitMain;
+
+        private Panel pnlHangXe;
+        private Panel pnlDongXe;
+
+        private Panel pnlHeaderHangXe;
+        private Panel pnlHeaderDongXe;
+
+        private Panel pnlToolbar;
+        private Panel pnlToolbarDongXe;
+
+        private FlowLayoutPanel flpNutHangXe;
+        private FlowLayoutPanel flpNutDongXe;
+
+        private Label lblTitle;
+        private Label lblDescription;
+        private Label lblTitleDongXe;
+        private Label lblDescriptionDongXe;
+
+        private TextBox txtTimKiem;
+        private TextBox txtTimKiemDongXe;
+
+        private Button btnThem;
+        private Button btnSua;
+        private Button btnXoa;
+        private Button btnLamMoi;
+
+        private Button btnThemDongXe;
+        private Button btnSuaDongXe;
+        private Button btnXoaDongXe;
+        private Button btnLamMoiDongXe;
+
+        private DataGridView dgvHangXe;
+        private DataGridView dgvDongXe;
+
+        private DataGridViewTextBoxColumn colMaHang;
+        private DataGridViewTextBoxColumn colTenHang;
+        private DataGridViewTextBoxColumn colQuocGia;
+
+        private DataGridViewTextBoxColumn colMaDongXe;
+        private DataGridViewTextBoxColumn colTenDongXe;
+        private DataGridViewTextBoxColumn colTenHangCuaDongXe;
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
+            if (disposing && components != null)
                 components.Dispose();
-            }
 
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            pnlMain = new Panel();
+            splitMain = new SplitContainer();
+
+            pnlHangXe = new Panel();
+            pnlDongXe = new Panel();
+
+            pnlHeaderHangXe = new Panel();
+            pnlHeaderDongXe = new Panel();
+
+            pnlToolbar = new Panel();
+            pnlToolbarDongXe = new Panel();
+
+            flpNutHangXe = new FlowLayoutPanel();
+            flpNutDongXe = new FlowLayoutPanel();
+
             lblTitle = new Label();
             lblDescription = new Label();
-            pnlToolbar = new Panel();
+            lblTitleDongXe = new Label();
+            lblDescriptionDongXe = new Label();
+
             txtTimKiem = new TextBox();
+            txtTimKiemDongXe = new TextBox();
+
             btnThem = new Button();
             btnSua = new Button();
             btnXoa = new Button();
             btnLamMoi = new Button();
+
+            btnThemDongXe = new Button();
+            btnSuaDongXe = new Button();
+            btnXoaDongXe = new Button();
+            btnLamMoiDongXe = new Button();
+
             dgvHangXe = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            pnlMain.SuspendLayout();
-            pnlToolbar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvHangXe).BeginInit();
+            dgvDongXe = new DataGridView();
+
+            colMaHang = new DataGridViewTextBoxColumn();
+            colTenHang = new DataGridViewTextBoxColumn();
+            colQuocGia = new DataGridViewTextBoxColumn();
+
+            colMaDongXe = new DataGridViewTextBoxColumn();
+            colTenDongXe = new DataGridViewTextBoxColumn();
+            colTenHangCuaDongXe = new DataGridViewTextBoxColumn();
+
+            ((System.ComponentModel.ISupportInitialize)splitMain).BeginInit();
+            splitMain.Panel1.SuspendLayout();
+            splitMain.Panel2.SuspendLayout();
+            splitMain.SuspendLayout();
+
             SuspendLayout();
-            // 
-            // pnlMain
-            // 
-            pnlMain.BackColor = Color.FromArgb(245, 247, 250);
-            pnlMain.Controls.Add(lblTitle);
-            pnlMain.Controls.Add(lblDescription);
-            pnlMain.Controls.Add(pnlToolbar);
-            pnlMain.Controls.Add(dgvHangXe);
-            pnlMain.Dock = DockStyle.Fill;
-            pnlMain.Location = new Point(0, 0);
-            pnlMain.Name = "pnlMain";
-            pnlMain.Padding = new Padding(12);
-            pnlMain.Size = new Size(900, 600);
-            pnlMain.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.FromArgb(25, 45, 80);
-            lblTitle.Location = new Point(12, 10);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(459, 46);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "Quản lý hãng xe và dòng xe";
-            // 
-            // lblDescription
-            // 
-            lblDescription.AutoSize = true;
-            lblDescription.Font = new Font("Segoe UI", 10F);
-            lblDescription.ForeColor = Color.FromArgb(95, 112, 135);
-            lblDescription.Location = new Point(20, 56);
-            lblDescription.Name = "lblDescription";
-            lblDescription.Size = new Size(334, 23);
-            lblDescription.TabIndex = 1;
-            lblDescription.Text = "Quản lý thông tin hãng xe và các dòng xe.";
-            // 
-            // pnlToolbar
-            // 
-            pnlToolbar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            pnlToolbar.BackColor = Color.FromArgb(245, 247, 250);
-            pnlToolbar.Controls.Add(txtTimKiem);
-            pnlToolbar.Controls.Add(btnThem);
-            pnlToolbar.Controls.Add(btnSua);
-            pnlToolbar.Controls.Add(btnXoa);
-            pnlToolbar.Controls.Add(btnLamMoi);
-            pnlToolbar.Location = new Point(12, 95);
-            pnlToolbar.Name = "pnlToolbar";
-            pnlToolbar.Size = new Size(1550, 42);
-            pnlToolbar.TabIndex = 2;
-            // 
-            // txtTimKiem
-            // 
-            txtTimKiem.Font = new Font("Segoe UI", 10F);
-            txtTimKiem.Location = new Point(8, 5);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.PlaceholderText = "Nhập tên hãng xe để tìm...";
-            txtTimKiem.Size = new Size(250, 30);
-            txtTimKiem.TabIndex = 0;
-            // 
-            // btnThem
-            // 
-            btnThem.BackColor = Color.FromArgb(55, 126, 184);
-            btnThem.Cursor = Cursors.Hand;
-            btnThem.FlatStyle = FlatStyle.Flat;
-            btnThem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(265, 2);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(145, 36);
-            btnThem.TabIndex = 1;
-            btnThem.Text = "+ Thêm hãng xe";
-            btnThem.UseVisualStyleBackColor = false;
-            // 
-            // btnSua
-            // 
-            btnSua.BackColor = Color.FromArgb(25, 45, 80);
-            btnSua.Cursor = Cursors.Hand;
-            btnSua.FlatStyle = FlatStyle.Flat;
-            btnSua.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(420, 2);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(75, 36);
-            btnSua.TabIndex = 2;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = false;
-            // 
-            // btnXoa
-            // 
-            btnXoa.BackColor = Color.FromArgb(180, 65, 65);
-            btnXoa.Cursor = Cursors.Hand;
-            btnXoa.FlatStyle = FlatStyle.Flat;
-            btnXoa.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(505, 2);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(75, 36);
-            btnXoa.TabIndex = 3;
-            btnXoa.Text = "Xóa";
-            btnXoa.UseVisualStyleBackColor = false;
-            // 
-            // btnLamMoi
-            // 
-            btnLamMoi.BackColor = Color.FromArgb(25, 45, 80);
-            btnLamMoi.Cursor = Cursors.Hand;
-            btnLamMoi.FlatStyle = FlatStyle.Flat;
-            btnLamMoi.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnLamMoi.ForeColor = Color.White;
-            btnLamMoi.Location = new Point(590, 2);
-            btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(90, 36);
-            btnLamMoi.TabIndex = 4;
-            btnLamMoi.Text = "Làm mới";
-            btnLamMoi.UseVisualStyleBackColor = false;
-            // 
-            // dgvHangXe
-            // 
-            dgvHangXe.AllowUserToAddRows = false;
-            dgvHangXe.AllowUserToDeleteRows = false;
-            dgvHangXe.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvHangXe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvHangXe.BackgroundColor = Color.White;
-            dgvHangXe.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(25, 45, 80);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvHangXe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dgvHangXe.ColumnHeadersHeight = 42;
-            dgvHangXe.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(220, 235, 248);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(25, 45, 80);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvHangXe.DefaultCellStyle = dataGridViewCellStyle4;
-            dgvHangXe.EnableHeadersVisualStyles = false;
-            dgvHangXe.Location = new Point(12, 150);
-            dgvHangXe.MultiSelect = false;
-            dgvHangXe.Name = "dgvHangXe";
-            dgvHangXe.ReadOnly = true;
-            dgvHangXe.RowHeadersVisible = false;
-            dgvHangXe.RowHeadersWidth = 51;
-            dgvHangXe.RowTemplate.Height = 36;
-            dgvHangXe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvHangXe.Size = new Size(1550, 900);
-            dgvHangXe.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Mã hãng";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Tên hãng xe";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Quốc gia";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // UcHangXe
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+
+            // UserControl
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 250);
-            Controls.Add(pnlMain);
             Name = "UcHangXe";
-            Size = new Size(900, 600);
-            pnlMain.ResumeLayout(false);
-            pnlMain.PerformLayout();
-            pnlToolbar.ResumeLayout(false);
-            pnlToolbar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvHangXe).EndInit();
+            Size = new Size(1200, 650);
+
+            // Chia màn hình trái - phải
+            splitMain.Dock = DockStyle.Fill;
+            splitMain.Orientation = Orientation.Vertical;
+            splitMain.SplitterWidth = 6;
+            splitMain.Panel1MinSize = 0;
+            splitMain.Panel2MinSize = 0;
+            splitMain.BackColor = Color.FromArgb(220, 225, 232);
+
+            pnlHangXe.Dock = DockStyle.Fill;
+            pnlHangXe.BackColor = Color.FromArgb(245, 247, 250);
+            pnlHangXe.Padding = new Padding(8);
+
+            pnlDongXe.Dock = DockStyle.Fill;
+            pnlDongXe.BackColor = Color.FromArgb(245, 247, 250);
+            pnlDongXe.Padding = new Padding(8);
+
+            splitMain.Panel1.Controls.Add(pnlHangXe);
+            splitMain.Panel2.Controls.Add(pnlDongXe);
+
+            // Tiêu đề hãng xe
+            pnlHeaderHangXe.Dock = DockStyle.Top;
+            pnlHeaderHangXe.Height = 68;
+
+            lblTitle.Text = "Quản lý hãng xe";
+            lblTitle.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(25, 45, 80);
+            lblTitle.Location = new Point(5, 3);
+            lblTitle.AutoSize = true;
+
+            lblDescription.Text = "Danh sách các hãng xe";
+            lblDescription.Font = new Font("Segoe UI", 9F);
+            lblDescription.ForeColor = Color.FromArgb(95, 112, 135);
+            lblDescription.Location = new Point(7, 39);
+            lblDescription.AutoSize = true;
+
+            pnlHeaderHangXe.Controls.Add(lblTitle);
+            pnlHeaderHangXe.Controls.Add(lblDescription);
+
+            // Tiêu đề dòng xe
+            pnlHeaderDongXe.Dock = DockStyle.Top;
+            pnlHeaderDongXe.Height = 68;
+
+            lblTitleDongXe.Text = "Quản lý dòng xe";
+            lblTitleDongXe.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
+            lblTitleDongXe.ForeColor = Color.FromArgb(25, 45, 80);
+            lblTitleDongXe.Location = new Point(5, 3);
+            lblTitleDongXe.AutoSize = true;
+
+            lblDescriptionDongXe.Text = "Chọn hãng xe để xem dòng xe";
+            lblDescriptionDongXe.Font = new Font("Segoe UI", 9F);
+            lblDescriptionDongXe.ForeColor = Color.FromArgb(95, 112, 135);
+            lblDescriptionDongXe.Location = new Point(7, 39);
+            lblDescriptionDongXe.AutoSize = true;
+
+            pnlHeaderDongXe.Controls.Add(lblTitleDongXe);
+            pnlHeaderDongXe.Controls.Add(lblDescriptionDongXe);
+
+            // Thanh công cụ hãng xe
+            pnlToolbar.Dock = DockStyle.Top;
+            pnlToolbar.Height = 78;
+
+            txtTimKiem.Dock = DockStyle.Top;
+            txtTimKiem.Height = 30;
+            txtTimKiem.Font = new Font("Segoe UI", 9F);
+            txtTimKiem.PlaceholderText = "Tìm hãng xe...";
+
+            flpNutHangXe.Dock = DockStyle.Fill;
+            flpNutHangXe.FlowDirection = FlowDirection.LeftToRight;
+            flpNutHangXe.WrapContents = false;
+            flpNutHangXe.Padding = new Padding(0, 5, 0, 0);
+
+            CauHinhNut(btnThem, "+ Thêm", Color.FromArgb(55, 126, 184));
+            CauHinhNut(btnSua, "Sửa", Color.FromArgb(25, 45, 80));
+            CauHinhNut(btnXoa, "Xóa", Color.FromArgb(180, 65, 65));
+            CauHinhNut(btnLamMoi, "Làm mới", Color.FromArgb(25, 45, 80));
+
+            flpNutHangXe.Controls.AddRange(new Control[]
+            {
+                btnThem, btnSua, btnXoa, btnLamMoi
+            });
+
+            pnlToolbar.Controls.Add(flpNutHangXe);
+            pnlToolbar.Controls.Add(txtTimKiem);
+
+            // Bảng hãng xe
+            CauHinhBang(dgvHangXe);
+
+            colMaHang.Name = "MaHang";
+            colMaHang.HeaderText = "Mã";
+            colMaHang.FillWeight = 45;
+
+            colTenHang.Name = "TenHang";
+            colTenHang.HeaderText = "Tên hãng xe";
+            colTenHang.FillWeight = 110;
+
+            colQuocGia.Name = "QuocGia";
+            colQuocGia.HeaderText = "Quốc gia";
+            colQuocGia.FillWeight = 85;
+
+            dgvHangXe.Columns.AddRange(new DataGridViewColumn[]
+            {
+                colMaHang, colTenHang, colQuocGia
+            });
+
+            // Thanh công cụ dòng xe
+            pnlToolbarDongXe.Dock = DockStyle.Top;
+            pnlToolbarDongXe.Height = 78;
+
+            txtTimKiemDongXe.Dock = DockStyle.Top;
+            txtTimKiemDongXe.Height = 30;
+            txtTimKiemDongXe.Font = new Font("Segoe UI", 9F);
+            txtTimKiemDongXe.PlaceholderText = "Tìm dòng xe...";
+
+            flpNutDongXe.Dock = DockStyle.Fill;
+            flpNutDongXe.FlowDirection = FlowDirection.LeftToRight;
+            flpNutDongXe.WrapContents = false;
+            flpNutDongXe.Padding = new Padding(0, 5, 0, 0);
+
+            CauHinhNut(
+                btnThemDongXe, "+ Thêm",
+                Color.FromArgb(55, 126, 184));
+
+            CauHinhNut(
+                btnSuaDongXe, "Sửa",
+                Color.FromArgb(25, 45, 80));
+
+            CauHinhNut(
+                btnXoaDongXe, "Xóa",
+                Color.FromArgb(180, 65, 65));
+
+            CauHinhNut(
+                btnLamMoiDongXe, "Làm mới",
+                Color.FromArgb(25, 45, 80));
+
+            flpNutDongXe.Controls.AddRange(new Control[]
+            {
+                btnThemDongXe,
+                btnSuaDongXe,
+                btnXoaDongXe,
+                btnLamMoiDongXe
+            });
+
+            pnlToolbarDongXe.Controls.Add(flpNutDongXe);
+            pnlToolbarDongXe.Controls.Add(txtTimKiemDongXe);
+
+            // Bảng dòng xe
+            CauHinhBang(dgvDongXe);
+
+            colMaDongXe.Name = "MaDongXe";
+            colMaDongXe.HeaderText = "Mã";
+            colMaDongXe.FillWeight = 40;
+
+            colTenDongXe.Name = "TenDongXe";
+            colTenDongXe.HeaderText = "Tên dòng xe";
+            colTenDongXe.FillWeight = 110;
+
+            colTenHangCuaDongXe.Name = "TenHangCuaDongXe";
+            colTenHangCuaDongXe.HeaderText = "Hãng xe";
+            colTenHangCuaDongXe.FillWeight = 85;
+
+            dgvDongXe.Columns.AddRange(new DataGridViewColumn[]
+            {
+                colMaDongXe,
+                colTenDongXe,
+                colTenHangCuaDongXe
+            });
+
+            // Bảng lấp đầy phần dưới
+            pnlHangXe.Controls.Add(dgvHangXe);
+            pnlHangXe.Controls.Add(pnlToolbar);
+            pnlHangXe.Controls.Add(pnlHeaderHangXe);
+
+            pnlDongXe.Controls.Add(dgvDongXe);
+            pnlDongXe.Controls.Add(pnlToolbarDongXe);
+            pnlDongXe.Controls.Add(pnlHeaderDongXe);
+
+            Controls.Add(splitMain);
+
+            splitMain.Panel1.ResumeLayout(false);
+            splitMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitMain).EndInit();
+
+            splitMain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private void CauHinhNut(
+            Button button, string text, Color color)
+        {
+            button.Text = text;
+            button.Size = new Size(78, 32);
+            button.Margin = new Padding(0, 2, 5, 0);
+            button.BackColor = color;
+            button.ForeColor = Color.White;
+            button.Font = new Font(
+                "Segoe UI", 8.5F, FontStyle.Bold);
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 0;
+            button.UseVisualStyleBackColor = false;
+            button.Cursor = Cursors.Hand;
+        }
+
+        private void CauHinhBang(DataGridView grid)
+        {
+            grid.Dock = DockStyle.Fill;
+            grid.BackgroundColor = Color.White;
+            grid.BorderStyle = BorderStyle.FixedSingle;
+            grid.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            grid.AllowUserToAddRows = false;
+            grid.AllowUserToDeleteRows = false;
+            grid.ReadOnly = true;
+            grid.MultiSelect = false;
+            grid.RowHeadersVisible = false;
+            grid.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            grid.RowTemplate.Height = 34;
+            grid.ColumnHeadersHeight = 40;
+            grid.EnableHeadersVisualStyles = false;
+
+            grid.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(25, 45, 80);
+
+            grid.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            grid.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 9F, FontStyle.Bold);
+
+            grid.DefaultCellStyle.Font =
+                new Font("Segoe UI", 9F);
+
+            grid.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(220, 235, 248);
+
+            grid.DefaultCellStyle.SelectionForeColor =
+                Color.FromArgb(25, 45, 80);
+        }
     }
 }

@@ -90,6 +90,11 @@ namespace MotorbikeServices.DAL.Migrations
                     b.Property<int>("HangXeId")
                         .HasColumnType("int");
 
+                    b.Property<string>("LoaiXe")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("TenDongXe")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -143,4 +148,3 @@ namespace MotorbikeServices.DAL.Migrations
         }
     }
 }
-    
