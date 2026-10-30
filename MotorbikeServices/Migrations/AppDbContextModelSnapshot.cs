@@ -179,10 +179,8 @@ namespace MotorbikeServices.DAL.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("LoaiXe")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("DongXeId")
+                        .HasColumnType("int");
 
                     b.Property<string>("MoTa")
                         .HasMaxLength(500)
@@ -197,6 +195,8 @@ namespace MotorbikeServices.DAL.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DongXeId");
 
                     b.ToTable("QuyChuanBaoDuongs");
                 });
@@ -254,6 +254,17 @@ namespace MotorbikeServices.DAL.Migrations
                     b.Navigation("HangXe");
                 });
 
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.QuyChuanBaoDuong", b =>
+                {
+                    b.HasOne("MotorbikeServices.DAL.Models.DongXe", "DongXe")
+                        .WithMany("QuyChuanBaoDuongs")
+                        .HasForeignKey("DongXeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("DongXe");
+                });
+
             modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.UserXe", b =>
                 {
                     b.HasOne("MotorbikeServices.DAL.Models.DongXe", "DongXe")
@@ -271,6 +282,11 @@ namespace MotorbikeServices.DAL.Migrations
                     b.Navigation("DongXe");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.DongXe", b =>
+                {
+                    b.Navigation("QuyChuanBaoDuongs");
                 });
 
             modelBuilder.Entity("MotorbikeServices.DAL.Models.HangXe", b =>

@@ -41,22 +41,28 @@ namespace MotorbikeServices.DAL.Models
 
             modelBuilder.Entity<QuyChuanBaoDuong>(entity =>
             {
-                entity.HasKey(q => q.Id);
+                entity.HasKey(e => e.Id);
 
-                entity.Property(q => q.LoaiXe)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(q => q.TenQuyChuan)
+                entity.Property(e => e.TenQuyChuan)
                     .IsRequired()
                     .HasMaxLength(150);
 
-                entity.Property(q => q.ChiPhi)
+                entity.Property(e => e.ChiPhi)
                     .HasPrecision(18, 2);
 
-                entity.Property(q => q.MoTa)
+                entity.Property(e => e.MoTa)
                     .HasMaxLength(500);
+
+                entity.HasOne(e => e.DongXe)
+                    .WithMany(d => d.QuyChuanBaoDuongs)
+                    .HasForeignKey(e => e.DongXeId)
+                    .OnDelete(DeleteBehavior.Restrict);
             });
+            modelBuilder.Entity<QuyChuanBaoDuong>()
+                .HasOne(q => q.DongXe)
+                .WithMany(d => d.QuyChuanBaoDuongs)
+                .HasForeignKey(q => q.DongXeId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
