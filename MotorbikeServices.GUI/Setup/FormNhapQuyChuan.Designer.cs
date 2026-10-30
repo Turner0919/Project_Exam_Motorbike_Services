@@ -109,7 +109,6 @@ namespace MotorbikeServices.GUI.AdminControls
             // cboLoaiXe
             // 
             cboLoaiXe.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboLoaiXe.Items.AddRange(new object[] { "Xe tay ga", "Xe số" });
             cboLoaiXe.Location = new Point(155, 80);
             cboLoaiXe.Name = "cboLoaiXe";
             cboLoaiXe.Size = new Size(265, 28);

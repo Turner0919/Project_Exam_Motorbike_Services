@@ -1,5 +1,4 @@
-﻿
-using MotorbikeServices.DAL.Models;
+﻿using MotorbikeServices.DAL.Models;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -22,7 +21,7 @@ namespace MotorbikeServices.GUI.AdminControls
             }
             set
             {
-                if (value > 0)
+                if (value > 0 && cboLoaiXe.DataSource != null)
                     cboLoaiXe.SelectedValue = value;
             }
         }
@@ -69,41 +68,47 @@ namespace MotorbikeServices.GUI.AdminControls
             set => txtMoTa.Text = value ?? "";
         }
 
+        // Constructor mac dinh de Visual Studio Designer khoi tao form.
         public FormNhapQuyChuan()
         {
             InitializeComponent();
 
             cboLoaiXe.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            NapDanhSachDongXe();
+            cboLoaiXe.DisplayMember = "TenHienThi";
+            cboLoaiXe.ValueMember = "Id";
 
             numSoKm.Value = 1500;
             numChiPhi.Value = 0;
         }
 
+        // Constructor dung khi mo form tu man hinh quan ly quy chuan.
+        // Chi nap cac dong xe thuoc hang xe dang duoc chon.
+        public FormNhapQuyChuan(int hangXeId, int? dongXeIdMacDinh = null)
+            : this()
+        {
+            NapDanhSachDongXe(hangXeId, dongXeIdMacDinh);
+        }
+
         // =========================
-        // 1. TẢI DANH SÁCH DÒNG XE
+        // 1. TAI DONG XE THEO HANG XE
         // =========================
-        private void NapDanhSachDongXe()
+        private void NapDanhSachDongXe(int hangXeId, int? dongXeIdMacDinh)
         {
             try
             {
                 using (var db = new AppDbContext())
                 {
                     var danhSach = db.DongXes
-                        .OrderBy(d => d.HangXe.TenHang)
-                        .ThenBy(d => d.TenDongXe)
+                        .Where(d => d.HangXeId == hangXeId)
+                        .OrderBy(d => d.TenDongXe)
                         .Select(d => new
                         {
                             Id = d.Id,
-                            TenHienThi = d.HangXe.TenHang
-                                + " - " + d.TenDongXe
+                            TenHienThi = d.HangXe.TenHang + " - " + d.TenDongXe
                         })
                         .ToList();
 
                     cboLoaiXe.DataSource = danhSach;
-                    cboLoaiXe.DisplayMember = "TenHienThi";
-                    cboLoaiXe.ValueMember = "Id";
 
                     if (danhSach.Count == 0)
                     {
@@ -111,15 +116,25 @@ namespace MotorbikeServices.GUI.AdminControls
                         btnLuu.Enabled = false;
 
                         MessageBox.Show(
-                            "Chưa có dòng xe nào. Vui lòng thêm dòng xe trước.",
+                            "Hãng xe này chưa có dòng xe nào. Vui lòng thêm dòng xe trước.",
                             "Thông báo",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
+
+                        return;
+                    }
+
+                    cboLoaiXe.Enabled = true;
+                    btnLuu.Enabled = true;
+
+                    if (dongXeIdMacDinh.HasValue &&
+                        danhSach.Any(d => d.Id == dongXeIdMacDinh.Value))
+                    {
+                        cboLoaiXe.SelectedValue = dongXeIdMacDinh.Value;
                     }
                     else
                     {
                         cboLoaiXe.SelectedIndex = 0;
-                        btnLuu.Enabled = true;
                     }
                 }
             }
@@ -137,7 +152,7 @@ namespace MotorbikeServices.GUI.AdminControls
         }
 
         // =========================
-        // 2. LƯU
+        // 2. LUU
         // =========================
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -167,7 +182,7 @@ namespace MotorbikeServices.GUI.AdminControls
         }
 
         // =========================
-        // 3. HỦY
+        // 3. HUY
         // =========================
         private void btnHuy_Click(object sender, EventArgs e)
         {

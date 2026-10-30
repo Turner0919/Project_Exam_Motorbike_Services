@@ -378,18 +378,22 @@ namespace MotorbikeServices.GUI.AdminControls
         // =====================================================
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (!dongXeIdDangChon.HasValue)
+            if (!dongXeIdDangChon.HasValue || !hangXeIdDangChon.HasValue)
             {
-                MessageBox.Show("Vui lòng chọn dòng xe trước khi thêm quy chuẩn.");
+                MessageBox.Show("Vui lòng chọn hãng xe và dòng xe trước khi thêm quy chuẩn.");
                 return;
             }
 
-            using (var form = new FormNhapQuyChuan())
+            using (var form = new FormNhapQuyChuan(
+                hangXeIdDangChon.Value,
+                dongXeIdDangChon.Value))
             {
                 form.Text = "Thêm quy chuẩn bảo dưỡng";
 
                 if (form.ShowDialog() != DialogResult.OK)
                     return;
+
+                int dongXeIdMoi = form.DongXeId;
 
                 try
                 {
@@ -397,7 +401,7 @@ namespace MotorbikeServices.GUI.AdminControls
                     {
                         var q = new QuyChuanBaoDuong
                         {
-                            DongXeId = dongXeIdDangChon.Value,
+                            DongXeId = dongXeIdMoi,
                             TenQuyChuan = form.TenQuyChuan,
                             SoKm = form.SoKm,
                             ChiPhi = form.ChiPhi,
@@ -414,11 +418,11 @@ namespace MotorbikeServices.GUI.AdminControls
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
-                    LoadQuyChuan();
+                    ChonDongXeVaTaiQuyChuan(dongXeIdMoi);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi thêm quy chuẩn:\n" + ex.Message,
+                    MessageBox.Show("Lỗi thêm quy chuẩn:\\n" + ex.Message,
                         "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -449,7 +453,7 @@ namespace MotorbikeServices.GUI.AdminControls
                         return;
                     }
 
-                    using (var form = new FormNhapQuyChuan())
+                    using (var form = new FormNhapQuyChuan(hangXeIdDangChon.Value, q.DongXeId))
                     {
                         form.Text = "Cập nhật quy chuẩn bảo dưỡng";
                         form.TenQuyChuan = q.TenQuyChuan;
@@ -460,6 +464,7 @@ namespace MotorbikeServices.GUI.AdminControls
                         if (form.ShowDialog() != DialogResult.OK)
                             return;
 
+                        q.DongXeId = form.DongXeId;
                         q.TenQuyChuan = form.TenQuyChuan;
                         q.SoKm = form.SoKm;
                         q.ChiPhi = form.ChiPhi;
@@ -475,7 +480,17 @@ namespace MotorbikeServices.GUI.AdminControls
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                LoadQuyChuan();
+                using (var db = new AppDbContext())
+                {
+                    var qCapNhat = db.QuyChuanBaoDuongs
+                        .AsNoTracking()
+                        .FirstOrDefault(x => x.Id == idQuyChuanDangChon.Value);
+
+                    if (qCapNhat != null)
+                        ChonDongXeVaTaiQuyChuan(qCapNhat.DongXeId);
+                    else
+                        LoadQuyChuan();
+                }
             }
             catch (Exception ex)
             {
@@ -531,6 +546,27 @@ namespace MotorbikeServices.GUI.AdminControls
                 MessageBox.Show("Lỗi xóa quy chuẩn:\n" + ex.Message,
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // Chon dong xe vua duoc dung trong form va tai lai quy chuan cua dong xe do.
+        private void ChonDongXeVaTaiQuyChuan(int dongXeId)
+        {
+            foreach (DataGridViewRow row in dgvDongXe.Rows)
+            {
+                if (row.Cells["IdAn"].Value != null &&
+                    Convert.ToInt32(row.Cells["IdAn"].Value) == dongXeId)
+                {
+                    dgvDongXe.ClearSelection();
+                    row.Selected = true;
+                    dongXeIdDangChon = dongXeId;
+                    lblDongXeDangChon.Text =
+                        "Dòng xe: " + Convert.ToString(row.Cells["TenDongXe"].Value);
+                    LoadQuyChuan();
+                    return;
+                }
+            }
+
+            LoadDongXe();
         }
 
         // =====================================================
