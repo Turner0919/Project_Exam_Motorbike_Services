@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            dataGridView1 = new DataGridView();
             label1 = new Label();
+            dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -44,6 +44,15 @@
             panel1.Size = new Size(947, 125);
             panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.Font = new Font("Segoe UI", 15F);
+            label1.Location = new Point(348, 46);
+            label1.Name = "label1";
+            label1.Size = new Size(240, 43);
+            label1.TabIndex = 1;
+            label1.Text = "Lịch sử sửa chữa";
+            // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -54,15 +63,6 @@
             dataGridView1.Size = new Size(947, 493);
             dataGridView1.TabIndex = 1;
             // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(348, 46);
-            label1.Name = "label1";
-            label1.Size = new Size(240, 43);
-            label1.TabIndex = 1;
-            label1.Text = "Lịch sử sửa chữa";
-            // 
             // frmLichSuSuaChua
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -72,6 +72,7 @@
             Controls.Add(panel1);
             Name = "frmLichSuSuaChua";
             Text = "frmLichSuSuaChua";
+            Load += frmLichSuSuaChua_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

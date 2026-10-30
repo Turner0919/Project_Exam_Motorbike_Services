@@ -57,10 +57,10 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(411, 19);
+            label1.Location = new Point(12, 22);
             label1.Name = "label1";
             label1.Size = new Size(81, 35);
             label1.TabIndex = 0;
@@ -77,7 +77,8 @@
             // 
             // button1
             // 
-            button1.Location = new Point(778, 15);
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Location = new Point(797, 12);
             button1.Name = "button1";
             button1.Size = new Size(103, 41);
             button1.TabIndex = 0;

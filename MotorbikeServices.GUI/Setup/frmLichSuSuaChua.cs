@@ -14,5 +14,10 @@ namespace MotorbikeServices.GUI.Setup
         {
             InitializeComponent();
         }
+
+        private void frmLichSuSuaChua_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

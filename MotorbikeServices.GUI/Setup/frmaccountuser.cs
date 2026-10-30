@@ -12,7 +12,6 @@ namespace MotorbikeServices.GUI.Setup
 
     public partial class frmaccountuser : Form
     {
-        private bool isDarkMode = true; //default là chế độ tối
 
         public frmaccountuser()
         {
@@ -77,6 +76,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void button1_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new frmGopY(), panelMain);
             ShowHomeButtonOnly();
         }
 
@@ -106,11 +106,13 @@ namespace MotorbikeServices.GUI.Setup
 
         private void btnDangKyXeMoi_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new formDangKyXe(), panelMain);
             ShowHomeButtonOnly();
         }
 
         private void btnLichSuSuaChua_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new frmLichSuSuaChua(), panelMain);
             ShowHomeButtonOnly();
         }
 

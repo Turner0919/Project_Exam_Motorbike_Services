@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
             label1 = new Label();
+            panel2 = new Panel();
+            button1 = new Button();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            comboBox1 = new ComboBox();
             label5 = new Label();
             label3 = new Label();
             textBox2 = new TextBox();
             txtChuXe = new TextBox();
             label7 = new Label();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
-            textBox1 = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -52,8 +53,22 @@
             panel1.Size = new Size(974, 125);
             panel1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20F);
+            label1.Location = new Point(3, 37);
+            label1.Name = "label1";
+            label1.Size = new Size(494, 46);
+            label1.TabIndex = 0;
+            label1.Text = "Đăng ký xe mới/ Cập nhật xe cũ";
+            // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.None;
+            panel2.AutoSize = true;
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(comboBox1);
@@ -62,79 +77,27 @@
             panel2.Controls.Add(textBox2);
             panel2.Controls.Add(txtChuXe);
             panel2.Controls.Add(label7);
-            panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 125);
             panel2.Name = "panel2";
             panel2.Size = new Size(974, 501);
             panel2.TabIndex = 1;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F);
-            label1.Location = new Point(234, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(494, 46);
-            label1.TabIndex = 0;
-            label1.Text = "Đăng ký xe mới/ Cập nhật xe cũ";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 14F);
-            label5.Location = new Point(112, 280);
-            label5.Name = "label5";
-            label5.Size = new Size(102, 32);
-            label5.TabIndex = 16;
-            label5.Text = "Hãng xe";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14F);
-            label3.Location = new Point(91, 190);
-            label3.Name = "label3";
-            label3.Size = new Size(123, 32);
-            label3.TabIndex = 13;
-            label3.Text = "Biển số xe";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(234, 190);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(183, 27);
-            textBox2.TabIndex = 12;
-            // 
-            // txtChuXe
-            // 
-            txtChuXe.Location = new Point(234, 99);
-            txtChuXe.Name = "txtChuXe";
-            txtChuXe.Size = new Size(183, 27);
-            txtChuXe.TabIndex = 11;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 14F);
-            label7.Location = new Point(50, 94);
-            label7.Name = "label7";
-            label7.Size = new Size(164, 32);
-            label7.TabIndex = 10;
-            label7.Text = "Họ tên chủ xe";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(234, 284);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(183, 28);
-            comboBox1.TabIndex = 17;
+            button1.Anchor = AnchorStyles.Top;
+            button1.Location = new Point(389, 290);
+            button1.Name = "button1";
+            button1.Size = new Size(179, 54);
+            button1.TabIndex = 20;
+            button1.Text = "Thêm/Cập nhật";
+            button1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F);
-            label2.Location = new Point(50, 364);
+            label2.Location = new Point(527, 157);
             label2.Name = "label2";
             label2.Size = new Size(167, 32);
             label2.TabIndex = 19;
@@ -142,10 +105,69 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(234, 369);
+            textBox1.Anchor = AnchorStyles.Top;
+            textBox1.Location = new Point(711, 163);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(183, 27);
             textBox1.TabIndex = 18;
+            // 
+            // comboBox1
+            // 
+            comboBox1.Anchor = AnchorStyles.Top;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(711, 77);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(183, 28);
+            comboBox1.TabIndex = 17;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top;
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 14F);
+            label5.Location = new Point(589, 73);
+            label5.Name = "label5";
+            label5.Size = new Size(102, 32);
+            label5.TabIndex = 16;
+            label5.Text = "Hãng xe";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14F);
+            label3.Location = new Point(75, 162);
+            label3.Name = "label3";
+            label3.Size = new Size(123, 32);
+            label3.TabIndex = 13;
+            label3.Text = "Biển số xe";
+            // 
+            // textBox2
+            // 
+            textBox2.Anchor = AnchorStyles.Top;
+            textBox2.Location = new Point(218, 162);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(183, 27);
+            textBox2.TabIndex = 12;
+            // 
+            // txtChuXe
+            // 
+            txtChuXe.Anchor = AnchorStyles.Top;
+            txtChuXe.Location = new Point(218, 71);
+            txtChuXe.Name = "txtChuXe";
+            txtChuXe.Size = new Size(183, 27);
+            txtChuXe.TabIndex = 11;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 14F);
+            label7.Location = new Point(34, 66);
+            label7.Name = "label7";
+            label7.Size = new Size(164, 32);
+            label7.TabIndex = 10;
+            label7.Text = "Họ tên chủ xe";
             // 
             // formDangKyXe
             // 
@@ -162,6 +184,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -177,5 +200,6 @@
         private TextBox textBox2;
         private TextBox txtChuXe;
         private Label label7;
+        private Button button1;
     }
 }
