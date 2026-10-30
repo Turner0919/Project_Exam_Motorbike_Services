@@ -166,10 +166,6 @@ namespace MotorbikeServices.GUI.Setup
             dtpNgaySinh.Location = new System.Drawing.Point(270, 70);
             dtpNgaySinh.Size = new System.Drawing.Size(215, 27);
             dtpNgaySinh.Enabled = false;
-            chkNgaySinh.CheckedChanged += (s, e) =>
-            {
-                dtpNgaySinh.Enabled = chkNgaySinh.Checked;
-            };
 
             lblGioiTinh.AutoSize = true;
             lblGioiTinh.Location = new System.Drawing.Point(15, 115);

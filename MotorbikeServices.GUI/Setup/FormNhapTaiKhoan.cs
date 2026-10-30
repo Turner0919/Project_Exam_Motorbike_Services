@@ -36,7 +36,7 @@ namespace MotorbikeServices.GUI.Setup
             cboGioiTinh.Items.Clear();
             cboGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ", "Khác" });
             cboGioiTinh.SelectedIndex = 0;
-
+            chkNgaySinh.CheckedChanged += chkNgaySinh_CheckedChanged;
             bool laUser = vaiTro == "User";
             lblCauHoi.Visible = laUser;
             txtCauHoi.Visible = laUser;
@@ -68,6 +68,11 @@ namespace MotorbikeServices.GUI.Setup
                 DialogResult = DialogResult.Cancel;
                 Close();
             };
+        }
+
+        private void chkNgaySinh_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpNgaySinh.Enabled = chkNgaySinh.Checked;
         }
 
         public void GanThongTin(

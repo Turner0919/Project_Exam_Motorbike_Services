@@ -23,7 +23,7 @@ namespace MotorbikeServices.DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                    "Server=localhost\\SQLEXPRESS;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
+                    "Server=localhost;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
             }
         }
 
