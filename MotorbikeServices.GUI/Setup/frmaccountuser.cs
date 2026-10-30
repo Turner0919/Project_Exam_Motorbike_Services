@@ -12,10 +12,14 @@ namespace MotorbikeServices.GUI.Setup
 
     public partial class frmaccountuser : Form
     {
-
+        private readonly int _currentUserId;
         public frmaccountuser()
         {
             InitializeComponent();
+        }
+        public frmaccountuser(int userId) : this()
+        {
+            _currentUserId = userId;
         }
         private readonly Color colorDarkSidebar = Color.FromArgb(24, 34, 52); 
 
@@ -56,7 +60,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void btnThongTinCaNhan_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmttcn(), panelMain);
+            OpenChildForm(new frmttcn(_currentUserId), panelMain);
             ShowHomeButtonOnly();
         }
         private void OpenChildForm(Form childForm, Panel panelMain)
@@ -106,7 +110,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void btnDangKyXeMoi_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new formDangKyXe(), panelMain);
+            OpenChildForm(new formDangKyXe(_currentUserId), panelMain);
             ShowHomeButtonOnly();
         }
 
@@ -136,10 +140,7 @@ namespace MotorbikeServices.GUI.Setup
             );
 
             if (result == DialogResult.Yes)
-            {
-                this.Hide();
-                frmlogin login = new frmlogin();
-                login.ShowDialog();
+            { 
                 this.Close();
             }
         }

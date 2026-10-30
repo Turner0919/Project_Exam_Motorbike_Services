@@ -31,16 +31,18 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            dataGridView1 = new DataGridView();
-            textBox5 = new TextBox();
+            btnCapNhat = new Button();
+            txtEmail = new TextBox();
             label6 = new Label();
-            textBox4 = new TextBox();
+            txtSDT = new TextBox();
+            txtHoTen = new TextBox();
             label5 = new Label();
+            rdoNu = new RadioButton();
+            rdoNam = new RadioButton();
             label4 = new Label();
-            textBox3 = new TextBox();
+            dtpNgaySinh = new DateTimePicker();
             label3 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            dataGridView1 = new DataGridView();
             label2 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -59,153 +61,186 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F);
-            label1.Location = new Point(362, 42);
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Segoe UI", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            label1.ForeColor = Color.FromArgb(192, 192, 0);
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(215, 35);
+            label1.Size = new Size(959, 112);
             label1.TabIndex = 0;
             label1.Text = "Thông tin cá nhân";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.LavenderBlush;
-            panel2.Controls.Add(dataGridView1);
-            panel2.Controls.Add(textBox5);
+            panel2.BackColor = Color.Thistle;
+            panel2.Controls.Add(btnCapNhat);
+            panel2.Controls.Add(txtEmail);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(textBox4);
+            panel2.Controls.Add(txtSDT);
+            panel2.Controls.Add(txtHoTen);
             panel2.Controls.Add(label5);
+            panel2.Controls.Add(rdoNu);
+            panel2.Controls.Add(rdoNam);
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(textBox3);
+            panel2.Controls.Add(dtpNgaySinh);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(dataGridView1);
             panel2.Controls.Add(label2);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 115);
             panel2.Name = "panel2";
-            panel2.Size = new Size(959, 492);
+            panel2.Size = new Size(959, 681);
             panel2.TabIndex = 1;
+            // 
+            // btnCapNhat
+            // 
+            btnCapNhat.Anchor = AnchorStyles.None;
+            btnCapNhat.BackColor = Color.Red;
+            btnCapNhat.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnCapNhat.ForeColor = Color.White;
+            btnCapNhat.Location = new Point(240, 543);
+            btnCapNhat.Name = "btnCapNhat";
+            btnCapNhat.Size = new Size(178, 63);
+            btnCapNhat.TabIndex = 23;
+            btnCapNhat.Text = "Cập Nhật";
+            btnCapNhat.UseVisualStyleBackColor = false;
+            btnCapNhat.Click += btnCapNhat_Click;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Anchor = AnchorStyles.None;
+            txtEmail.Location = new Point(243, 465);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(376, 27);
+            txtEmail.TabIndex = 22;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
+            label6.Location = new Point(35, 448);
+            label6.Name = "label6";
+            label6.Size = new Size(112, 46);
+            label6.TabIndex = 21;
+            label6.Text = "Email:";
+            // 
+            // txtSDT
+            // 
+            txtSDT.Anchor = AnchorStyles.None;
+            txtSDT.Location = new Point(243, 374);
+            txtSDT.Name = "txtSDT";
+            txtSDT.Size = new Size(376, 27);
+            txtSDT.TabIndex = 20;
+            // 
+            // txtHoTen
+            // 
+            txtHoTen.Anchor = AnchorStyles.None;
+            txtHoTen.Location = new Point(240, 81);
+            txtHoTen.Name = "txtHoTen";
+            txtHoTen.Size = new Size(376, 27);
+            txtHoTen.TabIndex = 19;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.None;
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
+            label5.Location = new Point(35, 357);
+            label5.Name = "label5";
+            label5.Size = new Size(90, 46);
+            label5.TabIndex = 17;
+            label5.Text = "SĐT:";
+            // 
+            // rdoNu
+            // 
+            rdoNu.Anchor = AnchorStyles.None;
+            rdoNu.AutoSize = true;
+            rdoNu.Font = new Font("Segoe UI", 12F);
+            rdoNu.Location = new Point(321, 281);
+            rdoNu.Name = "rdoNu";
+            rdoNu.Size = new Size(60, 32);
+            rdoNu.TabIndex = 16;
+            rdoNu.Text = "Nữ";
+            rdoNu.UseVisualStyleBackColor = true;
+            // 
+            // rdoNam
+            // 
+            rdoNam.Anchor = AnchorStyles.None;
+            rdoNam.AutoSize = true;
+            rdoNam.Checked = true;
+            rdoNam.Font = new Font("Segoe UI", 12F);
+            rdoNam.Location = new Point(240, 281);
+            rdoNam.Name = "rdoNam";
+            rdoNam.Size = new Size(75, 32);
+            rdoNam.TabIndex = 15;
+            rdoNam.TabStop = true;
+            rdoNam.Text = "Nam";
+            rdoNam.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
+            label4.Location = new Point(32, 270);
+            label4.Name = "label4";
+            label4.Size = new Size(168, 46);
+            label4.TabIndex = 13;
+            label4.Text = "Giới Tính:";
+            // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.Anchor = AnchorStyles.None;
+            dtpNgaySinh.Location = new Point(240, 185);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(250, 27);
+            dtpNgaySinh.TabIndex = 12;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
+            label3.Location = new Point(32, 166);
+            label3.Name = "label3";
+            label3.Size = new Size(186, 46);
+            label3.TabIndex = 11;
+            label3.Text = "Ngày Sinh:";
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Bottom;
-            dataGridView1.Location = new Point(0, 302);
+            dataGridView1.Location = new Point(0, 625);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(959, 190);
+            dataGridView1.Size = new Size(959, 56);
             dataGridView1.TabIndex = 10;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(749, 153);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(183, 27);
-            textBox5.TabIndex = 9;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 14F);
-            label6.Location = new Point(521, 148);
-            label6.Name = "label6";
-            label6.Size = new Size(222, 32);
-            label6.TabIndex = 8;
-            label6.Text = "Đánh giá tình trạng";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(202, 226);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(183, 27);
-            textBox4.TabIndex = 7;
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 14F);
-            label5.Location = new Point(80, 220);
-            label5.Name = "label5";
-            label5.Size = new Size(102, 32);
-            label5.TabIndex = 6;
-            label5.Text = "Hãng xe";
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 14F);
-            label4.Location = new Point(432, 52);
-            label4.Name = "label4";
-            label4.Size = new Size(324, 32);
-            label4.TabIndex = 5;
-            label4.Text = "Thời gian sửa chữa gần nhất ";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(749, 58);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(183, 27);
-            textBox3.TabIndex = 4;
-            textBox3.TextChanged += textBox3_TextChanged;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 14F);
-            label3.Location = new Point(59, 136);
-            label3.Name = "label3";
-            label3.Size = new Size(123, 32);
-            label3.TabIndex = 3;
-            label3.Text = "Biển số xe";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(202, 142);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(183, 27);
-            textBox2.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(202, 52);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(183, 27);
-            textBox1.TabIndex = 1;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14F);
-            label2.Location = new Point(32, 47);
+            label2.Font = new Font("Segoe UI Semibold", 19.8000011F, FontStyle.Bold);
+            label2.Location = new Point(32, 64);
             label2.Name = "label2";
-            label2.Size = new Size(164, 32);
+            label2.Size = new Size(179, 46);
             label2.TabIndex = 0;
-            label2.Text = "Họ tên chủ xe";
+            label2.Text = "Họ và Tên:";
             // 
             // frmttcn
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(959, 607);
+            ClientSize = new Size(959, 796);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "frmttcn";
             Text = "frmttcn";
+            Load += frmttcn_Load;
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -217,16 +252,18 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox2;
-        private TextBox textBox1;
         private Label label2;
-        private Label label3;
-        private TextBox textBox4;
-        private Label label5;
-        private Label label4;
-        private TextBox textBox3;
-        private TextBox textBox5;
-        private Label label6;
         private DataGridView dataGridView1;
+        private Label label3;
+        private TextBox txtSDT;
+        private TextBox txtHoTen;
+        private Label label5;
+        private RadioButton rdoNu;
+        private RadioButton rdoNam;
+        private Label label4;
+        private DateTimePicker dtpNgaySinh;
+        private Button btnCapNhat;
+        private TextBox txtEmail;
+        private Label label6;
     }
 }

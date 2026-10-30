@@ -1,9 +1,10 @@
-﻿    using MotorbikeServices.DAL.Models.Account;
+﻿    using Microsoft.EntityFrameworkCore;
+    using MotorbikeServices.DAL.Models.Account;
+using MotorbikeServices.DAL.Models.Maintenance;
     using System;
     using System.Collections.Generic;
     using System.Reflection.Emit;
     using System.Text;
-    using Microsoft.EntityFrameworkCore;
 
     namespace MotorbikeServices.DAL.Models
     {
@@ -11,6 +12,8 @@
         {
             public DbSet<Admin> Admins { get; set; }
             public DbSet<User> Users { get; set; }
+            public DbSet<UserUse> UserUses { get; set; }
+            public DbSet<UserXe> UserXes { get; set; }
             public DbSet<HangXe> HangXes { get; set; }
             public DbSet<DongXe> DongXes { get; set; }
 
@@ -18,7 +21,7 @@
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -49,13 +49,14 @@
             // 
             // btnThuNho
             // 
+            btnThuNho.BackColor = Color.FromArgb(255, 255, 128);
             btnThuNho.BackgroundImageLayout = ImageLayout.None;
             btnThuNho.Location = new Point(23, 34);
             btnThuNho.Name = "btnThuNho";
             btnThuNho.Size = new Size(62, 62);
             btnThuNho.TabIndex = 13;
             btnThuNho.Text = "☰";
-            btnThuNho.UseVisualStyleBackColor = true;
+            btnThuNho.UseVisualStyleBackColor = false;
             btnThuNho.Click += btnThuNho_Click;
             // 
             // btnDangKyXeMoi
@@ -63,6 +64,7 @@
             btnDangKyXeMoi.BackColor = Color.Transparent;
             btnDangKyXeMoi.FlatAppearance.BorderSize = 0;
             btnDangKyXeMoi.FlatStyle = FlatStyle.Flat;
+            btnDangKyXeMoi.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnDangKyXeMoi.ForeColor = Color.White;
             btnDangKyXeMoi.Location = new Point(0, 229);
             btnDangKyXeMoi.Name = "btnDangKyXeMoi";
@@ -89,6 +91,7 @@
             btnLichSuSuaChua.BackColor = Color.Transparent;
             btnLichSuSuaChua.FlatAppearance.BorderSize = 0;
             btnLichSuSuaChua.FlatStyle = FlatStyle.Flat;
+            btnLichSuSuaChua.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnLichSuSuaChua.ForeColor = Color.White;
             btnLichSuSuaChua.Location = new Point(-3, 296);
             btnLichSuSuaChua.Name = "btnLichSuSuaChua";
@@ -103,6 +106,7 @@
             btnThongTinCaNhan.BackColor = Color.Transparent;
             btnThongTinCaNhan.FlatAppearance.BorderSize = 0;
             btnThongTinCaNhan.FlatStyle = FlatStyle.Flat;
+            btnThongTinCaNhan.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThongTinCaNhan.ForeColor = Color.White;
             btnThongTinCaNhan.Location = new Point(0, 162);
             btnThongTinCaNhan.Name = "btnThongTinCaNhan";
@@ -117,6 +121,7 @@
             btnGopY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnGopY.FlatAppearance.BorderSize = 0;
             btnGopY.FlatStyle = FlatStyle.Flat;
+            btnGopY.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnGopY.ForeColor = Color.White;
             btnGopY.Location = new Point(-3, 363);
             btnGopY.Name = "btnGopY";
@@ -143,6 +148,7 @@
             button2.BackColor = Color.Transparent;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             button2.ForeColor = Color.White;
             button2.Location = new Point(3, 68);
             button2.Name = "button2";
@@ -154,7 +160,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(30, 41, 59);
+            panel2.BackColor = Color.FromArgb(49, 27, 146);
             panel2.Controls.Add(lblMenuTitle);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(lblSubtitle);
@@ -183,7 +189,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(30, 41, 59);
+            panel1.BackColor = Color.FromArgb(49, 27, 146);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(btnThuNho);
             panel1.Dock = DockStyle.Fill;
@@ -195,12 +201,14 @@
             // button5
             // 
             button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button5.Location = new Point(863, 31);
+            button5.BackColor = Color.FromArgb(255, 255, 128);
+            button5.ForeColor = SystemColors.ControlText;
+            button5.Location = new Point(837, 31);
             button5.Name = "button5";
-            button5.Size = new Size(66, 65);
+            button5.Size = new Size(92, 65);
             button5.TabIndex = 14;
-            button5.Text = "->";
-            button5.UseVisualStyleBackColor = true;
+            button5.Text = "Đăng Xuất";
+            button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click_1;
             // 
             // panelMain

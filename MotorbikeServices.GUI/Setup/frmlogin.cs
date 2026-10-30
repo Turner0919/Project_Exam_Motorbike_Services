@@ -144,7 +144,8 @@ namespace MotorbikeServices.GUI.SETUP
                 }
                 else
                 {
-                    frmaccountuser formUser = new frmaccountuser();
+                    int loggedInUserId = result.UserInfo.Id;
+                    frmaccountuser formUser = new frmaccountuser(loggedInUserId);
                     this.Hide();
                     formUser.ShowDialog();
                     this.Show();
