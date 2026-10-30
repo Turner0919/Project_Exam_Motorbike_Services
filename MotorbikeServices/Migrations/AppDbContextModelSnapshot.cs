@@ -167,6 +167,40 @@ namespace MotorbikeServices.DAL.Migrations
                     b.ToTable("HangXes");
                 });
 
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.QuyChuanBaoDuong", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("ChiPhi")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("LoaiXe")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MoTa")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("SoKm")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenQuyChuan")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("QuyChuanBaoDuongs");
+                });
+
             modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.UserXe", b =>
                 {
                     b.Property<int>("Id")
