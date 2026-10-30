@@ -215,7 +215,7 @@ namespace MotorbikeServices.GUI.Setup
             _selectedUserXeId = -1;
             txtBienSoXe.Clear();
             dtpNgayMuaXe.Value = DateTime.Now;
-
+            LoadDataGrid();
             _isBindingData = true;
             cboHangXe.SelectedIndex = -1;
             cboDongXe.DataSource = null;
