@@ -47,6 +47,36 @@ namespace MotorbikeServices.DAL.Migrations
                     b.ToTable("Admins");
                 });
 
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Account.NhanVien", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CauHoiBaoMat")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DapAnBaoMat")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MatKhau")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TenTaiKhoan")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NhanViens");
+                });
+
             modelBuilder.Entity("MotorbikeServices.DAL.Models.Account.User", b =>
                 {
                     b.Property<int>("Id")
@@ -88,6 +118,9 @@ namespace MotorbikeServices.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("DiaChiId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -107,10 +140,20 @@ namespace MotorbikeServices.DAL.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
+                    b.Property<string>("SoNha")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TenDuong")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DiaChiId");
 
                     b.HasIndex("UserId");
 
@@ -165,6 +208,29 @@ namespace MotorbikeServices.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HangXes");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.DiaChi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PhuongXa")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("TinhTP")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DiaChis");
                 });
 
             modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.QuyChuanBaoDuong", b =>
@@ -232,13 +298,84 @@ namespace MotorbikeServices.DAL.Migrations
                     b.ToTable("UserXes");
                 });
 
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Store.NhanVienUse", b =>
+                {
+                    b.Property<int>("NhanVienId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DiaChiId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SoCuaHang")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("TenCuaHang")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("TenDuong")
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("TrangThai")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("NhanVienId");
+
+                    b.HasIndex("DiaChiId");
+
+                    b.ToTable("NhanVienUses");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Store.SanPham", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("DonGia")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("MaSP")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("NhanVienId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongTon")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenSanPham")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NhanVienId");
+
+                    b.ToTable("SanPhams");
+                });
+
             modelBuilder.Entity("MotorbikeServices.DAL.Models.Account.UserUse", b =>
                 {
+                    b.HasOne("MotorbikeServices.DAL.Models.Maintenance.DiaChi", "DiaChi")
+                        .WithMany()
+                        .HasForeignKey("DiaChiId");
+
                     b.HasOne("MotorbikeServices.DAL.Models.Account.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("DiaChi");
 
                     b.Navigation("User");
                 });
@@ -282,6 +419,34 @@ namespace MotorbikeServices.DAL.Migrations
                     b.Navigation("DongXe");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Store.NhanVienUse", b =>
+                {
+                    b.HasOne("MotorbikeServices.DAL.Models.Maintenance.DiaChi", "DiaChi")
+                        .WithMany()
+                        .HasForeignKey("DiaChiId");
+
+                    b.HasOne("MotorbikeServices.DAL.Models.Account.NhanVien", "NhanVien")
+                        .WithMany()
+                        .HasForeignKey("NhanVienId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DiaChi");
+
+                    b.Navigation("NhanVien");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Store.SanPham", b =>
+                {
+                    b.HasOne("MotorbikeServices.DAL.Models.Store.NhanVienUse", "NhanVienUse")
+                        .WithMany()
+                        .HasForeignKey("NhanVienId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("NhanVienUse");
                 });
 
             modelBuilder.Entity("MotorbikeServices.DAL.Models.DongXe", b =>

@@ -96,6 +96,8 @@ namespace MotorbikeServices.GUI.Setup
             btnThongTinCaNhan.Visible = false;
             btnDangKyXeMoi.Visible = false;
             btnLichSuSuaChua.Visible = false;
+            btnDangKyBaoDuongXe.Visible = false;
+            btnKiemTraDonDaDat.Visible = false;
             btnGopY.Visible = false;
         }
         private void button2_Click(object sender, EventArgs e)
@@ -105,6 +107,8 @@ namespace MotorbikeServices.GUI.Setup
             btnThongTinCaNhan.Visible = true;
             btnDangKyXeMoi.Visible = true;
             btnLichSuSuaChua.Visible = true;
+            btnDangKyBaoDuongXe.Visible = true;
+            btnKiemTraDonDaDat.Visible = true;
             btnGopY.Visible = true;
         }
 

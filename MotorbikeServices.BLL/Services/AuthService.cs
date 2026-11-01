@@ -10,6 +10,7 @@ namespace MotorbikeServices.BLL.Services
     {
         // Key cố định dùng để xác minh đăng ký Admin
         public const string ADMIN_KEY = "41031102026";
+        public const string NHANVIEN_KEY = "NV2026";
 
         /// <summary>
         /// 1. Xử lý Đăng nhập cho cả Admin và User (frmlogin)
@@ -41,6 +42,15 @@ namespace MotorbikeServices.BLL.Services
                         return (true, "Đăng nhập User thành công!", dto);
                     }
                 }
+                else if (role == "NhanVien") // Bổ sung đăng nhập cho Nhân viên
+                {
+                    var nv = db.NhanViens.FirstOrDefault(n => n.TenTaiKhoan == username && n.MatKhau == password);
+                    if (nv != null)
+                    {
+                        var dto = new UserDTO { Id = nv.Id, TenTaiKhoan = nv.TenTaiKhoan, Role = "NhanVien" };
+                        return (true, "Đăng nhập Nhân viên thành công!", dto);
+                    }
+                }
             }
 
             // Câu thông báo khi không tìm thấy tài khoản/mật khẩu khớp trong DB
@@ -55,7 +65,8 @@ namespace MotorbikeServices.BLL.Services
             using (var db = new AppDbContext())
             {
                 return db.Admins.Any(a => a.TenTaiKhoan == username) ||
-                       db.Users.Any(u => u.TenTaiKhoan == username);
+                       db.Users.Any(u => u.TenTaiKhoan == username) ||
+                       db.NhanViens.Any(n => n.TenTaiKhoan == username);
             }
         }
 
@@ -129,6 +140,42 @@ namespace MotorbikeServices.BLL.Services
             return (true, "Đăng ký tài khoản User thành công!");
         }
 
+        public (bool IsSuccess, string Message) DangKyNhanVien(string username, string password, string confirmPassword, string keyNhanVien, string cauHoi, string dapan)
+        {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+                return (false, "Vui lòng nhập đầy đủ tên tài khoản và mật khẩu!");
+
+            if (password.Length < 8)
+                return (false, "Mật khẩu phải từ 8 ký tự trở lên!");
+
+            if (password != confirmPassword)
+                return (false, "Xác nhận mật khẩu không trùng khớp!");
+
+            if (keyNhanVien != NHANVIEN_KEY) // "NV2026"
+                return (false, "Key Nhân viên không chính xác! Vui lòng kiểm tra lại.");
+
+            if (string.IsNullOrWhiteSpace(cauHoi) || string.IsNullOrWhiteSpace(dapan))
+                return (false, "Vui lòng nhập Câu hỏi và Đáp án bảo mật!");
+
+            if (KiemTraTonTaiTaiKhoan(username))
+                return (false, "Tên tài khoản này đã tồn tại trong hệ thống!");
+
+            using (var db = new AppDbContext())
+            {
+                var nv = new NhanVien
+                {
+                    TenTaiKhoan = username,
+                    MatKhau = password,
+                    CauHoiBaoMat = cauHoi.Trim(),
+                    DapAnBaoMat = dapan.Trim().ToLower()
+                };
+
+                db.NhanViens.Add(nv);
+                db.SaveChanges();
+            }
+
+            return (true, "Đăng ký tài khoản Nhân viên thành công!");
+        }
         /// <summary>
         /// 5. Lấy câu hỏi bảo mật của User theo Username (frmchangepassword)
         /// </summary>
@@ -136,9 +183,15 @@ namespace MotorbikeServices.BLL.Services
         {
             using (var db = new AppDbContext())
             {
+                // Tìm trong bảng Users trước
                 var user = db.Users.FirstOrDefault(u => u.TenTaiKhoan == username);
-                return user?.CauHoiBaoMat;
+                if (user != null) return user.CauHoiBaoMat;
+
+                // Nếu không có trong Users, tìm tiếp trong bảng NhanViens
+                var nv = db.NhanViens.FirstOrDefault(n => n.TenTaiKhoan == username);
+                if (nv != null) return nv.CauHoiBaoMat;
             }
+            return null;
         }
 
         /// <summary>
@@ -155,6 +208,11 @@ namespace MotorbikeServices.BLL.Services
                 if (user != null)
                 {
                     return user.DapAnBaoMat.Equals(dapAn.Trim().ToLower());
+                }
+                var nv = db.NhanViens.FirstOrDefault(n => n.TenTaiKhoan == username);
+                if (nv != null)
+                {
+                    return nv.DapAnBaoMat.Equals(dapAn.Trim().ToLower());
                 }
             }
             return false;
@@ -180,6 +238,13 @@ namespace MotorbikeServices.BLL.Services
                 if (user != null)
                 {
                     user.MatKhau = newPassword;
+                    db.SaveChanges();
+                    return (true, "Đặt lại mật khẩu thành công! Vui lòng đăng nhập lại.");
+                }
+                var nv = db.NhanViens.FirstOrDefault(n => n.TenTaiKhoan == username);
+                if (nv != null)
+                {
+                    nv.MatKhau = newPassword;
                     db.SaveChanges();
                     return (true, "Đặt lại mật khẩu thành công! Vui lòng đăng nhập lại.");
                 }

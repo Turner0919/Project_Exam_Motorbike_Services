@@ -37,11 +37,13 @@
             lblSubtitle = new Label();
             button2 = new Button();
             panel2 = new Panel();
+            btnKiemTraDonDaDat = new Button();
             lblMenuTitle = new Label();
             panel1 = new Panel();
             button5 = new Button();
             panelMain = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnDangKyBaoDuongXe = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -51,9 +53,10 @@
             // 
             btnThuNho.BackColor = Color.FromArgb(255, 255, 128);
             btnThuNho.BackgroundImageLayout = ImageLayout.None;
-            btnThuNho.Location = new Point(23, 34);
+            btnThuNho.Location = new Point(20, 26);
+            btnThuNho.Margin = new Padding(3, 2, 3, 2);
             btnThuNho.Name = "btnThuNho";
-            btnThuNho.Size = new Size(62, 62);
+            btnThuNho.Size = new Size(54, 46);
             btnThuNho.TabIndex = 13;
             btnThuNho.Text = "☰";
             btnThuNho.UseVisualStyleBackColor = false;
@@ -66,9 +69,10 @@
             btnDangKyXeMoi.FlatStyle = FlatStyle.Flat;
             btnDangKyXeMoi.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnDangKyXeMoi.ForeColor = Color.White;
-            btnDangKyXeMoi.Location = new Point(0, 229);
+            btnDangKyXeMoi.Location = new Point(0, 172);
+            btnDangKyXeMoi.Margin = new Padding(3, 2, 3, 2);
             btnDangKyXeMoi.Name = "btnDangKyXeMoi";
-            btnDangKyXeMoi.Size = new Size(230, 61);
+            btnDangKyXeMoi.Size = new Size(201, 46);
             btnDangKyXeMoi.TabIndex = 1;
             btnDangKyXeMoi.Text = "🚗 Đăng ký xe mới";
             btnDangKyXeMoi.UseVisualStyleBackColor = false;
@@ -80,9 +84,9 @@
             lblLogo.BackColor = Color.Transparent;
             lblLogo.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLogo.ForeColor = Color.White;
-            lblLogo.Location = new Point(3, 18);
+            lblLogo.Location = new Point(3, 14);
             lblLogo.Name = "lblLogo";
-            lblLogo.Size = new Size(168, 38);
+            lblLogo.Size = new Size(134, 30);
             lblLogo.TabIndex = 2;
             lblLogo.Text = "VehicleCare";
             // 
@@ -93,11 +97,12 @@
             btnLichSuSuaChua.FlatStyle = FlatStyle.Flat;
             btnLichSuSuaChua.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnLichSuSuaChua.ForeColor = Color.White;
-            btnLichSuSuaChua.Location = new Point(-3, 296);
+            btnLichSuSuaChua.Location = new Point(-3, 222);
+            btnLichSuSuaChua.Margin = new Padding(3, 2, 3, 2);
             btnLichSuSuaChua.Name = "btnLichSuSuaChua";
-            btnLichSuSuaChua.Size = new Size(233, 61);
+            btnLichSuSuaChua.Size = new Size(204, 46);
             btnLichSuSuaChua.TabIndex = 2;
-            btnLichSuSuaChua.Text = "🛠️ Lịch sử sửa chữa ";
+            btnLichSuSuaChua.Text = "🛠️ Quản Lý Bảo Dưỡng ";
             btnLichSuSuaChua.UseVisualStyleBackColor = false;
             btnLichSuSuaChua.Click += btnLichSuSuaChua_Click;
             // 
@@ -108,9 +113,10 @@
             btnThongTinCaNhan.FlatStyle = FlatStyle.Flat;
             btnThongTinCaNhan.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnThongTinCaNhan.ForeColor = Color.White;
-            btnThongTinCaNhan.Location = new Point(0, 162);
+            btnThongTinCaNhan.Location = new Point(0, 122);
+            btnThongTinCaNhan.Margin = new Padding(3, 2, 3, 2);
             btnThongTinCaNhan.Name = "btnThongTinCaNhan";
-            btnThongTinCaNhan.Size = new Size(230, 61);
+            btnThongTinCaNhan.Size = new Size(201, 46);
             btnThongTinCaNhan.TabIndex = 3;
             btnThongTinCaNhan.Text = "👤 Thông tin cá nhân";
             btnThongTinCaNhan.UseVisualStyleBackColor = false;
@@ -123,9 +129,10 @@
             btnGopY.FlatStyle = FlatStyle.Flat;
             btnGopY.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnGopY.ForeColor = Color.White;
-            btnGopY.Location = new Point(-3, 363);
+            btnGopY.Location = new Point(-3, 372);
+            btnGopY.Margin = new Padding(3, 2, 3, 2);
             btnGopY.Name = "btnGopY";
-            btnGopY.Size = new Size(233, 58);
+            btnGopY.Size = new Size(204, 44);
             btnGopY.TabIndex = 12;
             btnGopY.Text = "Góp ý";
             btnGopY.UseVisualStyleBackColor = true;
@@ -137,9 +144,9 @@
             lblSubtitle.BackColor = Color.Transparent;
             lblSubtitle.Font = new Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSubtitle.ForeColor = Color.LightSteelBlue;
-            lblSubtitle.Location = new Point(177, 34);
+            lblSubtitle.Location = new Point(155, 26);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(39, 17);
+            lblSubtitle.Size = new Size(34, 13);
             lblSubtitle.TabIndex = 3;
             lblSubtitle.Text = "USER";
             // 
@@ -150,9 +157,10 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(3, 68);
+            button2.Location = new Point(3, 51);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(227, 50);
+            button2.Size = new Size(199, 38);
             button2.TabIndex = 5;
             button2.Text = "Trở về trang chủ";
             button2.UseVisualStyleBackColor = false;
@@ -161,6 +169,8 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(49, 27, 146);
+            panel2.Controls.Add(btnDangKyBaoDuongXe);
+            panel2.Controls.Add(btnKiemTraDonDaDat);
             panel2.Controls.Add(lblMenuTitle);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(lblSubtitle);
@@ -171,9 +181,25 @@
             panel2.Controls.Add(btnDangKyXeMoi);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(230, 625);
+            panel2.Size = new Size(201, 469);
             panel2.TabIndex = 1;
+            // 
+            // btnKiemTraDonDaDat
+            // 
+            btnKiemTraDonDaDat.BackColor = Color.Transparent;
+            btnKiemTraDonDaDat.FlatAppearance.BorderSize = 0;
+            btnKiemTraDonDaDat.FlatStyle = FlatStyle.Flat;
+            btnKiemTraDonDaDat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnKiemTraDonDaDat.ForeColor = Color.White;
+            btnKiemTraDonDaDat.Location = new Point(-3, 322);
+            btnKiemTraDonDaDat.Margin = new Padding(3, 2, 3, 2);
+            btnKiemTraDonDaDat.Name = "btnKiemTraDonDaDat";
+            btnKiemTraDonDaDat.Size = new Size(204, 46);
+            btnKiemTraDonDaDat.TabIndex = 14;
+            btnKiemTraDonDaDat.Text = "Kiểm Tra Đơn Đã Đặt";
+            btnKiemTraDonDaDat.UseVisualStyleBackColor = false;
             // 
             // lblMenuTitle
             // 
@@ -181,9 +207,9 @@
             lblMenuTitle.BackColor = Color.Transparent;
             lblMenuTitle.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMenuTitle.ForeColor = Color.LightSteelBlue;
-            lblMenuTitle.Location = new Point(0, 134);
+            lblMenuTitle.Location = new Point(0, 100);
             lblMenuTitle.Name = "lblMenuTitle";
-            lblMenuTitle.Size = new Size(146, 20);
+            lblMenuTitle.Size = new Size(112, 15);
             lblMenuTitle.TabIndex = 1;
             lblMenuTitle.Text = "TIỆN ÍCH CÁ NHÂN";
             // 
@@ -193,9 +219,10 @@
             panel1.Controls.Add(button5);
             panel1.Controls.Add(btnThuNho);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(951, 125);
+            panel1.Size = new Size(832, 94);
             panel1.TabIndex = 2;
             // 
             // button5
@@ -203,9 +230,10 @@
             button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button5.BackColor = Color.FromArgb(255, 255, 128);
             button5.ForeColor = SystemColors.ControlText;
-            button5.Location = new Point(837, 31);
+            button5.Location = new Point(732, 23);
+            button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
-            button5.Size = new Size(92, 65);
+            button5.Size = new Size(80, 49);
             button5.TabIndex = 14;
             button5.Text = "Đăng Xuất";
             button5.UseVisualStyleBackColor = false;
@@ -215,9 +243,10 @@
             // 
             panelMain.BackColor = Color.LightGray;
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(3, 134);
+            panelMain.Location = new Point(3, 100);
+            panelMain.Margin = new Padding(3, 2, 3, 2);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(951, 500);
+            panelMain.Size = new Size(832, 375);
             panelMain.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -227,21 +256,38 @@
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Controls.Add(panelMain, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(230, 0);
+            tableLayoutPanel1.Location = new Point(201, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(957, 625);
+            tableLayoutPanel1.Size = new Size(838, 469);
             tableLayoutPanel1.TabIndex = 4;
+            // 
+            // btnDangKyBaoDuongXe
+            // 
+            btnDangKyBaoDuongXe.BackColor = Color.Transparent;
+            btnDangKyBaoDuongXe.FlatAppearance.BorderSize = 0;
+            btnDangKyBaoDuongXe.FlatStyle = FlatStyle.Flat;
+            btnDangKyBaoDuongXe.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnDangKyBaoDuongXe.ForeColor = Color.White;
+            btnDangKyBaoDuongXe.Location = new Point(-2, 272);
+            btnDangKyBaoDuongXe.Margin = new Padding(3, 2, 3, 2);
+            btnDangKyBaoDuongXe.Name = "btnDangKyBaoDuongXe";
+            btnDangKyBaoDuongXe.Size = new Size(204, 46);
+            btnDangKyBaoDuongXe.TabIndex = 15;
+            btnDangKyBaoDuongXe.Text = "Đăng Ký Bảo Dưỡng Xe";
+            btnDangKyBaoDuongXe.UseVisualStyleBackColor = false;
             // 
             // frmaccountuser
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1187, 625);
+            ClientSize = new Size(1039, 469);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(panel2);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmaccountuser";
             Text = "Menu User";
             WindowState = FormWindowState.Maximized;
@@ -268,5 +314,8 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button button5;
         private Label lblMenuTitle;
+        private Button button1;
+        private Button btnKiemTraDonDaDat;
+        private Button btnDangKyBaoDuongXe;
     }
 }

@@ -39,6 +39,7 @@ namespace MotorbikeServices.GUI.SETUP
             cboSoHuu.Items.Clear();
             cboSoHuu.Items.Add("User");
             cboSoHuu.Items.Add("Admin");
+            cboSoHuu.Items.Add("NhanVien");
             cboSoHuu.SelectedIndex = 0;
         }
         private void cboSoHuu_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,12 +48,10 @@ namespace MotorbikeServices.GUI.SETUP
 
             if (selectedRole == "Admin")
             {
-                // Nếu là Admin -> Mờ/Vô hiệu hóa link Quên mật khẩu
                 linklblQuenMatKhau.Enabled = false;
             }
             else
             {
-                // Nếu là User -> Bật lại bình thường
                 linklblQuenMatKhau.Enabled = true;
             }
         }
@@ -142,12 +141,20 @@ namespace MotorbikeServices.GUI.SETUP
                     formAdmin.ShowDialog();
                     this.Show();
                 }
-                else
+                else if (role == "User")
                 {
                     int loggedInUserId = result.UserInfo.Id;
                     frmaccountuser formUser = new frmaccountuser(loggedInUserId);
                     this.Hide();
                     formUser.ShowDialog();
+                    this.Show();
+                }
+                else if (role == "NhanVien")
+                {
+                    int loggedInNhanVienId = result.UserInfo.Id;
+                    frmaccountnhanvien formNhanVien = new frmaccountnhanvien(loggedInNhanVienId);
+                    this.Hide();
+                    formNhanVien.ShowDialog();
                     this.Show();
                 }
             }
