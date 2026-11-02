@@ -273,7 +273,6 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmlogin";
             Text = "ỨNG DỤNG QUẢN DƯỠNG VÀ QUẢN LÝ";
-            WindowState = FormWindowState.Maximized;
             Load += frmlogin_Load;
             Click += btnDangNhap_Click;
             panel1.ResumeLayout(false);

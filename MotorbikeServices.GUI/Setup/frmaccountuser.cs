@@ -16,12 +16,13 @@ namespace MotorbikeServices.GUI.Setup
         public frmaccountuser()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
         }
         public frmaccountuser(int userId) : this()
         {
             _currentUserId = userId;
         }
-        private readonly Color colorDarkSidebar = Color.FromArgb(24, 34, 52); 
+        private readonly Color colorDarkSidebar = Color.FromArgb(24, 34, 52);
 
         private readonly Color colorLightBlack = Color.FromArgb(50, 50, 50);
         private void frmaccountuser_Load(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace MotorbikeServices.GUI.Setup
             btnGopY.Visible = true;
             panel1.Visible = true;
             panel1.BringToFront();
-          
+
 
         }
 
@@ -137,21 +138,43 @@ namespace MotorbikeServices.GUI.Setup
         private void button5_Click_1(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?",
-                "Xác nhận đăng xuất",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
+        "Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?",
+        "Xác nhận đăng xuất",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question
+    );
 
             if (result == DialogResult.Yes)
-            { 
+            {
+                // 1. Quét tất cả Form con đang mở (hoặc ẩn) để hoàn trả kho nếu giỏ hàng còn đồ
+                foreach (Form frm in Application.OpenForms)
+                {
+                    if (frm is frmDangKyBaoDuongXe formBaoDuong)
+                    {
+                        formBaoDuong.ClearAndRestoreStock();
+                    }
+                }
+
+                // 2. Mở lại Form Đăng Nhập
+                //frmlogin loginForm = new frmlogin();
+                //loginForm.Show();
+
+                // 3. Đóng Form Menu hiện tại
                 this.Close();
             }
         }
 
-   
+        private void btnDangKyBaoDuongXe_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new frmDangKyBaoDuongXe(_currentUserId), panelMain);
+            ShowHomeButtonOnly();
+        }
 
-      
+        private void btnKiemTraDonDaDat_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormKiemTraDonDaDat(_currentUserId), panelMain);
+            ShowHomeButtonOnly();
+        }
     }
-  
+
 }

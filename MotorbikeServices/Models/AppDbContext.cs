@@ -1,5 +1,4 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MotorbikeServices.DAL.Models.Account;
 using MotorbikeServices.DAL.Models.Maintenance;
 using MotorbikeServices.DAL.Models.Store;
@@ -16,7 +15,8 @@ namespace MotorbikeServices.DAL.Models
         public DbSet<NhanVienUse> NhanVienUses { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }
         public DbSet<UserXe> UserXes { get; set; }
-
+        public DbSet<HoaDon> HoaDons { get; set; }
+        public DbSet<ChiTietHoaDon> ChiTietHoaDons { get; set; }
         public DbSet<HangXe> HangXes { get; set; }
         public DbSet<DongXe> DongXes { get; set; }
 
@@ -67,6 +67,12 @@ namespace MotorbikeServices.DAL.Models
                 .HasOne(q => q.DongXe)
                 .WithMany(d => d.QuyChuanBaoDuongs)
                 .HasForeignKey(q => q.DongXeId)
+                .OnDelete(DeleteBehavior.Restrict);
+            // Tắt xóa dây chuyền giữa ChiTietHoaDon và SanPham để sửa lỗi Error 1785
+            modelBuilder.Entity<ChiTietHoaDon>()
+                .HasOne(ct => ct.SanPham)
+                .WithMany()
+                .HasForeignKey(ct => ct.SanPhamId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
