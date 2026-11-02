@@ -80,6 +80,14 @@ namespace MotorbikeServices.GUI.Setup
         {
             if (e.RowIndex >= 0 && dgvHoaDon.Rows[e.RowIndex].DataBoundItem is HoaDonKiemTraDTO hdChon)
             {
+                // KIỂM TRA: Nếu hóa đơn có trạng thái "Đã hủy" thì xóa trắng bảng chi tiết và không hiển thị
+                if (hdChon.TrangThai == "Đã hủy")
+                {
+                    dgvChiTiet.DataSource = null; // Xóa dữ liệu hiển thị trên bảng chi tiết
+                    return;
+                }
+
+                // Nếu hóa đơn còn hiệu lực ("Chờ xác nhận", "Đã xác nhận",...) thì nạp chi tiết bình thường
                 dgvChiTiet.DataSource = null;
                 dgvChiTiet.DataSource = hdChon.ChiTiets;
                 dgvChiTiet.ClearSelection();

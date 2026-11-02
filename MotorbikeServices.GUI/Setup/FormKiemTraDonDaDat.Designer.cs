@@ -63,7 +63,7 @@
             // 
             // label1
             // 
-            label1.BackColor = Color.FromArgb(0, 192, 0);
+            label1.BackColor = Color.FromArgb(192, 64, 0);
             label1.Dock = DockStyle.Top;
             label1.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             label1.ForeColor = Color.White;
@@ -305,6 +305,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 224, 192);
             ClientSize = new Size(1663, 751);
             Controls.Add(btnLamMoi);
             Controls.Add(btnHuyDon);

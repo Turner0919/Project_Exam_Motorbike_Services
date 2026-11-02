@@ -20,7 +20,10 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
             InitializeComponent();
             _currentNhanVienId = nhanVienId;
         }
-
+        private void FormQuanLySanPham_Shown(object sender, EventArgs e) // tránh trường hợp render khi load form
+        {
+            dgvDanhSachSanPham.ClearSelection();
+        }
         private void FormQuanLySanPham_Load(object sender, EventArgs e)
         {
             dgvDanhSachSanPham.AutoGenerateColumns = false;
