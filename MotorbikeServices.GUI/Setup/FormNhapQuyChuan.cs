@@ -36,27 +36,14 @@ namespace MotorbikeServices.GUI.AdminControls
 
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public int SoKm
+        public int SoThang
         {
-            get => (int)numSoKm.Value;
+            get => (int)numSoThang.Value;
             set
             {
-                numSoKm.Value = Math.Max(
-                    numSoKm.Minimum,
-                    Math.Min(numSoKm.Maximum, value));
-            }
-        }
-
-        [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public decimal ChiPhi
-        {
-            get => numChiPhi.Value;
-            set
-            {
-                numChiPhi.Value = Math.Max(
-                    numChiPhi.Minimum,
-                    Math.Min(numChiPhi.Maximum, value));
+                numSoThang.Value = Math.Max(
+                    numSoThang.Minimum,
+                    Math.Min(numSoThang.Maximum, value));
             }
         }
 
@@ -77,8 +64,7 @@ namespace MotorbikeServices.GUI.AdminControls
             cboLoaiXe.DisplayMember = "TenHienThi";
             cboLoaiXe.ValueMember = "Id";
 
-            numSoKm.Value = 1500;
-            numChiPhi.Value = 0;
+            numSoThang.Value = 1;
         }
 
         // Constructor dung khi mo form tu man hinh quan ly quy chuan.
@@ -170,10 +156,10 @@ namespace MotorbikeServices.GUI.AdminControls
                 return;
             }
 
-            if (numSoKm.Value <= 0)
+            if (numSoThang.Value <= 0)
             {
-                MessageBox.Show("Số km phải lớn hơn 0.");
-                numSoKm.Focus();
+                MessageBox.Show("Số tháng phải lớn hơn 0.");
+                numSoThang.Focus();
                 return;
             }
 

@@ -241,10 +241,6 @@ namespace MotorbikeServices.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("ChiPhi")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("DongXeId")
                         .HasColumnType("int");
 
@@ -252,7 +248,7 @@ namespace MotorbikeServices.DAL.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("SoKm")
+                    b.Property<int>("SoThang")
                         .HasColumnType("int");
 
                     b.Property<string>("TenQuyChuan")

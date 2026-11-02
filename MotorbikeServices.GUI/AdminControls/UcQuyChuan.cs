@@ -45,30 +45,25 @@ namespace MotorbikeServices.GUI.AdminControls
             dgvQuyChuan.Columns.Clear();
             dgvQuyChuan.Columns.Add("STT", "STT");
             dgvQuyChuan.Columns.Add("TenQuyChuan", "Tên quy chuẩn");
-            dgvQuyChuan.Columns.Add("SoKm", "Số km");
-            dgvQuyChuan.Columns.Add("ChiPhi", "Chi phí (VNĐ)");
+            dgvQuyChuan.Columns.Add("SoThang", "Số tháng");
             dgvQuyChuan.Columns.Add("MoTa", "Mô tả");
             dgvQuyChuan.Columns.Add("IdAn", "ID");
             dgvQuyChuan.Columns["IdAn"].Visible = false;
 
             dgvQuyChuan.Columns["STT"].FillWeight = 8;
             dgvQuyChuan.Columns["TenQuyChuan"].FillWeight = 27;
-            dgvQuyChuan.Columns["SoKm"].FillWeight = 13;
-            dgvQuyChuan.Columns["ChiPhi"].FillWeight = 19;
-            dgvQuyChuan.Columns["MoTa"].FillWeight = 33;
+            dgvQuyChuan.Columns["SoThang"].FillWeight = 15;
+            dgvQuyChuan.Columns["MoTa"].FillWeight = 50;
 
             dgvQuyChuan.Columns["STT"].MinimumWidth = 45;
             dgvQuyChuan.Columns["TenQuyChuan"].MinimumWidth = 150;
-            dgvQuyChuan.Columns["SoKm"].MinimumWidth = 85;
-            dgvQuyChuan.Columns["ChiPhi"].MinimumWidth = 120;
+            dgvQuyChuan.Columns["SoThang"].MinimumWidth = 95;
             dgvQuyChuan.Columns["MoTa"].MinimumWidth = 160;
 
             dgvQuyChuan.Columns["STT"].DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
-            dgvQuyChuan.Columns["SoKm"].DefaultCellStyle.Alignment =
+            dgvQuyChuan.Columns["SoThang"].DefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
-            dgvQuyChuan.Columns["ChiPhi"].DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleRight;
 
             CauHinhBangDanhMuc(dgvHangXe);
             CauHinhBangDanhMuc(dgvDongXe);
@@ -323,7 +318,7 @@ namespace MotorbikeServices.GUI.AdminControls
                         query = query.Where(q => q.TenQuyChuan.Contains(tuKhoa));
 
                     var danhSach = query
-                        .OrderBy(q => q.SoKm)
+                        .OrderBy(q => q.SoThang)
                         .ThenBy(q => q.TenQuyChuan)
                         .ToList();
 
@@ -335,8 +330,7 @@ namespace MotorbikeServices.GUI.AdminControls
                         dgvQuyChuan.Rows.Add(
                             stt++,
                             q.TenQuyChuan,
-                            q.SoKm.ToString("N0"),
-                            q.ChiPhi.ToString("N0"),
+                            q.SoThang,
                             q.MoTa ?? string.Empty,
                             q.Id);
                     }
@@ -403,8 +397,7 @@ namespace MotorbikeServices.GUI.AdminControls
                         {
                             DongXeId = dongXeIdMoi,
                             TenQuyChuan = form.TenQuyChuan,
-                            SoKm = form.SoKm,
-                            ChiPhi = form.ChiPhi,
+                            SoThang = form.SoThang,
                             MoTa = form.MoTa
                         };
 
@@ -457,8 +450,7 @@ namespace MotorbikeServices.GUI.AdminControls
                     {
                         form.Text = "Cập nhật quy chuẩn bảo dưỡng";
                         form.TenQuyChuan = q.TenQuyChuan;
-                        form.SoKm = q.SoKm;
-                        form.ChiPhi = q.ChiPhi;
+                        form.SoThang = q.SoThang;
                         form.MoTa = q.MoTa ?? string.Empty;
 
                         if (form.ShowDialog() != DialogResult.OK)
@@ -466,8 +458,7 @@ namespace MotorbikeServices.GUI.AdminControls
 
                         q.DongXeId = form.DongXeId;
                         q.TenQuyChuan = form.TenQuyChuan;
-                        q.SoKm = form.SoKm;
-                        q.ChiPhi = form.ChiPhi;
+                        q.SoThang = form.SoThang;
                         q.MoTa = form.MoTa;
 
                         db.SaveChanges();

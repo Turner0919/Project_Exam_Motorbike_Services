@@ -8,14 +8,12 @@ namespace MotorbikeServices.GUI.AdminControls
         private System.Windows.Forms.Label lblTieuDe;
         private System.Windows.Forms.Label lblLoaiXe;
         private System.Windows.Forms.Label lblTenQuyChuan;
-        private System.Windows.Forms.Label lblSoKm;
-        private System.Windows.Forms.Label lblChiPhi;
+        private System.Windows.Forms.Label lblSoThang;
         private System.Windows.Forms.Label lblMoTa;
 
         private System.Windows.Forms.ComboBox cboLoaiXe;
         private System.Windows.Forms.TextBox txtTenQuyChuan;
-        private System.Windows.Forms.NumericUpDown numSoKm;
-        private System.Windows.Forms.NumericUpDown numChiPhi;
+        private System.Windows.Forms.NumericUpDown numSoThang;
         private System.Windows.Forms.TextBox txtMoTa;
 
         private System.Windows.Forms.Button btnLuu;
@@ -36,18 +34,15 @@ namespace MotorbikeServices.GUI.AdminControls
             lblTieuDe = new Label();
             lblLoaiXe = new Label();
             lblTenQuyChuan = new Label();
-            lblSoKm = new Label();
-            lblChiPhi = new Label();
+            lblSoThang = new Label();
             lblMoTa = new Label();
             cboLoaiXe = new ComboBox();
             txtTenQuyChuan = new TextBox();
-            numSoKm = new NumericUpDown();
-            numChiPhi = new NumericUpDown();
+            numSoThang = new NumericUpDown();
             txtMoTa = new TextBox();
             btnLuu = new Button();
             btnHuy = new Button();
-            ((System.ComponentModel.ISupportInitialize)numSoKm).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numChiPhi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numSoThang).BeginInit();
             SuspendLayout();
             // 
             // lblTieuDe
@@ -79,31 +74,22 @@ namespace MotorbikeServices.GUI.AdminControls
             lblTenQuyChuan.TabIndex = 2;
             lblTenQuyChuan.Text = "Tên quy chuẩn";
             // 
-            // lblSoKm
+            // lblSoThang
             // 
-            lblSoKm.AutoSize = true;
-            lblSoKm.Location = new Point(30, 185);
-            lblSoKm.Name = "lblSoKm";
-            lblSoKm.Size = new Size(50, 20);
-            lblSoKm.TabIndex = 3;
-            lblSoKm.Text = "Số km";
-            // 
-            // lblChiPhi
-            // 
-            lblChiPhi.AutoSize = true;
-            lblChiPhi.Location = new Point(30, 235);
-            lblChiPhi.Name = "lblChiPhi";
-            lblChiPhi.Size = new Size(100, 20);
-            lblChiPhi.TabIndex = 4;
-            lblChiPhi.Text = "Chi phí (VNĐ)";
+            lblSoThang.AutoSize = true;
+            lblSoThang.Location = new Point(30, 185);
+            lblSoThang.Name = "lblSoThang";
+            lblSoThang.Size = new Size(71, 20);
+            lblSoThang.TabIndex = 3;
+            lblSoThang.Text = "Số tháng";
             // 
             // lblMoTa
             // 
             lblMoTa.AutoSize = true;
-            lblMoTa.Location = new Point(30, 285);
+            lblMoTa.Location = new Point(30, 235);
             lblMoTa.Name = "lblMoTa";
             lblMoTa.Size = new Size(48, 20);
-            lblMoTa.TabIndex = 5;
+            lblMoTa.TabIndex = 4;
             lblMoTa.Text = "Mô tả";
             // 
             // cboLoaiXe
@@ -122,34 +108,24 @@ namespace MotorbikeServices.GUI.AdminControls
             txtTenQuyChuan.Size = new Size(265, 27);
             txtTenQuyChuan.TabIndex = 7;
             // 
-            // numSoKm
+            // numSoThang
             // 
-            numSoKm.Location = new Point(155, 180);
-            numSoKm.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
-            numSoKm.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numSoKm.Name = "numSoKm";
-            numSoKm.Size = new Size(265, 27);
-            numSoKm.TabIndex = 8;
-            numSoKm.ThousandsSeparator = true;
-            numSoKm.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // numChiPhi
-            // 
-            numChiPhi.Location = new Point(155, 230);
-            numChiPhi.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
-            numChiPhi.Name = "numChiPhi";
-            numChiPhi.Size = new Size(265, 27);
-            numChiPhi.TabIndex = 9;
-            numChiPhi.ThousandsSeparator = true;
+            numSoThang.Location = new Point(155, 180);
+            numSoThang.Maximum = new decimal(new int[] { 120, 0, 0, 0 });
+            numSoThang.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numSoThang.Name = "numSoThang";
+            numSoThang.Size = new Size(265, 27);
+            numSoThang.TabIndex = 8;
+            numSoThang.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // txtMoTa
             // 
-            txtMoTa.Location = new Point(155, 280);
+            txtMoTa.Location = new Point(155, 230);
             txtMoTa.MaxLength = 500;
             txtMoTa.Multiline = true;
             txtMoTa.Name = "txtMoTa";
             txtMoTa.Size = new Size(265, 65);
-            txtMoTa.TabIndex = 10;
+            txtMoTa.TabIndex = 9;
             // 
             // btnLuu
             // 
@@ -158,10 +134,10 @@ namespace MotorbikeServices.GUI.AdminControls
             btnLuu.FlatAppearance.BorderSize = 0;
             btnLuu.FlatStyle = FlatStyle.Flat;
             btnLuu.ForeColor = Color.White;
-            btnLuu.Location = new Point(220, 365);
+            btnLuu.Location = new Point(220, 315);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(90, 38);
-            btnLuu.TabIndex = 11;
+            btnLuu.TabIndex = 10;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = false;
             btnLuu.Click += btnLuu_Click;
@@ -172,10 +148,10 @@ namespace MotorbikeServices.GUI.AdminControls
             btnHuy.Cursor = Cursors.Hand;
             btnHuy.FlatAppearance.BorderSize = 0;
             btnHuy.FlatStyle = FlatStyle.Flat;
-            btnHuy.Location = new Point(320, 365);
+            btnHuy.Location = new Point(320, 315);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(100, 38);
-            btnHuy.TabIndex = 12;
+            btnHuy.TabIndex = 11;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
             btnHuy.Click += btnHuy_Click;
@@ -187,17 +163,15 @@ namespace MotorbikeServices.GUI.AdminControls
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             CancelButton = btnHuy;
-            ClientSize = new Size(460, 430);
+            ClientSize = new Size(460, 380);
             Controls.Add(lblTieuDe);
             Controls.Add(lblLoaiXe);
             Controls.Add(lblTenQuyChuan);
-            Controls.Add(lblSoKm);
-            Controls.Add(lblChiPhi);
+            Controls.Add(lblSoThang);
             Controls.Add(lblMoTa);
             Controls.Add(cboLoaiXe);
             Controls.Add(txtTenQuyChuan);
-            Controls.Add(numSoKm);
-            Controls.Add(numChiPhi);
+            Controls.Add(numSoThang);
             Controls.Add(txtMoTa);
             Controls.Add(btnLuu);
             Controls.Add(btnHuy);
@@ -207,8 +181,7 @@ namespace MotorbikeServices.GUI.AdminControls
             Name = "FormNhapQuyChuan";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Thông tin quy chuẩn bảo dưỡng";
-            ((System.ComponentModel.ISupportInitialize)numSoKm).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numChiPhi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numSoThang).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
