@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MotorbikeServices.GUI.Setup
+namespace MotorbikeServices.GUI.Setup.CuaHang
 {
     public partial class frmaccountnhanvien : Form
     {

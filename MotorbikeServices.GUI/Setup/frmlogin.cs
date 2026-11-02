@@ -7,7 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using MotorbikeServices.GUI.Setup.CuaHang;
 namespace MotorbikeServices.GUI.SETUP
 {
     public partial class frmlogin : Form
