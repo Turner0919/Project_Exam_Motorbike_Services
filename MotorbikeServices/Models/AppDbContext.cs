@@ -28,7 +28,7 @@ namespace MotorbikeServices.DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(
-                    "Server=localhost\\SQLEXPRESS;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
+                    "Server=localhost;Database=MotorbikeServices;Trusted_Connection=True;TrustServerCertificate=True;");
             }
         }
 
@@ -51,9 +51,6 @@ namespace MotorbikeServices.DAL.Models
                 entity.Property(e => e.TenQuyChuan)
                     .IsRequired()
                     .HasMaxLength(150);
-
-                entity.Property(e => e.ChiPhi)
-                    .HasPrecision(18, 2);
 
                 entity.Property(e => e.MoTa)
                     .HasMaxLength(500);

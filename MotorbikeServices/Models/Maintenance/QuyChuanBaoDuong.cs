@@ -1,6 +1,5 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using MotorbikeServices.DAL.Models;
 
 namespace MotorbikeServices.DAL.Models.Maintenance
@@ -16,10 +15,8 @@ namespace MotorbikeServices.DAL.Models.Maintenance
         [StringLength(150)]
         public string TenQuyChuan { get; set; } = string.Empty;
 
-        public int SoKm { get; set; }
-
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal ChiPhi { get; set; }
+        [Range(1, 120)]
+        public int SoThang { get; set; }
 
         [StringLength(500)]
         public string? MoTa { get; set; }

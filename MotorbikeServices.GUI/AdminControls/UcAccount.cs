@@ -42,8 +42,8 @@ namespace MotorbikeServices.GUI.AdminControls
 
             // Admin chỉ được hiển thị, không có nút thêm/sửa/xóa.
             btnThemAdmin.Visible = false;
-            btnThemUser.Text = "+ Thêm User";
-            lblMoTa.Text = "Quản lý CRUD tài khoản User; tài khoản Admin chỉ xem.";
+            btnThemUser.Visible = false;
+            lblMoTa.Text = "Quản lý tài khoản User; tài khoản Admin chỉ xem.";
 
             txtTimKiem.TextChanged += (s, e) => LoadTaiKhoan();
             cboVaiTro.SelectedIndexChanged += (s, e) => LoadTaiKhoan();
@@ -56,7 +56,6 @@ namespace MotorbikeServices.GUI.AdminControls
                 LoadTaiKhoan();
             };
 
-            btnThemUser.Click += (s, e) => ThemUser();
             btnSua.Click += (s, e) => SuaUser();
             btnXoa.Click += (s, e) => XoaUser();
 
