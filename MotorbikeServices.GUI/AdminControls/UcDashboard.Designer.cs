@@ -55,11 +55,11 @@
             // lblPageTitle
             // 
             lblPageTitle.AutoSize = true;
-            lblPageTitle.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPageTitle.ForeColor = Color.FromArgb(21, 54, 91);
             lblPageTitle.Location = new Point(6, 7);
             lblPageTitle.Name = "lblPageTitle";
-            lblPageTitle.Size = new Size(345, 46);
+            lblPageTitle.Size = new Size(305, 41);
             lblPageTitle.TabIndex = 0;
             lblPageTitle.Text = "Tổng quan hệ thống";
             // 

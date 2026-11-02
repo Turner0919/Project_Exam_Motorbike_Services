@@ -25,7 +25,8 @@ namespace MotorbikeServices.GUI.Setup
                 btnDashboard,
                 btnHangXe,
                 btnQuyChuan,
-                btnAccount
+                btnAccount,
+                btnCuaHang
             };
 
             foreach (Button btn in sidebarButtons)
@@ -75,7 +76,8 @@ namespace MotorbikeServices.GUI.Setup
                 btnDashboard,
                 btnHangXe,
                 btnQuyChuan,
-                btnAccount
+                btnAccount,
+                btnCuaHang
             };
 
             Color normalColor = Color.FromArgb(36, 69, 103);
@@ -165,6 +167,11 @@ namespace MotorbikeServices.GUI.Setup
         {
             frmAIChat formAI = new frmAIChat();
             formAI.ShowDialog();
+        }
+        private void btnCuaHang_Click(object sender, EventArgs e)
+        {
+            LoadPage(new UcQuanLyCuaHang());
+            SetActiveButton(btnCuaHang);
         }
     }
 }
