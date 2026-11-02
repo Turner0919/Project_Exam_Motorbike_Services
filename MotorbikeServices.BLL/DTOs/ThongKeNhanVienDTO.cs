@@ -4,9 +4,11 @@ namespace MotorbikeServices.BLL.DTOs
     {
         public int DonChoXacNhan { get; set; }
         public int DonDaHoanThanh { get; set; }
-        public decimal DoanhThuThang { get; set; }
-        public int SanPhamSapHet { get; set; }
-        public List<ThongKeTrangThaiDTO> DanhSachTrangThai { get; set; } = new List<ThongKeTrangThaiDTO>();
+        public int DonDaHuy { get; set; }
+        public decimal TongDoanhThu { get; set; }
+
+        public List<ThongKeTrangThaiDTO> DanhSachTrangThai { get; set; }
+            = new List<ThongKeTrangThaiDTO>();
     }
 
     public class ThongKeTrangThaiDTO

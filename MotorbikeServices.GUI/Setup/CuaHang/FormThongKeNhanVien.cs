@@ -11,7 +11,7 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
         private readonly Label _lblChoXacNhan = new Label();
         private readonly Label _lblHoanThanh = new Label();
         private readonly Label _lblDoanhThu = new Label();
-        private readonly Label _lblTonKhoThap = new Label();
+        private readonly Label _lblDaHuy = new Label();
         private readonly FormsPlot _bieuDoTrangThai = new FormsPlot();
 
         public FormThongKeNhanVien(int nhanVienId)
@@ -47,10 +47,21 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
             for (int i = 0; i < 4; i++)
                 pnlThe.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25));
 
-            pnlThe.Controls.Add(TaoTheThongKe("Đơn chờ xác nhận", _lblChoXacNhan, Color.FromArgb(255, 193, 7)), 0, 0);
-            pnlThe.Controls.Add(TaoTheThongKe("Đơn đã hoàn thành", _lblHoanThanh, Color.FromArgb(40, 167, 69)), 1, 0);
-            pnlThe.Controls.Add(TaoTheThongKe("Doanh thu tháng", _lblDoanhThu, Color.FromArgb(0, 123, 255)), 2, 0);
-            pnlThe.Controls.Add(TaoTheThongKe("Sản phẩm sắp hết", _lblTonKhoThap, Color.FromArgb(220, 53, 69)), 3, 0);
+            pnlThe.Controls.Add(
+                TaoTheThongKe("Đơn đang chờ xác nhận", _lblChoXacNhan,
+                Color.FromArgb(255, 193, 7)), 0, 0);
+
+            pnlThe.Controls.Add(
+                TaoTheThongKe("Đơn đã hoàn thành", _lblHoanThanh,
+                Color.FromArgb(40, 167, 69)), 1, 0);
+
+            pnlThe.Controls.Add(
+                TaoTheThongKe("Đơn đã hủy", _lblDaHuy,
+                Color.FromArgb(220, 53, 69)), 2, 0);
+
+            pnlThe.Controls.Add(
+                TaoTheThongKe("Tổng doanh thu", _lblDoanhThu,
+                Color.FromArgb(0, 123, 255)), 3, 0);
 
             var pnlBieuDo = new Panel
             {
@@ -111,10 +122,12 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
             try
             {
                 ThongKeNhanVienDTO thongKe = _thongKeService.LayThongKe(_nhanVienId);
+
                 _lblChoXacNhan.Text = thongKe.DonChoXacNhan.ToString();
                 _lblHoanThanh.Text = thongKe.DonDaHoanThanh.ToString();
-                _lblDoanhThu.Text = $"{thongKe.DoanhThuThang:#,##0} đ";
-                _lblTonKhoThap.Text = thongKe.SanPhamSapHet.ToString();
+                _lblDaHuy.Text = thongKe.DonDaHuy.ToString();
+                _lblDoanhThu.Text = $"{thongKe.TongDoanhThu:#,##0} đ";
+
                 VeBieuDo(thongKe.DanhSachTrangThai);
             }
             catch (Exception ex)
