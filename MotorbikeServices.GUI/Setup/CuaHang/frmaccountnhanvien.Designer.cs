@@ -48,6 +48,7 @@
             mnuQuanLySanPham = new ToolStripMenuItem();
             mnuDanhSachBaoDuong = new ToolStripMenuItem();
             thốngKêToolStripMenuItem1 = new ToolStripMenuItem();
+            mnuThongKe = new ToolStripMenuItem();
             panelXam = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -127,7 +128,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { tàiKhoảnToolStripMenuItem, danhMụcToolStripMenuItem1, thốngKêToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { tàiKhoảnToolStripMenuItem, danhMụcToolStripMenuItem1, thốngKêToolStripMenuItem1, mnuThongKe });
             menuStrip1.Location = new Point(0, 88);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -187,9 +188,14 @@
             // thốngKêToolStripMenuItem1
             // 
             thốngKêToolStripMenuItem1.Name = "thốngKêToolStripMenuItem1";
-            thốngKêToolStripMenuItem1.Size = new Size(86, 24);
-            thốngKêToolStripMenuItem1.Text = "Thống Kê";
-            thốngKêToolStripMenuItem1.Click += thongKeToolStripMenuItem1_Click;
+            thốngKêToolStripMenuItem1.Size = new Size(14, 24);
+            // 
+            // mnuThongKe
+            // 
+            mnuThongKe.Name = "mnuThongKe";
+            mnuThongKe.Size = new Size(84, 24);
+            mnuThongKe.Text = "Thống kê";
+            mnuThongKe.Click += mnuThongKe_Click;
             // 
             // panelXam
             // 
@@ -242,5 +248,6 @@
         private ToolStripMenuItem thốngKêToolStripMenuItem1;
         private Panel panelXam;
         private ToolStripMenuItem mnuTrangChu;
+        private ToolStripMenuItem mnuThongKe;
     }
 }

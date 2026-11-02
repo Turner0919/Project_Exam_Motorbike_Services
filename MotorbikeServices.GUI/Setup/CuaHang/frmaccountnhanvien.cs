@@ -56,5 +56,10 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
         {
             OpenChildForm(new FormDanhSachBaoDuong(_currentNhanVienId));
         }
+
+        private void mnuThongKe_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormThongKeNhanVien(_currentNhanVienId));
+        }
     }
 }
