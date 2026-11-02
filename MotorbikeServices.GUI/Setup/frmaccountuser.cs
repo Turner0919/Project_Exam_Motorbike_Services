@@ -121,7 +121,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void btnLichSuSuaChua_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmLichSuSuaChua(), panelMain);
+            OpenChildForm(new FormQuanLyBaoDuong(_currentUserId), panelMain);
             ShowHomeButtonOnly();
         }
 

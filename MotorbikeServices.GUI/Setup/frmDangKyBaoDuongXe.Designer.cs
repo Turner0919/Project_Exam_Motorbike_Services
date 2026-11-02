@@ -231,6 +231,7 @@
             dgvCuaHang.EnableHeadersVisualStyles = false;
             dgvCuaHang.Location = new Point(1054, 173);
             dgvCuaHang.Name = "dgvCuaHang";
+            dgvCuaHang.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -255,6 +256,7 @@
             TenCuaHang.HeaderText = "Tên Cửa Hàng";
             TenCuaHang.MinimumWidth = 6;
             TenCuaHang.Name = "TenCuaHang";
+            TenCuaHang.ReadOnly = true;
             // 
             // SoCuaHang
             // 
@@ -262,6 +264,7 @@
             SoCuaHang.HeaderText = "Số Cửa Hàng";
             SoCuaHang.MinimumWidth = 6;
             SoCuaHang.Name = "SoCuaHang";
+            SoCuaHang.ReadOnly = true;
             // 
             // TenDuong
             // 
@@ -269,6 +272,7 @@
             TenDuong.HeaderText = "Tên Đường";
             TenDuong.MinimumWidth = 6;
             TenDuong.Name = "TenDuong";
+            TenDuong.ReadOnly = true;
             // 
             // label7
             // 
@@ -368,6 +372,7 @@
             dgvGioHang.EnableHeadersVisualStyles = false;
             dgvGioHang.Location = new Point(25, 452);
             dgvGioHang.Name = "dgvGioHang";
+            dgvGioHang.ReadOnly = true;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = SystemColors.Control;
             dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
@@ -390,18 +395,21 @@
             HangXe.HeaderText = "Hãng Xe";
             HangXe.MinimumWidth = 6;
             HangXe.Name = "HangXe";
+            HangXe.ReadOnly = true;
             // 
             // LoaiXe
             // 
             LoaiXe.HeaderText = "Loại Xe";
             LoaiXe.MinimumWidth = 6;
             LoaiXe.Name = "LoaiXe";
+            LoaiXe.ReadOnly = true;
             // 
             // BienSo
             // 
             BienSo.HeaderText = "Biển Số";
             BienSo.MinimumWidth = 6;
             BienSo.Name = "BienSo";
+            BienSo.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -409,6 +417,7 @@
             dataGridViewTextBoxColumn1.HeaderText = "Sản Phẩm";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -416,6 +425,7 @@
             dataGridViewTextBoxColumn2.HeaderText = "Số Lượng";
             dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -423,6 +433,7 @@
             dataGridViewTextBoxColumn3.HeaderText = "Đơn Giá";
             dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // lblTongTien
             // 

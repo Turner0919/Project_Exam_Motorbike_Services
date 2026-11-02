@@ -12,5 +12,8 @@ namespace MotorbikeServices.BLL.DTOs
         public DateTime NgayMuaXe { get; set; }
         public int HangXeId { get; set; }
         public int DongXeId { get; set; }
+
+        // Thêm dòng này để ComboBox tự hiển thị Tên Hãng + Tên Dòng + Biển Số
+        public override string ToString() => $"{TenHangXe} {TenDongXe} ({BienSoXe})";
     }
 }
