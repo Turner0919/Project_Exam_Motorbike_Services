@@ -21,7 +21,7 @@ namespace MotorbikeServices.DAL.Models
         public DbSet<DongXe> DongXes { get; set; }
 
         public DbSet<QuyChuanBaoDuong> QuyChuanBaoDuongs { get; set; }
-
+        public DbSet<QuyChuanXeNguoiDung> QuyChuanXeNguoiDungs { get; set; }
         protected override void OnConfiguring(
             DbContextOptionsBuilder optionsBuilder)
         {

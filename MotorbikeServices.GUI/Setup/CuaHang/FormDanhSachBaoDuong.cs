@@ -14,6 +14,7 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
     {
         private readonly CuaHangBaoDuongService _service = new CuaHangBaoDuongService();
         private readonly int _currentNhanVienId; // Id của Cửa hàng đang đăng nhập
+        private readonly NhanVienUseService _nhanVienUseService = new NhanVienUseService();
         private List<CuaHangBaoDuongDTO> _dsBaoDuong = new List<CuaHangBaoDuongDTO>();
         public FormDanhSachBaoDuong(int nhanVienId)
         {
@@ -134,11 +135,13 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
                     // 4. KIỂM TRA EMAIL: Nếu khách hàng CÓ ghi email hợp lệ thì mới tiến hành gửi
                     if (!string.IsNullOrWhiteSpace(emailKhach) && emailKhach.Contains("@"))
                     {
+                        string tenCuaHang = _nhanVienUseService.GetTenCuaHangByNhanVienId(_currentNhanVienId);
                         var mailResult = await EmailService.SendEmailXacNhanDonAsync(
                             emailKhach,
                             hdChon.TenKhach,
                             hdChon.MaHoaDon,
-                            hdChon.TongTien
+                            hdChon.TongTien,
+                            tenCuaHang
                         );
 
                         if (mailResult.IsSuccess)

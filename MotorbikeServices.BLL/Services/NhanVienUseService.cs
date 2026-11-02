@@ -154,5 +154,18 @@ namespace MotorbikeServices.BLL.Services
                 return (true, "Cập nhật trạng thái cửa hàng thành công.");
             }
         }
+        // Lấy Tên Cửa Hàng dựa theo NhanVienId đang đăng nhập
+        public string GetTenCuaHangByNhanVienId(int nhanVienId)
+        {
+            using (var db = new AppDbContext())
+            {
+                var nvUse = db.NhanVienUses.FirstOrDefault(x => x.NhanVienId == nhanVienId);
+                if (nvUse != null && !string.IsNullOrWhiteSpace(nvUse.TenCuaHang))
+                {
+                    return nvUse.TenCuaHang;
+                }
+                return "VehicleCare"; // Tên mặc định dự phòng
+            }
+        }
     }
 }

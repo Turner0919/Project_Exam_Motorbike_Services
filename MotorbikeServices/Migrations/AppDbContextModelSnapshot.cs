@@ -263,6 +263,32 @@ namespace MotorbikeServices.DAL.Migrations
                     b.ToTable("QuyChuanBaoDuongs");
                 });
 
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.QuyChuanXeNguoiDung", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("NgayBaoDuongLanCuoi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("QuyChuanBaoDuongId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserXeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuyChuanBaoDuongId");
+
+                    b.HasIndex("UserXeId");
+
+                    b.ToTable("QuyChuanXeNguoiDungs");
+                });
+
             modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.UserXe", b =>
                 {
                     b.Property<int>("Id")
@@ -469,6 +495,25 @@ namespace MotorbikeServices.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("DongXe");
+                });
+
+            modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.QuyChuanXeNguoiDung", b =>
+                {
+                    b.HasOne("MotorbikeServices.DAL.Models.Maintenance.QuyChuanBaoDuong", "QuyChuanBaoDuong")
+                        .WithMany()
+                        .HasForeignKey("QuyChuanBaoDuongId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MotorbikeServices.DAL.Models.Maintenance.UserXe", "UserXe")
+                        .WithMany()
+                        .HasForeignKey("UserXeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("QuyChuanBaoDuong");
+
+                    b.Navigation("UserXe");
                 });
 
             modelBuilder.Entity("MotorbikeServices.DAL.Models.Maintenance.UserXe", b =>

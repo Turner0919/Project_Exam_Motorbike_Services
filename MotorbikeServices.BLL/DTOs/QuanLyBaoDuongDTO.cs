@@ -9,13 +9,13 @@ namespace MotorbikeServices.BLL.DTOs
     public class LichBaoDuongDTO
     {
         public int STT { get; set; }
-        public int QuyChuanId { get; set; }
+        public int QuyChuanXeNguoiDungId { get; set; } // Id bảng QuyChuanXeNguoiDung để Cập nhật
         public string TenQuyChuan { get; set; } = string.Empty;
-        public string DinhKyBaoDuong { get; set; } = string.Empty; // VD: "1 tháng"
+        public string DinhKyBaoDuong { get; set; } = string.Empty;
         public int SoThangDinhKy { get; set; }
         public DateTime NgayBaoDuongLanCuoi { get; set; }
         public DateTime NgayBaoDuongTiepTheo { get; set; }
-        public string TinhTrang { get; set; } = string.Empty;      // Còn hạn / Sắp tới hạn / Quá hạn X ngày
-        public int MucDoCanhBao { get; set; }                      // 0: Bình thường (Xanh), 1: Sắp tới hạn (Vàng), 2: Quá hạn (Đỏ)
+        public string TinhTrang { get; set; } = string.Empty;
+        public int MucDoCanhBao { get; set; } // 0: Thường, 1: Sắp tới hạn, 2: Quá hạn
     }
 }

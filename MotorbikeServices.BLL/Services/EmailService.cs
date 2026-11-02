@@ -2,21 +2,21 @@
 using System.Net;// Cung cấp NetworkCredential (tài khoản/mật khẩu)
 using System.Net.Mail;// Cung cấp SmtpClient và MailMessage (gửi mail)
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace MotorbikeServices.BLL.Services
 {
     public class EmailService
     {
-        // Email gửi đi của Cửa hàng
-        private const string FROM_EMAIL = "studyhome0806@gmail.com";
-        // Thay 16 ký tự App Password bạn vừa lấy ở Bước 1 vào đây (không khoảng trắng)
-        private const string FROM_PASSWORD = "hcyi jdjr oyqo rows";
+        // Đọc cấu hình từ App.config
+        private static string FROM_EMAIL => ConfigurationManager.AppSettings["SmtpEmail"] ?? "studyhome0806@gmail.com";
+        private static string FROM_PASSWORD => ConfigurationManager.AppSettings["SmtpPassword"] ?? "";
 
         public static async Task<(bool IsSuccess, string Message)> SendEmailXacNhanDonAsync(
             string toEmail,
             string tenKhach,
             int maHoaDon,
-            decimal tongTien)
+            decimal tongTien,string tenCuaHang)
         {
             // Kiểm tra email nhận hợp lệ
             if (string.IsNullOrWhiteSpace(toEmail) || !toEmail.Contains("@"))
@@ -40,7 +40,7 @@ namespace MotorbikeServices.BLL.Services
                     </div>
                     <div style='padding: 20px;'>
                         <p>Kính gửi anh/chị <b>{tenKhach}</b>,</p>
-                        <p>Đơn đăng ký dịch vụ bảo dưỡng xe mã số <b>#{maHoaDon}</b> của anh/chị tại hệ thống <b>VehicleCare</b> đã được cửa hàng tiếp nhận và <b>DUYỆT THÀNH CÔNG</b>.</p>
+                        <p>Đơn đăng ký dịch vụ bảo dưỡng xe mã số <b>#{maHoaDon}</b> của anh/chị tại hệ thống <b>VehicleCare</b> đã được cửa hàng <b>{tenCuaHang}</b> tiếp nhận và <b>DUYỆT THÀNH CÔNG</b>.</p>
                         
                         <div style='background-color: #f9f9f9; padding: 15px; border-left: 4px solid #4CAF50; margin: 20px 0;'>
                             <p style='margin: 5px 0;'><b>Mã Hóa Đơn:</b> #{maHoaDon}</p>
@@ -51,7 +51,7 @@ namespace MotorbikeServices.BLL.Services
                         <p>Rất hân hạnh được phục vụ anh/chị. Vui lòng mang xe đến cửa hàng theo lịch để trải nghiệm dịch vụ tốt nhất.</p>
                         <br/>
                         <p style='margin-bottom: 0;'>Trân trọng,</p>
-                        <p style='margin-top: 5px;'><b>Hệ Thống Quản Lý Bảo Dưỡng VehicleCare</b></p>
+                        <p style='margin-top: 5px;'><b>Hệ Thống DAIDAIMOTOR</b></p>
                     </div>
                 </div>";
 
