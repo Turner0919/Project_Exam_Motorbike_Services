@@ -37,6 +37,7 @@ namespace MotorbikeServices.GUI.Setup
             lblLogo = new Label();
             pnlSidebar = new Panel();
             btnHoiAI = new Button();
+            btnCuaHang = new Button();
             btnAccount = new Button();
             btnQuyChuan = new Button();
             btnHangXe = new Button();
@@ -121,6 +122,7 @@ namespace MotorbikeServices.GUI.Setup
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.FromArgb(25, 57, 94);
+            pnlSidebar.Controls.Add(btnCuaHang);
             pnlSidebar.Controls.Add(btnHoiAI);
             pnlSidebar.Controls.Add(btnAccount);
             pnlSidebar.Controls.Add(btnQuyChuan);
@@ -134,6 +136,23 @@ namespace MotorbikeServices.GUI.Setup
             pnlSidebar.Size = new Size(260, 523);
             pnlSidebar.TabIndex = 1;
             // 
+            // btnCuaHang
+            // 
+            btnCuaHang.Cursor = Cursors.Hand;
+            btnCuaHang.FlatAppearance.BorderSize = 0;
+            btnCuaHang.FlatStyle = FlatStyle.Flat;
+            btnCuaHang.Font = new Font("Segoe UI", 9F);
+            btnCuaHang.ForeColor = Color.White;
+            btnCuaHang.Location = new Point(10, 255);
+            btnCuaHang.Name = "btnCuaHang";
+            btnCuaHang.Padding = new Padding(12, 0, 4, 0);
+            btnCuaHang.Size = new Size(240, 44);
+            btnCuaHang.TabIndex = 5;
+            btnCuaHang.Text = "🏪   Quản lý cửa hàng";
+            btnCuaHang.TextAlign = ContentAlignment.MiddleLeft;
+            btnCuaHang.UseVisualStyleBackColor = false;
+            btnCuaHang.Click += btnCuaHang_Click;
+            // 
             // btnHoiAI
             // 
             btnHoiAI.Cursor = Cursors.Hand;
@@ -141,7 +160,7 @@ namespace MotorbikeServices.GUI.Setup
             btnHoiAI.FlatStyle = FlatStyle.Flat;
             btnHoiAI.Font = new Font("Segoe UI", 9F);
             btnHoiAI.ForeColor = Color.White;
-            btnHoiAI.Location = new Point(10, 255);
+            btnHoiAI.Location = new Point(10, 305);
             btnHoiAI.Name = "btnHoiAI";
             btnHoiAI.Padding = new Padding(12, 0, 4, 0);
             btnHoiAI.Size = new Size(240, 44);
@@ -276,5 +295,6 @@ namespace MotorbikeServices.GUI.Setup
         private Button btnQuyChuan;
         private Button btnAccount;
         private Button btnHoiAI;
+        private Button btnCuaHang;
     }
 }

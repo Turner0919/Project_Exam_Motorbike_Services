@@ -189,6 +189,7 @@
             thốngKêToolStripMenuItem1.Name = "thốngKêToolStripMenuItem1";
             thốngKêToolStripMenuItem1.Size = new Size(86, 24);
             thốngKêToolStripMenuItem1.Text = "Thống Kê";
+            thốngKêToolStripMenuItem1.Click += thongKeToolStripMenuItem1_Click;
             // 
             // panelXam
             // 

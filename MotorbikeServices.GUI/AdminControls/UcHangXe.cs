@@ -33,8 +33,6 @@ namespace MotorbikeServices.GUI.AdminControls
             btnXoaDongXe.Click += btnXoaDongXe_Click;
             btnLamMoiDongXe.Click += btnLamMoiDongXe_Click;
 
-            splitMain.SizeChanged += splitMain_SizeChanged;
-
             LoadHangXe();
         }
 
@@ -87,16 +85,6 @@ namespace MotorbikeServices.GUI.AdminControls
 
             return Convert.ToInt32(
                 dgvDongXe.CurrentRow.Cells["IdDongXeAn"].Value);
-        }
-
-        // ==================== GIAO DIỆN ====================
-
-        private void splitMain_SizeChanged(object? sender, EventArgs e)
-        {
-            int maxWidth = splitMain.Width - splitMain.SplitterWidth;
-
-            if (maxWidth > 0)
-                splitMain.SplitterDistance = maxWidth / 2;
         }
 
         // ==================== HÃNG XE ====================

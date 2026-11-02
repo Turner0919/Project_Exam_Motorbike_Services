@@ -82,7 +82,7 @@
             pnlHeader.Controls.Add(lblDescription);
 
             lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("Segoe UI", 19F, FontStyle.Bold);
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(25, 45, 80);
             lblTitle.Location = new Point(2, 0);
             lblTitle.Name = "lblTitle";

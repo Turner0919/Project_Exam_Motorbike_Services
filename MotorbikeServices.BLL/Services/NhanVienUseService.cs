@@ -1,32 +1,37 @@
-﻿using MotorbikeServices.BLL.DTOs;
+﻿
+using MotorbikeServices.BLL.DTOs;
 using MotorbikeServices.DAL.Models;
 using MotorbikeServices.DAL.Models.Maintenance;
 using MotorbikeServices.DAL.Models.Store;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 
 namespace MotorbikeServices.BLL.Services
 {
     public class NhanVienUseService
     {
-        // 1. Lấy danh sách Tỉnh/TP (Không trùng lặp) từ bảng DiaChis
+        // 1. Lấy danh sách Tỉnh/TP
         public List<string> GetDanhSachTinhTP()
         {
             using (var db = new AppDbContext())
             {
-                return db.DiaChis.Select(d => d.TinhTP).Distinct().ToList();
+                return db.DiaChis
+                    .Select(d => d.TinhTP)
+                    .Distinct()
+                    .ToList();
             }
         }
 
-        // 2. Lấy danh sách Phường/Xã dựa theo Tỉnh/TP đã chọn
+        // 2. Lấy danh sách Phường/Xã theo Tỉnh/TP
         public List<DiaChi> GetDanhSachPhuongByTinh(string tinhTP)
         {
             using (var db = new AppDbContext())
             {
-                return db.DiaChis.Where(d => d.TinhTP == tinhTP).ToList();
+                return db.DiaChis
+                    .Where(d => d.TinhTP == tinhTP)
+                    .ToList();
             }
         }
 
@@ -35,8 +40,11 @@ namespace MotorbikeServices.BLL.Services
         {
             using (var db = new AppDbContext())
             {
-                var nv = db.NhanViens.FirstOrDefault(n => n.Id == nhanVienId);
-                if (nv == null) return null!;
+                var nv = db.NhanViens
+                    .FirstOrDefault(n => n.Id == nhanVienId);
+
+                if (nv == null)
+                    return null!;
 
                 var nvUse = db.NhanVienUses
                     .Include(u => u.DiaChi)
@@ -57,15 +65,22 @@ namespace MotorbikeServices.BLL.Services
             }
         }
 
-        // 4. Lưu / Cập nhật thông tin Cửa hàng
-        public (bool IsSuccess, string Message) CapNhatThongTinCuaHang(NhanVienUseDTO dto)
+        // 4. Lưu / Cập nhật thông tin cửa hàng
+        public (bool IsSuccess, string Message) CapNhatThongTinCuaHang(
+            NhanVienUseDTO dto)
         {
             using (var db = new AppDbContext())
             {
-                var nvUse = db.NhanVienUses.FirstOrDefault(u => u.NhanVienId == dto.NhanVienId);
+                var nvUse = db.NhanVienUses
+                    .FirstOrDefault(u => u.NhanVienId == dto.NhanVienId);
+
                 if (nvUse == null)
                 {
-                    nvUse = new NhanVienUse { NhanVienId = dto.NhanVienId };
+                    nvUse = new NhanVienUse
+                    {
+                        NhanVienId = dto.NhanVienId
+                    };
+
                     db.NhanVienUses.Add(nvUse);
                 }
 
@@ -76,7 +91,67 @@ namespace MotorbikeServices.BLL.Services
                 nvUse.SoCuaHang = dto.SoCuaHang.Trim();
 
                 db.SaveChanges();
+
                 return (true, "Cập nhật thông tin cửa hàng thành công!");
+            }
+        }
+
+        // 5. Lấy danh sách tất cả cửa hàng dành cho Admin
+        public List<NhanVienUseDTO> GetDanhSachCuaHang()
+        {
+            using (var db = new AppDbContext())
+            {
+                return db.NhanVienUses
+                    .Include(u => u.NhanVien)
+                    .Include(u => u.DiaChi)
+                    .OrderBy(u => u.NhanVienId)
+                    .Select(u => new NhanVienUseDTO
+                    {
+                        NhanVienId = u.NhanVienId,
+                        TenTaiKhoan = u.NhanVien.TenTaiKhoan,
+                        TenCuaHang = u.TenCuaHang ?? "",
+                        TrangThai = u.TrangThai ?? "",
+                        DiaChiId = u.DiaChiId,
+                        TinhTP = u.DiaChi != null
+                            ? u.DiaChi.TinhTP
+                            : "",
+                        PhuongXa = u.DiaChi != null
+                            ? u.DiaChi.PhuongXa
+                            : "",
+                        TenDuong = u.TenDuong ?? "",
+                        SoCuaHang = u.SoCuaHang ?? ""
+                    })
+                    .ToList();
+            }
+        }
+
+        // 6. Chỉ cập nhật trạng thái hoạt động của cửa hàng
+        public (bool IsSuccess, string Message) CapNhatTrangThaiCuaHang(
+            int nhanVienId,
+            string trangThai)
+        {
+            // Kiểm tra trạng thái hợp lệ
+            if (trangThai != "Đang hoạt động" &&
+                trangThai != "Tạm ngừng hoạt động")
+            {
+                return (false, "Trạng thái cửa hàng không hợp lệ.");
+            }
+
+            using (var db = new AppDbContext())
+            {
+                var cuaHang = db.NhanVienUses
+                    .FirstOrDefault(u => u.NhanVienId == nhanVienId);
+
+                if (cuaHang == null)
+                {
+                    return (false, "Không tìm thấy cửa hàng cần cập nhật.");
+                }
+
+                cuaHang.TrangThai = trangThai;
+
+                db.SaveChanges();
+
+                return (true, "Cập nhật trạng thái cửa hàng thành công.");
             }
         }
     }
