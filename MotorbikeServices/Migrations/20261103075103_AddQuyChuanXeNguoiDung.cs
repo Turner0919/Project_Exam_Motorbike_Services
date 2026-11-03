@@ -17,25 +17,33 @@ namespace MotorbikeServices.DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+
                     UserXeId = table.Column<int>(type: "int", nullable: false),
+
                     QuyChuanBaoDuongId = table.Column<int>(type: "int", nullable: false),
-                    NgayBaoDuongLanCuoi = table.Column<DateTime>(type: "datetime2", nullable: false)
+
+                    NgayBaoDuongLanCuoi = table.Column<DateTime>(
+                        type: "datetime2",
+                        nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_QuyChuanXeNguoiDungs", x => x.Id);
+                    table.PrimaryKey(
+                        "PK_QuyChuanXeNguoiDungs",
+                        x => x.Id);
+
                     table.ForeignKey(
                         name: "FK_QuyChuanXeNguoiDungs_QuyChuanBaoDuongs_QuyChuanBaoDuongId",
                         column: x => x.QuyChuanBaoDuongId,
                         principalTable: "QuyChuanBaoDuongs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+
                     table.ForeignKey(
                         name: "FK_QuyChuanXeNguoiDungs_UserXes_UserXeId",
                         column: x => x.UserXeId,
                         principalTable: "UserXes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

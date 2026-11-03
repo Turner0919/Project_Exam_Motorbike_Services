@@ -12,7 +12,7 @@ using MotorbikeServices.DAL.Models;
 namespace MotorbikeServices.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261102145651_AddQuyChuanXeNguoiDung")]
+    [Migration("20261103075103_AddQuyChuanXeNguoiDung")]
     partial class AddQuyChuanXeNguoiDung
     {
         /// <inheritdoc />
@@ -511,7 +511,7 @@ namespace MotorbikeServices.DAL.Migrations
                     b.HasOne("MotorbikeServices.DAL.Models.Maintenance.UserXe", "UserXe")
                         .WithMany()
                         .HasForeignKey("UserXeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("QuyChuanBaoDuong");

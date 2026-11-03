@@ -71,6 +71,18 @@ namespace MotorbikeServices.DAL.Models
                 .WithMany()
                 .HasForeignKey(ct => ct.SanPhamId)
                 .OnDelete(DeleteBehavior.Restrict);
+            // Cấu hình quan hệ QuyChuanXeNguoiDung
+            modelBuilder.Entity<QuyChuanXeNguoiDung>()
+                .HasOne(q => q.UserXe)
+                .WithMany()
+                .HasForeignKey(q => q.UserXeId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<QuyChuanXeNguoiDung>()
+                .HasOne(q => q.QuyChuanBaoDuong)
+                .WithMany()
+                .HasForeignKey(q => q.QuyChuanBaoDuongId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

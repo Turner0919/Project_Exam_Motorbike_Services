@@ -508,7 +508,7 @@ namespace MotorbikeServices.DAL.Migrations
                     b.HasOne("MotorbikeServices.DAL.Models.Maintenance.UserXe", "UserXe")
                         .WithMany()
                         .HasForeignKey("UserXeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("QuyChuanBaoDuong");
