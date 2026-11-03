@@ -165,8 +165,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void btnHoiAI_Click(object sender, EventArgs e)
         {
-            frmAIChat formAI = new frmAIChat();
-            formAI.ShowDialog();
+            
         }
         private void btnCuaHang_Click(object sender, EventArgs e)
         {

@@ -67,7 +67,7 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(1455, 94);
+            label1.Size = new Size(1663, 125);
             label1.TabIndex = 3;
             label1.Text = "Quản Lý Bảo Dưỡng";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -75,17 +75,19 @@
             // txtBienSoXe
             // 
             txtBienSoXe.Anchor = AnchorStyles.None;
-            txtBienSoXe.Location = new Point(177, 244);
+            txtBienSoXe.Location = new Point(202, 325);
+            txtBienSoXe.Margin = new Padding(3, 4, 3, 4);
             txtBienSoXe.Name = "txtBienSoXe";
-            txtBienSoXe.Size = new Size(235, 23);
+            txtBienSoXe.Size = new Size(268, 27);
             txtBienSoXe.TabIndex = 55;
             // 
             // txtHangXe
             // 
             txtHangXe.Anchor = AnchorStyles.None;
-            txtHangXe.Location = new Point(177, 180);
+            txtHangXe.Location = new Point(202, 240);
+            txtHangXe.Margin = new Padding(3, 4, 3, 4);
             txtHangXe.Name = "txtHangXe";
-            txtHangXe.Size = new Size(235, 23);
+            txtHangXe.Size = new Size(268, 27);
             txtHangXe.TabIndex = 54;
             // 
             // btnLamMoi
@@ -93,9 +95,10 @@
             btnLamMoi.Anchor = AnchorStyles.None;
             btnLamMoi.BackColor = Color.FromArgb(192, 255, 255);
             btnLamMoi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLamMoi.Location = new Point(987, 222);
+            btnLamMoi.Location = new Point(1128, 296);
+            btnLamMoi.Margin = new Padding(3, 4, 3, 4);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(139, 41);
+            btnLamMoi.Size = new Size(159, 55);
             btnLamMoi.TabIndex = 53;
             btnLamMoi.Text = "LÀM MỚI";
             btnLamMoi.UseVisualStyleBackColor = false;
@@ -104,9 +107,10 @@
             // txtTenQuyChuanDangChon
             // 
             txtTenQuyChuanDangChon.Anchor = AnchorStyles.None;
-            txtTenQuyChuanDangChon.Location = new Point(878, 137);
+            txtTenQuyChuanDangChon.Location = new Point(1025, 183);
+            txtTenQuyChuanDangChon.Margin = new Padding(3, 4, 3, 4);
             txtTenQuyChuanDangChon.Name = "txtTenQuyChuanDangChon";
-            txtTenQuyChuanDangChon.Size = new Size(295, 23);
+            txtTenQuyChuanDangChon.Size = new Size(337, 27);
             txtTenQuyChuanDangChon.TabIndex = 52;
             // 
             // label6
@@ -114,9 +118,9 @@
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label6.Location = new Point(678, 137);
+            label6.Location = new Point(775, 183);
             label6.Name = "label6";
-            label6.Size = new Size(189, 19);
+            label6.Size = new Size(228, 23);
             label6.TabIndex = 51;
             label6.Text = "Tên Quy Chuẩn Đang Chọn:";
             // 
@@ -125,9 +129,10 @@
             btnCapNhat.Anchor = AnchorStyles.None;
             btnCapNhat.BackColor = Color.FromArgb(0, 192, 0);
             btnCapNhat.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCapNhat.Location = new Point(842, 222);
+            btnCapNhat.Location = new Point(962, 296);
+            btnCapNhat.Margin = new Padding(3, 4, 3, 4);
             btnCapNhat.Name = "btnCapNhat";
-            btnCapNhat.Size = new Size(139, 41);
+            btnCapNhat.Size = new Size(159, 55);
             btnCapNhat.TabIndex = 50;
             btnCapNhat.Text = "CẬP NHẬT";
             btnCapNhat.UseVisualStyleBackColor = false;
@@ -136,9 +141,10 @@
             // dtpCapNhatNgayBaoDuong
             // 
             dtpCapNhatNgayBaoDuong.Anchor = AnchorStyles.None;
-            dtpCapNhatNgayBaoDuong.Location = new Point(878, 177);
+            dtpCapNhatNgayBaoDuong.Location = new Point(1025, 232);
+            dtpCapNhatNgayBaoDuong.Margin = new Padding(3, 4, 3, 4);
             dtpCapNhatNgayBaoDuong.Name = "dtpCapNhatNgayBaoDuong";
-            dtpCapNhatNgayBaoDuong.Size = new Size(295, 23);
+            dtpCapNhatNgayBaoDuong.Size = new Size(337, 27);
             dtpCapNhatNgayBaoDuong.TabIndex = 49;
             // 
             // label7
@@ -146,18 +152,19 @@
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label7.Location = new Point(678, 177);
+            label7.Location = new Point(775, 236);
             label7.Name = "label7";
-            label7.Size = new Size(194, 19);
+            label7.Size = new Size(233, 23);
             label7.TabIndex = 48;
             label7.Text = "Cập Nhật Ngày Bảo Dưỡng:";
             // 
             // txtLoaiXe
             // 
             txtLoaiXe.Anchor = AnchorStyles.None;
-            txtLoaiXe.Location = new Point(177, 212);
+            txtLoaiXe.Location = new Point(202, 283);
+            txtLoaiXe.Margin = new Padding(3, 4, 3, 4);
             txtLoaiXe.Name = "txtLoaiXe";
-            txtLoaiXe.Size = new Size(235, 23);
+            txtLoaiXe.Size = new Size(268, 27);
             txtLoaiXe.TabIndex = 47;
             // 
             // label5
@@ -165,9 +172,9 @@
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label5.Location = new Point(40, 212);
+            label5.Location = new Point(46, 283);
             label5.Name = "label5";
-            label5.Size = new Size(62, 19);
+            label5.Size = new Size(73, 23);
             label5.TabIndex = 46;
             label5.Text = "Loại Xe:";
             // 
@@ -176,9 +183,9 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label4.Location = new Point(40, 181);
+            label4.Location = new Point(46, 241);
             label4.Name = "label4";
-            label4.Size = new Size(70, 19);
+            label4.Size = new Size(83, 23);
             label4.TabIndex = 45;
             label4.Text = "Hãng Xe:";
             // 
@@ -187,9 +194,9 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            label3.Location = new Point(40, 244);
+            label3.Location = new Point(46, 325);
             label3.Name = "label3";
-            label3.Size = new Size(84, 19);
+            label3.Size = new Size(100, 23);
             label3.TabIndex = 44;
             label3.Text = "Biển Số Xe:";
             // 
@@ -197,10 +204,9 @@
             // 
             cboSttDanhSachXe.Anchor = AnchorStyles.None;
             cboSttDanhSachXe.FormattingEnabled = true;
-            cboSttDanhSachXe.Location = new Point(177, 141);
-            cboSttDanhSachXe.Margin = new Padding(3, 2, 3, 2);
+            cboSttDanhSachXe.Location = new Point(202, 188);
             cboSttDanhSachXe.Name = "cboSttDanhSachXe";
-            cboSttDanhSachXe.Size = new Size(151, 23);
+            cboSttDanhSachXe.Size = new Size(172, 28);
             cboSttDanhSachXe.TabIndex = 43;
             cboSttDanhSachXe.SelectedIndexChanged += cboSttDanhSachXe_SelectedIndexChanged;
             // 
@@ -209,9 +215,9 @@
             lblHangXe.Anchor = AnchorStyles.None;
             lblHangXe.AutoSize = true;
             lblHangXe.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblHangXe.Location = new Point(40, 142);
+            lblHangXe.Location = new Point(46, 189);
             lblHangXe.Name = "lblHangXe";
-            lblHangXe.Size = new Size(131, 19);
+            lblHangXe.Size = new Size(159, 23);
             lblHangXe.TabIndex = 42;
             lblHangXe.Text = "STT Danh Sách Xe:";
             // 
@@ -240,8 +246,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvLichBaoDuong.DefaultCellStyle = dataGridViewCellStyle2;
             dgvLichBaoDuong.EnableHeadersVisualStyles = false;
-            dgvLichBaoDuong.Location = new Point(40, 341);
-            dgvLichBaoDuong.Margin = new Padding(3, 2, 3, 2);
+            dgvLichBaoDuong.Location = new Point(46, 455);
             dgvLichBaoDuong.Name = "dgvLichBaoDuong";
             dgvLichBaoDuong.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -257,7 +262,7 @@
             dataGridViewCellStyle4.ForeColor = Color.White;
             dgvLichBaoDuong.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvLichBaoDuong.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLichBaoDuong.Size = new Size(1318, 265);
+            dgvLichBaoDuong.Size = new Size(1506, 353);
             dgvLichBaoDuong.TabIndex = 41;
             dgvLichBaoDuong.CellClick += dgvLichBaoDuong_CellClick;
             dgvLichBaoDuong.CellFormatting += dgvLichBaoDuong_CellFormatting;
@@ -315,9 +320,9 @@
             lblThongBaoTrangThai.Anchor = AnchorStyles.None;
             lblThongBaoTrangThai.AutoSize = true;
             lblThongBaoTrangThai.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lblThongBaoTrangThai.Location = new Point(40, 309);
+            lblThongBaoTrangThai.Location = new Point(46, 412);
             lblThongBaoTrangThai.Name = "lblThongBaoTrangThai";
-            lblThongBaoTrangThai.Size = new Size(168, 20);
+            lblThongBaoTrangThai.Size = new Size(207, 25);
             lblThongBaoTrangThai.TabIndex = 40;
             lblThongBaoTrangThai.Text = "lblThongBaoTrangThai";
             // 
@@ -326,17 +331,17 @@
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(16, 110);
+            label2.Location = new Point(18, 147);
             label2.Name = "label2";
-            label2.Size = new Size(174, 17);
+            label2.Size = new Size(222, 23);
             label2.TabIndex = 39;
             label2.Text = "Chọn chiếc xe cần kiểm tra:";
             // 
             // FormQuanLyBaoDuong
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1455, 654);
+            ClientSize = new Size(1663, 872);
             Controls.Add(txtBienSoXe);
             Controls.Add(txtHangXe);
             Controls.Add(btnLamMoi);
@@ -355,6 +360,7 @@
             Controls.Add(lblThongBaoTrangThai);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormQuanLyBaoDuong";
             Text = "FormQuanLyBaoDuong";
             Load += FormQuanLyBaoDuong_Load;
