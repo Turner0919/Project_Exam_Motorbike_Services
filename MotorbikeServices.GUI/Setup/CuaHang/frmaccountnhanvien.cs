@@ -11,6 +11,7 @@ using MotorbikeServices.BLL.DTOs;
 using MotorbikeServices.BLL.Services;
 using ClosedXML.Excel;
 using System.IO;
+using System.Threading.Tasks;
 namespace MotorbikeServices.GUI.Setup.CuaHang
 {
     public partial class frmaccountnhanvien : Form
@@ -62,110 +63,124 @@ namespace MotorbikeServices.GUI.Setup.CuaHang
             OpenChildForm(new FormDanhSachBaoDuong(_currentNhanVienId));
         }
 
-
-        private void mnuThongKe_Click(object sender, EventArgs e)
+        private async void mnuThongKe_Click(object sender, EventArgs e)
         {
-            try
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
             {
-                // 1. Lấy danh sách sản phẩm của cửa hàng
-                SanPhamService sanPhamService = new SanPhamService();
+                saveDialog.Title = "Xuất thống kê sản phẩm";
+                saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+                saveDialog.DefaultExt = "xlsx";
+                saveDialog.AddExtension = true;
+                saveDialog.FileName =
+                    $"ThongKeSanPham_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
 
-                List<SanPhamDTO> danhSach =
-                    sanPhamService.GetSanPhamByNhanVien(_currentNhanVienId);
+                if (saveDialog.ShowDialog() != DialogResult.OK)
+                    return;
 
-                // 2. Chọn vị trí lưu file
-                using (SaveFileDialog saveDialog = new SaveFileDialog())
+                try
                 {
-                    saveDialog.Title = "Xuất thống kê sản phẩm";
-                    saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
-                    saveDialog.FileName =
-                        $"ThongKeSanPham_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+                    // Tránh người dùng nhấn xuất nhiều lần
+                    mnuThongKe.Enabled = false;
+                    Cursor = Cursors.WaitCursor;
 
-                    if (saveDialog.ShowDialog() != DialogResult.OK)
-                        return;
+                    string duongDan = saveDialog.FileName;
 
-                    // 3. Tạo Workbook và Worksheet
-                    using (XLWorkbook workbook = new XLWorkbook())
+                    // 1. Truy vấn sản phẩm trên luồng nền
+                    List<SanPhamDTO> danhSach = await Task.Run(() =>
                     {
-                        var worksheet = workbook.Worksheets.Add("ThongKeSanPham");
+                        SanPhamService sanPhamService = new SanPhamService();
 
-                        // 4. Tiêu đề báo cáo
-                        worksheet.Cell("A1").Value = "THỐNG KÊ SẢN PHẨM";
-                        worksheet.Range("A1:D1").Merge();
+                        return sanPhamService.GetSanPhamByNhanVien(
+                            _currentNhanVienId);
+                    });
 
-                        worksheet.Cell("A2").Value = "Tổng số sản phẩm:";
-                        worksheet.Cell("B2").Value = danhSach.Count;
+                    if (danhSach == null)
+                        throw new Exception("Không lấy được danh sách sản phẩm.");
 
-                        // 5. Tiêu đề bảng
-                        worksheet.Cell("A4").Value = "Mã SP";
-                        worksheet.Cell("B4").Value = "Tên Sản Phẩm";
-                        worksheet.Cell("C4").Value = "Đơn Giá";
-                        worksheet.Cell("D4").Value = "SL Tồn";
-
-                        // 6. Ghi dữ liệu sản phẩm
-                        for (int i = 0; i < danhSach.Count; i++)
+                    // 2. Tạo và lưu Excel trên luồng nền
+                    await Task.Run(() =>
+                    {
+                        using (XLWorkbook workbook = new XLWorkbook())
                         {
-                            var sp = danhSach[i];
-                            int dong = i + 5;
+                            var worksheet =
+                                workbook.Worksheets.Add("ThongKeSanPham");
 
-                            worksheet.Cell(dong, 1).Value = sp.MaSP;
-                            worksheet.Cell(dong, 2).Value = sp.TenSanPham;
-                            worksheet.Cell(dong, 3).Value = sp.DonGia;
-                            worksheet.Cell(dong, 4).Value = sp.SoLuongTon;
-                        }
+                            worksheet.Cell("A1").Value = "THỐNG KÊ SẢN PHẨM";
+                            worksheet.Range("A1:D1").Merge();
 
-                        // 7. Định dạng tiêu đề báo cáo
-                        var tieuDe = worksheet.Range("A1:D1");
-                        tieuDe.Style.Font.Bold = true;
-                        tieuDe.Style.Font.FontSize = 16;
-                        tieuDe.Style.Alignment.Horizontal =
-                            XLAlignmentHorizontalValues.Center;
+                            worksheet.Cell("A2").Value = "Tổng số sản phẩm:";
+                            worksheet.Cell("B2").Value = danhSach.Count;
 
-                        // 8. Định dạng tiêu đề bảng
-                        var tieuDeBang = worksheet.Range("A4:D4");
-                        tieuDeBang.Style.Font.Bold = true;
-                        tieuDeBang.Style.Fill.BackgroundColor = XLColor.LightBlue;
-                        tieuDeBang.Style.Alignment.Horizontal =
-                            XLAlignmentHorizontalValues.Center;
+                            worksheet.Cell("A4").Value = "Mã SP";
+                            worksheet.Cell("B4").Value = "Tên Sản Phẩm";
+                            worksheet.Cell("C4").Value = "Đơn Giá";
+                            worksheet.Cell("D4").Value = "SL Tồn";
 
-                        // 9. Định dạng dữ liệu
-                        if (danhSach.Count > 0)
-                        {
-                            int dongCuoi = danhSach.Count + 4;
+                            for (int i = 0; i < danhSach.Count; i++)
+                            {
+                                var sp = danhSach[i];
+                                int dong = i + 5;
 
-                            // Định dạng đơn giá
-                            worksheet.Range($"C5:C{dongCuoi}")
-                                .Style.NumberFormat.Format = "#,##0 \"VNĐ\"";
+                                worksheet.Cell(dong, 1).Value = sp.MaSP;
+                                worksheet.Cell(dong, 2).Value = sp.TenSanPham;
+                                worksheet.Cell(dong, 3).Value = sp.DonGia;
+                                worksheet.Cell(dong, 4).Value = sp.SoLuongTon;
+                            }
 
-                            // Căn giữa số lượng tồn
-                            worksheet.Range($"D5:D{dongCuoi}")
-                                .Style.Alignment.Horizontal =
+                            // Định dạng tiêu đề
+                            var tieuDe = worksheet.Range("A1:D1");
+                            tieuDe.Style.Font.Bold = true;
+                            tieuDe.Style.Font.FontSize = 16;
+                            tieuDe.Style.Alignment.Horizontal =
                                 XLAlignmentHorizontalValues.Center;
+
+                            // Định dạng tiêu đề bảng
+                            var tieuDeBang = worksheet.Range("A4:D4");
+                            tieuDeBang.Style.Font.Bold = true;
+                            tieuDeBang.Style.Fill.BackgroundColor = XLColor.LightBlue;
+                            tieuDeBang.Style.Alignment.Horizontal =
+                                XLAlignmentHorizontalValues.Center;
+
+                            // Định dạng dữ liệu
+                            if (danhSach.Count > 0)
+                            {
+                                int dongCuoi = danhSach.Count + 4;
+
+                                worksheet.Range($"C5:C{dongCuoi}")
+                                    .Style.NumberFormat.Format = "#,##0 \"VNĐ\"";
+
+                                worksheet.Range($"D5:D{dongCuoi}")
+                                    .Style.Alignment.Horizontal =
+                                    XLAlignmentHorizontalValues.Center;
+                            }
+
+                            // Chỉ điều chỉnh 4 cột
+                            worksheet.Columns(1, 4).AdjustToContents();
+
+                            workbook.SaveAs(duongDan);
                         }
-
-                        // 10. Điều chỉnh độ rộng cột
-                        worksheet.Columns().AdjustToContents();
-
-                        // 11. Lưu file Excel
-                        workbook.SaveAs(saveDialog.FileName);
-                    }
+                    });
 
                     MessageBox.Show(
-                        "Xuất thống kê sản phẩm thành công!",
+                        $"Xuất thống kê thành công!\nTổng số sản phẩm: {danhSach.Count}",
                         "Thông báo",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Lỗi khi xuất Excel: " + ex.Message,
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Lỗi khi xuất Excel:\n" + ex.ToString(),
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    mnuThongKe.Enabled = true;
+                    Cursor = Cursors.Default;
+                }
             }
         }
-
     }
 }
