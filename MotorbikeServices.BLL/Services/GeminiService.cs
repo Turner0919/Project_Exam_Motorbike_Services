@@ -1,102 +1,83 @@
 ﻿using System;
+using System.Configuration;
 using System.Net.Http;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using System.Configuration;
 
 namespace MotorbikeServices.BLL.Services
 {
     public class GeminiService
     {
-        // Đọc Key từ App.config thông qua key "GeminiApiKey"
-        private readonly string API_KEY = ConfigurationManager.AppSettings["GeminiApiKey"] ?? "";
-        private readonly string API_URL;
-
-
-        private readonly HttpClient _httpClient;
-
-        public GeminiService()
+        private static string API_KEY => ConfigurationManager.AppSettings["GeminiApiKey"] ?? "";
+        private static readonly HttpClient _httpClient = new HttpClient
         {
-            _httpClient = new HttpClient();
-            API_URL = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={API_KEY}";
-        }
+            Timeout = TimeSpan.FromSeconds(30)
+        };
 
-        public async Task<string> AskAIAsync(string userPrompt)
+        // Bổ sung tham số historyChat (mặc định là rỗng)
+        public async Task<string> GetTuVanXeAsync(string userMessage, string contextDataUser = "", string historyChat = "")
         {
+            if (string.IsNullOrWhiteSpace(API_KEY))
+            {
+                return "Chưa cấu hình GeminiApiKey trong App.config! Vui lòng bổ sung API Key.";
+            }
+
             try
             {
-                string systemInstruction = "Bạn là trợ lý AI thông minh trong phần mềm Quản lý & Bảo dưỡng xe máy. Hãy trả lời ngắn gọn, lịch sự bằng tiếng Việt.";
-                string fullPrompt = $"{systemInstruction}\n\nNgười dùng hỏi: {userPrompt}";
+                string endpoint = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key={API_KEY}";
 
-                // Tạo đối tượng request chuẩn
-                var requestObj = new GeminiRequest
+                // Bơm dữ liệu CSDL + Lịch sử trò chuyện cũ vào Prompt
+                string systemPrompt =   "Bạn là Trợ lý Kỹ thuật viên Bảo dưỡng Xe máy Chuyên nghiệp của hệ thống DAIDAIMOTOR.\n" +
+                                        "DƯỚI ĐÂY LÀ DỮ LIỆU THỰC TẾ VỀ XE, LỊCH BẢO DƯỠNG VÀ CÁC ĐƠN HÀNG / HÓA ĐƠN ĐÃ ĐẶT CỦA KHÁCH HÀNG:\n" +
+                                        $"--- DỮ LIỆU CSDL KHÁCH HÀNG ---\n{contextDataUser}\n-------------------------------\n" +
+                                        (string.IsNullOrWhiteSpace(historyChat) ? "" : $"--- LỊCH SỬ HỘI THOẠI TRƯỚC ĐÓ ---\n{historyChat}\n-----------------------------------\n") +
+                                        "HƯỚNG DẪN TRẢ LỜI:\n" +
+                                        "1. Trả lời thân thiện, ngắn gọn, chính xác chuyên môn về xe máy và các dịch vụ của DAIDAIMOTOR.\n" +
+                                        "2. Khi khách hỏi về ĐƠN ĐÃ ĐẶT (lịch sử đặt đơn, đơn đã duyệt, đơn đã hủy...), hãy tra cứu dữ liệu CSDL ở trên để trả lời rõ Mã đơn, Cửa hàng, Ngày đặt, Tổng tiền, Trạng thái và các sản phẩm/dịch vụ chi tiết.\n" +
+                                        "3. Dựa vào dữ liệu CSDL để nhắc nhở các xe hoặc hạng mục bảo dưỡng đã Quá hạn hoặc Sắp tới hạn.\n" +
+                                        "4. Kết hợp LỊCH SỬ HỘI THOẠI để hiểu ngữ cảnh những câu hỏi tiếp theo của khách hàng.\n\n" +
+                                        $"Câu hỏi mới nhất của khách hàng: {userMessage}";
+
+                var requestBody = new
                 {
-                    contents = new List<Content>
+                    contents = new[]
                     {
-                        new Content
+                        new
                         {
-                            parts = new List<Part>
+                            parts = new[]
                             {
-                                new Part { text = fullPrompt }
+                                new { text = systemPrompt }
                             }
                         }
                     }
                 };
 
-                string jsonContent = JsonConvert.SerializeObject(requestObj);
+                string jsonContent = JsonConvert.SerializeObject(requestBody);
                 var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await _httpClient.PostAsync(API_URL, content);
+                var response = await _httpClient.PostAsync(endpoint, content);
                 string responseJson = await response.Content.ReadAsStringAsync();
 
-                if (!response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
-                    return $"Lỗi API ({response.StatusCode}): {responseJson}";
+                    dynamic result = JsonConvert.DeserializeObject(responseJson);
+                    string aiReply = result.candidates[0].content.parts[0].text;
+                    return aiReply.ToString().Trim();
                 }
-
-                // Parse JSON an toàn bằng Class DTO (không dùng dynamic)
-                var result = JsonConvert.DeserializeObject<GeminiResponse>(responseJson);
-
-                if (result?.candidates != null && result.candidates.Count > 0 &&
-                    result.candidates[0].content?.parts != null && result.candidates[0].content.parts.Count > 0)
+                else
                 {
-                    return result.candidates[0].content.parts[0].text.Trim();
+                    return $"Lỗi Google API ({response.StatusCode}): {responseJson}";
                 }
-
-                return "AI không trả lời được câu hỏi này.";
+            }
+            catch (TaskCanceledException)
+            {
+                return "Lỗi: Kết nối API bị quá thời gian (Timeout). Vui lòng kiểm tra lại mạng internet!";
             }
             catch (Exception ex)
             {
-                return $"Đã xảy ra lỗi: {ex.Message}";
+                return $"Lỗi kết nối AI: {ex.Message}";
             }
         }
-    }
-
-    // Các lớp DTO để đọc JSON an toàn
-    public class GeminiRequest
-    {
-        public List<Content> contents { get; set; }
-    }
-
-    public class GeminiResponse
-    {
-        public List<Candidate> candidates { get; set; }
-    }
-
-    public class Candidate
-    {
-        public Content content { get; set; }
-    }
-
-    public class Content
-    {
-        public List<Part> parts { get; set; }
-    }
-
-    public class Part
-    {
-        public string text { get; set; }
     }
 }

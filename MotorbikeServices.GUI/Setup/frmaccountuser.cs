@@ -32,7 +32,7 @@ namespace MotorbikeServices.GUI.Setup
             btnThongTinCaNhan.Visible = true;
             btnDangKyXeMoi.Visible = true;
             btnLichSuSuaChua.Visible = true;
-            btnGopY.Visible = true;
+            btnTroLyAo.Visible = true;
             panel1.Visible = true;
             panel1.BringToFront();
 
@@ -82,7 +82,7 @@ namespace MotorbikeServices.GUI.Setup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new frmGopY(), panelMain);
+            OpenChildForm(new FormAIChatUser(_currentUserId), panelMain);
             ShowHomeButtonOnly();
         }
 
@@ -100,7 +100,7 @@ namespace MotorbikeServices.GUI.Setup
             btnLichSuSuaChua.Visible = false;
             btnDangKyBaoDuongXe.Visible = false;
             btnKiemTraDonDaDat.Visible = false;
-            btnGopY.Visible = false;
+            btnTroLyAo.Visible = false;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -111,7 +111,7 @@ namespace MotorbikeServices.GUI.Setup
             btnLichSuSuaChua.Visible = true;
             btnDangKyBaoDuongXe.Visible = true;
             btnKiemTraDonDaDat.Visible = true;
-            btnGopY.Visible = true;
+            btnTroLyAo.Visible = true;
         }
 
         private void btnDangKyXeMoi_Click(object sender, EventArgs e)

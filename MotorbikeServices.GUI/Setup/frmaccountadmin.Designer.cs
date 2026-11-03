@@ -117,7 +117,7 @@ namespace MotorbikeServices.GUI.Setup
             lblLogo.Name = "lblLogo";
             lblLogo.Size = new Size(168, 38);
             lblLogo.TabIndex = 0;
-            lblLogo.Text = "VehicleCare";
+            lblLogo.Text = "DAIDAIMOTOR";
             // 
             // pnlSidebar
             // 
@@ -270,7 +270,7 @@ namespace MotorbikeServices.GUI.Setup
             MinimumSize = new Size(1100, 650);
             Name = "frmaccountadmin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "VehicleCare Admin";
+            Text = "DAIDAIMOTOR Admin";
             WindowState = FormWindowState.Maximized;
             tlpMain.ResumeLayout(false);
             pnlHeader.ResumeLayout(false);

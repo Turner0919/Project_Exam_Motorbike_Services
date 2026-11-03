@@ -70,7 +70,8 @@ namespace MotorbikeServices.GUI.SETUP
         }
         private void frmlogin_Load(object sender, EventArgs e)
         {
-
+            txtMatKhau.UseSystemPasswordChar = true;
+            pic1.Image = Properties.Resources.eye_close;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -169,6 +170,24 @@ namespace MotorbikeServices.GUI.SETUP
 
         private void txtTaiKhoan_TextChanged(object sender, EventArgs e)
         {
+        }
+        private bool _isHidePassword = true;
+        private void pic1_Click(object sender, EventArgs e)
+        {
+            _isHidePassword = !_isHidePassword;
+
+            if (_isHidePassword)
+            {
+                // Ẩn mật khẩu (hiển thị dấu chấm/sao)
+                txtMatKhau.UseSystemPasswordChar = true;
+                pic1.Image = Properties.Resources.eye_close; 
+            }
+            else
+            {
+                // Hiện mật khẩu rõ chữ
+                txtMatKhau.UseSystemPasswordChar = false;
+                pic1.Image = Properties.Resources.eye; 
+            }
         }
     }
 }

@@ -33,7 +33,7 @@
             lblLogo = new Label();
             btnLichSuSuaChua = new Button();
             btnThongTinCaNhan = new Button();
-            btnGopY = new Button();
+            btnTroLyAo = new Button();
             lblSubtitle = new Label();
             button2 = new Button();
             panel2 = new Panel();
@@ -86,7 +86,7 @@
             lblLogo.Name = "lblLogo";
             lblLogo.Size = new Size(168, 38);
             lblLogo.TabIndex = 2;
-            lblLogo.Text = "VehicleCare";
+            lblLogo.Text = "DAIDAIMOTOR";
             // 
             // btnLichSuSuaChua
             // 
@@ -118,20 +118,20 @@
             btnThongTinCaNhan.UseVisualStyleBackColor = false;
             btnThongTinCaNhan.Click += btnThongTinCaNhan_Click;
             // 
-            // btnGopY
+            // btnTroLyAo
             // 
-            btnGopY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnGopY.FlatAppearance.BorderSize = 0;
-            btnGopY.FlatStyle = FlatStyle.Flat;
-            btnGopY.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            btnGopY.ForeColor = Color.White;
-            btnGopY.Location = new Point(-3, 496);
-            btnGopY.Name = "btnGopY";
-            btnGopY.Size = new Size(233, 59);
-            btnGopY.TabIndex = 12;
-            btnGopY.Text = "Góp ý";
-            btnGopY.UseVisualStyleBackColor = true;
-            btnGopY.Click += button1_Click;
+            btnTroLyAo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnTroLyAo.FlatAppearance.BorderSize = 0;
+            btnTroLyAo.FlatStyle = FlatStyle.Flat;
+            btnTroLyAo.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            btnTroLyAo.ForeColor = Color.White;
+            btnTroLyAo.Location = new Point(-3, 496);
+            btnTroLyAo.Name = "btnTroLyAo";
+            btnTroLyAo.Size = new Size(233, 59);
+            btnTroLyAo.TabIndex = 12;
+            btnTroLyAo.Text = "Trợ Lý AI";
+            btnTroLyAo.UseVisualStyleBackColor = true;
+            btnTroLyAo.Click += button1_Click;
             // 
             // lblSubtitle
             // 
@@ -168,7 +168,7 @@
             panel2.Controls.Add(lblMenuTitle);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(lblSubtitle);
-            panel2.Controls.Add(btnGopY);
+            panel2.Controls.Add(btnTroLyAo);
             panel2.Controls.Add(btnThongTinCaNhan);
             panel2.Controls.Add(btnLichSuSuaChua);
             panel2.Controls.Add(lblLogo);
@@ -293,7 +293,7 @@
         private Label lblLogo;
         private Button btnLichSuSuaChua;
         private Button btnThongTinCaNhan;
-        private Button btnGopY;
+        private Button btnTroLyAo;
         private Label lblSubtitle;
         private Button button2;
         private Panel panel2;

@@ -45,6 +45,11 @@
             cboDongXe = new ComboBox();
             label4 = new Label();
             dgvDanhSachXe = new DataGridView();
+            STT = new DataGridViewTextBoxColumn();
+            TenHangXe = new DataGridViewTextBoxColumn();
+            TenDongXe = new DataGridViewTextBoxColumn();
+            BienSoXe = new DataGridViewTextBoxColumn();
+            NgayMuaXe = new DataGridViewTextBoxColumn();
             btnLamMoi = new Button();
             btnXoa = new Button();
             btnSua = new Button();
@@ -54,11 +59,6 @@
             label5 = new Label();
             label3 = new Label();
             txtBienSoXe = new TextBox();
-            STT = new DataGridViewTextBoxColumn();
-            TenHangXe = new DataGridViewTextBoxColumn();
-            TenDongXe = new DataGridViewTextBoxColumn();
-            BienSoXe = new DataGridViewTextBoxColumn();
-            NgayMuaXe = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachXe).BeginInit();
@@ -171,6 +171,7 @@
             dgvDanhSachXe.EnableHeadersVisualStyles = false;
             dgvDanhSachXe.Location = new Point(479, 60);
             dgvDanhSachXe.Name = "dgvDanhSachXe";
+            dgvDanhSachXe.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = Color.Blue;
             dataGridViewCellStyle8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
@@ -188,6 +189,52 @@
             dgvDanhSachXe.Size = new Size(1172, 516);
             dgvDanhSachXe.TabIndex = 24;
             dgvDanhSachXe.CellClick += dgvDanhSachXe_CellClick;
+            // 
+            // STT
+            // 
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            STT.DefaultCellStyle = dataGridViewCellStyle2;
+            STT.HeaderText = "STT";
+            STT.MinimumWidth = 6;
+            STT.Name = "STT";
+            STT.ReadOnly = true;
+            // 
+            // TenHangXe
+            // 
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            TenHangXe.DefaultCellStyle = dataGridViewCellStyle3;
+            TenHangXe.HeaderText = "Hãng Xe";
+            TenHangXe.MinimumWidth = 6;
+            TenHangXe.Name = "TenHangXe";
+            TenHangXe.ReadOnly = true;
+            // 
+            // TenDongXe
+            // 
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            TenDongXe.DefaultCellStyle = dataGridViewCellStyle4;
+            TenDongXe.HeaderText = "Dòng Xe";
+            TenDongXe.MinimumWidth = 6;
+            TenDongXe.Name = "TenDongXe";
+            TenDongXe.ReadOnly = true;
+            // 
+            // BienSoXe
+            // 
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            BienSoXe.DefaultCellStyle = dataGridViewCellStyle5;
+            BienSoXe.HeaderText = "Biển Số Xe";
+            BienSoXe.MinimumWidth = 6;
+            BienSoXe.Name = "BienSoXe";
+            BienSoXe.ReadOnly = true;
+            // 
+            // NgayMuaXe
+            // 
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
+            NgayMuaXe.DefaultCellStyle = dataGridViewCellStyle6;
+            NgayMuaXe.HeaderText = "Ngày Mua Xe";
+            NgayMuaXe.MinimumWidth = 6;
+            NgayMuaXe.Name = "NgayMuaXe";
+            NgayMuaXe.ReadOnly = true;
             // 
             // btnLamMoi
             // 
@@ -286,47 +333,6 @@
             txtBienSoXe.Name = "txtBienSoXe";
             txtBienSoXe.Size = new Size(242, 27);
             txtBienSoXe.TabIndex = 12;
-            // 
-            // STT
-            // 
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            STT.DefaultCellStyle = dataGridViewCellStyle2;
-            STT.HeaderText = "STT";
-            STT.MinimumWidth = 6;
-            STT.Name = "STT";
-            // 
-            // TenHangXe
-            // 
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            TenHangXe.DefaultCellStyle = dataGridViewCellStyle3;
-            TenHangXe.HeaderText = "Hãng Xe";
-            TenHangXe.MinimumWidth = 6;
-            TenHangXe.Name = "TenHangXe";
-            // 
-            // TenDongXe
-            // 
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            TenDongXe.DefaultCellStyle = dataGridViewCellStyle4;
-            TenDongXe.HeaderText = "Dòng Xe";
-            TenDongXe.MinimumWidth = 6;
-            TenDongXe.Name = "TenDongXe";
-            // 
-            // BienSoXe
-            // 
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            BienSoXe.DefaultCellStyle = dataGridViewCellStyle5;
-            BienSoXe.HeaderText = "Biển Số Xe";
-            BienSoXe.MinimumWidth = 6;
-            BienSoXe.Name = "BienSoXe";
-            // 
-            // NgayMuaXe
-            // 
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
-            NgayMuaXe.DefaultCellStyle = dataGridViewCellStyle6;
-            NgayMuaXe.HeaderText = "Ngày Mua Xe";
-            NgayMuaXe.MinimumWidth = 6;
-            NgayMuaXe.Name = "NgayMuaXe";
             // 
             // formDangKyXe
             // 

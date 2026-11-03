@@ -40,7 +40,7 @@ namespace MotorbikeServices.BLL.Services
                     </div>
                     <div style='padding: 20px;'>
                         <p>Kính gửi anh/chị <b>{tenKhach}</b>,</p>
-                        <p>Đơn đăng ký dịch vụ bảo dưỡng xe mã số <b>#{maHoaDon}</b> của anh/chị tại hệ thống <b>VehicleCare</b> đã được cửa hàng <b>{tenCuaHang}</b> tiếp nhận và <b>DUYỆT THÀNH CÔNG</b>.</p>
+                        <p>Đơn đăng ký dịch vụ bảo dưỡng xe mã số <b>#{maHoaDon}</b> của anh/chị tại hệ thống <b>DAIDAIMOTOR</b> đã được cửa hàng <b>{tenCuaHang}</b> tiếp nhận và <b>DUYỆT THÀNH CÔNG</b>.</p>
                         
                         <div style='background-color: #f9f9f9; padding: 15px; border-left: 4px solid #4CAF50; margin: 20px 0;'>
                             <p style='margin: 5px 0;'><b>Mã Hóa Đơn:</b> #{maHoaDon}</p>

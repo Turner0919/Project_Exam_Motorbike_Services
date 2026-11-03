@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmsignup));
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             btnHuy = new Button();
@@ -64,11 +65,12 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(882, 565);
+            tableLayoutPanel1.Size = new Size(1066, 582);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
+            panel1.BackColor = Color.FromArgb(255, 192, 192);
             panel1.Controls.Add(btnHuy);
             panel1.Controls.Add(btnDangKy);
             panel1.Controls.Add(txtDapAnChoCauHoi);
@@ -87,9 +89,9 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(444, 3);
+            panel1.Location = new Point(536, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(435, 559);
+            panel1.Size = new Size(527, 576);
             panel1.TabIndex = 0;
             // 
             // btnHuy
@@ -97,7 +99,7 @@
             btnHuy.BackColor = Color.DarkGray;
             btnHuy.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnHuy.ForeColor = SystemColors.ButtonHighlight;
-            btnHuy.Location = new Point(215, 487);
+            btnHuy.Location = new Point(260, 496);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(146, 52);
             btnHuy.TabIndex = 17;
@@ -110,7 +112,7 @@
             btnDangKy.BackColor = Color.FromArgb(0, 0, 192);
             btnDangKy.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnDangKy.ForeColor = SystemColors.ButtonHighlight;
-            btnDangKy.Location = new Point(63, 487);
+            btnDangKy.Location = new Point(108, 496);
             btnDangKy.Name = "btnDangKy";
             btnDangKy.Size = new Size(146, 52);
             btnDangKy.TabIndex = 16;
@@ -120,7 +122,7 @@
             // 
             // txtDapAnChoCauHoi
             // 
-            txtDapAnChoCauHoi.Location = new Point(12, 443);
+            txtDapAnChoCauHoi.Location = new Point(57, 452);
             txtDapAnChoCauHoi.Name = "txtDapAnChoCauHoi";
             txtDapAnChoCauHoi.PlaceholderText = "Viết thường, không dấu, không khoảng cách...";
             txtDapAnChoCauHoi.Size = new Size(395, 27);
@@ -130,7 +132,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label8.Location = new Point(12, 415);
+            label8.Location = new Point(57, 424);
             label8.Name = "label8";
             label8.Size = new Size(169, 25);
             label8.TabIndex = 14;
@@ -138,7 +140,7 @@
             // 
             // txtDatCauHoi
             // 
-            txtDatCauHoi.Location = new Point(12, 385);
+            txtDatCauHoi.Location = new Point(57, 394);
             txtDatCauHoi.Name = "txtDatCauHoi";
             txtDatCauHoi.PlaceholderText = "Dành cho trường hợp quên mật khẩu...";
             txtDatCauHoi.Size = new Size(395, 27);
@@ -148,7 +150,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label7.Location = new Point(12, 357);
+            label7.Location = new Point(57, 366);
             label7.Name = "label7";
             label7.Size = new Size(106, 25);
             label7.TabIndex = 12;
@@ -156,7 +158,7 @@
             // 
             // txtXacNhanMatKhau
             // 
-            txtXacNhanMatKhau.Location = new Point(12, 327);
+            txtXacNhanMatKhau.Location = new Point(57, 336);
             txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
             txtXacNhanMatKhau.Size = new Size(395, 27);
             txtXacNhanMatKhau.TabIndex = 11;
@@ -166,7 +168,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label6.Location = new Point(12, 299);
+            label6.Location = new Point(57, 308);
             label6.Name = "label6";
             label6.Size = new Size(171, 25);
             label6.TabIndex = 10;
@@ -174,7 +176,7 @@
             // 
             // txtMatKhau
             // 
-            txtMatKhau.Location = new Point(12, 269);
+            txtMatKhau.Location = new Point(57, 278);
             txtMatKhau.Name = "txtMatKhau";
             txtMatKhau.PlaceholderText = "Tối thiểu 8 ký tự...";
             txtMatKhau.Size = new Size(395, 27);
@@ -185,7 +187,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label5.Location = new Point(12, 241);
+            label5.Location = new Point(57, 250);
             label5.Name = "label5";
             label5.Size = new Size(91, 25);
             label5.TabIndex = 8;
@@ -193,7 +195,7 @@
             // 
             // txtKeyAdmin
             // 
-            txtKeyAdmin.Location = new Point(12, 211);
+            txtKeyAdmin.Location = new Point(57, 220);
             txtKeyAdmin.Name = "txtKeyAdmin";
             txtKeyAdmin.PlaceholderText = "Key do Boss cung cấp...";
             txtKeyAdmin.Size = new Size(395, 27);
@@ -203,7 +205,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label4.Location = new Point(12, 183);
+            label4.Location = new Point(57, 192);
             label4.Name = "label4";
             label4.Size = new Size(102, 25);
             label4.TabIndex = 6;
@@ -213,7 +215,7 @@
             // 
             cboTaoSoHuu.FormattingEnabled = true;
             cboTaoSoHuu.Items.AddRange(new object[] { "User", "Admin" });
-            cboTaoSoHuu.Location = new Point(12, 152);
+            cboTaoSoHuu.Location = new Point(57, 161);
             cboTaoSoHuu.Name = "cboTaoSoHuu";
             cboTaoSoHuu.Size = new Size(171, 28);
             cboTaoSoHuu.TabIndex = 5;
@@ -223,7 +225,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label3.Location = new Point(12, 124);
+            label3.Location = new Point(57, 133);
             label3.Name = "label3";
             label3.Size = new Size(110, 25);
             label3.TabIndex = 4;
@@ -232,7 +234,7 @@
             // 
             // txtTaoTaiKhoan
             // 
-            txtTaoTaiKhoan.Location = new Point(12, 94);
+            txtTaoTaiKhoan.Location = new Point(57, 103);
             txtTaoTaiKhoan.Name = "txtTaoTaiKhoan";
             txtTaoTaiKhoan.Size = new Size(395, 27);
             txtTaoTaiKhoan.TabIndex = 3;
@@ -241,7 +243,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label2.Location = new Point(12, 66);
+            label2.Location = new Point(57, 75);
             label2.Name = "label2";
             label2.Size = new Size(125, 25);
             label2.TabIndex = 2;
@@ -252,7 +254,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Black", 16.8F, FontStyle.Bold);
             label1.ForeColor = Color.Chocolate;
-            label1.Location = new Point(52, 15);
+            label1.Location = new Point(93, 17);
             label1.Name = "label1";
             label1.Size = new Size(318, 38);
             label1.TabIndex = 1;
@@ -261,19 +263,19 @@
             // 
             // panel2
             // 
-            panel2.BackgroundImage = Properties.Resources.anhsuaxe;
+            panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(435, 559);
+            panel2.Size = new Size(527, 576);
             panel2.TabIndex = 1;
             // 
             // frmsignup
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(882, 565);
+            ClientSize = new Size(1066, 582);
             Controls.Add(tableLayoutPanel1);
             Name = "frmsignup";
             StartPosition = FormStartPosition.CenterParent;
