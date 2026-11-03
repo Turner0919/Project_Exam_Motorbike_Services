@@ -2,7 +2,7 @@
 using MotorbikeServices.DAL.Models.Account;
 using MotorbikeServices.DAL.Models.Maintenance;
 using MotorbikeServices.DAL.Models.Store;
-
+//hello
 namespace MotorbikeServices.DAL.Models
 {
     public class AppDbContext : DbContext
