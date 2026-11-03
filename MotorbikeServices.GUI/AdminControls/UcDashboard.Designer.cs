@@ -1,35 +1,58 @@
-﻿namespace MotorbikeServices.GUI.AdminControls
+﻿
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace MotorbikeServices.GUI.AdminControls
 {
     partial class UcDashboard
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        private TableLayoutPanel tlpTongQuan;
+        private Panel pnlTieuDe;
+        private Label lblPageTitle;
+        private Label lblPageDescription;
+
+        private TableLayoutPanel tlpTheThongKe;
+
+        private Panel pnlCardHangXe;
+        private Label lblCardHangXeValue;
+        private Label lblCardHangXeTitle;
+
+        private Panel pnlCardDongXe;
+        private Label lblCardDongXeValue;
+        private Label lblCardDongXeTitle;
+
+        private Panel pnlCardQuyChuan;
+        private Label lblCardQuyChuanValue;
+        private Label lblCardQuyChuanTitle;
+
+        private Panel pnlCardTaiKhoan;
+        private Label lblCardTaiKhoanValue;
+        private Label lblCardTaiKhoanTitle;
+
+        private TableLayoutPanel tlpBieuDo;
+
+        private BieuDoThongKeControl bieuDoDongXeTheoHang;
+        private BieuDoThongKeControl bieuDoTaiKhoan;
+        private BieuDoThongKeControl bieuDoQuyChuan;
+        private BieuDoThongKeControl bieuDoCuaHang;
+
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
+            if (disposing && components != null)
                 components.Dispose();
-            }
+
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
+            tlpTongQuan = new TableLayoutPanel();
+            pnlTieuDe = new Panel();
             lblPageTitle = new Label();
             lblPageDescription = new Label();
+            tlpTheThongKe = new TableLayoutPanel();
             pnlCardHangXe = new Panel();
             lblCardHangXeValue = new Label();
             lblCardHangXeTitle = new Label();
@@ -42,22 +65,58 @@
             pnlCardTaiKhoan = new Panel();
             lblCardTaiKhoanValue = new Label();
             lblCardTaiKhoanTitle = new Label();
-            pnlRecentActivity = new Panel();
-            lblRecentActivityDescription = new Label();
-            lblRecentActivityTitle = new Label();
+            tlpBieuDo = new TableLayoutPanel();
+            bieuDoDongXeTheoHang = new BieuDoThongKeControl();
+            bieuDoTaiKhoan = new BieuDoThongKeControl();
+            bieuDoQuyChuan = new BieuDoThongKeControl();
+            bieuDoCuaHang = new BieuDoThongKeControl();
+            tlpTongQuan.SuspendLayout();
+            pnlTieuDe.SuspendLayout();
+            tlpTheThongKe.SuspendLayout();
             pnlCardHangXe.SuspendLayout();
             pnlCardDongXe.SuspendLayout();
             pnlCardQuyChuan.SuspendLayout();
             pnlCardTaiKhoan.SuspendLayout();
-            pnlRecentActivity.SuspendLayout();
+            tlpBieuDo.SuspendLayout();
             SuspendLayout();
+            // 
+            // tlpTongQuan
+            // 
+            tlpTongQuan.BackColor = Color.FromArgb(245, 247, 251);
+            tlpTongQuan.ColumnCount = 1;
+            tlpTongQuan.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpTongQuan.Controls.Add(pnlTieuDe, 0, 0);
+            tlpTongQuan.Controls.Add(tlpTheThongKe, 0, 1);
+            tlpTongQuan.Controls.Add(tlpBieuDo, 0, 2);
+            tlpTongQuan.Dock = DockStyle.Fill;
+            tlpTongQuan.Location = new Point(0, 0);
+            tlpTongQuan.Name = "tlpTongQuan";
+            tlpTongQuan.Padding = new Padding(18, 14, 18, 16);
+            tlpTongQuan.RowCount = 3;
+            tlpTongQuan.RowStyles.Add(new RowStyle(SizeType.Absolute, 72F));
+            tlpTongQuan.RowStyles.Add(new RowStyle(SizeType.Absolute, 132F));
+            tlpTongQuan.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpTongQuan.Size = new Size(1330, 481);
+            tlpTongQuan.TabIndex = 0;
+            // 
+            // pnlTieuDe
+            // 
+            pnlTieuDe.BackColor = Color.Transparent;
+            pnlTieuDe.Controls.Add(lblPageTitle);
+            pnlTieuDe.Controls.Add(lblPageDescription);
+            pnlTieuDe.Dock = DockStyle.Fill;
+            pnlTieuDe.Location = new Point(18, 14);
+            pnlTieuDe.Margin = new Padding(0);
+            pnlTieuDe.Name = "pnlTieuDe";
+            pnlTieuDe.Size = new Size(1294, 72);
+            pnlTieuDe.TabIndex = 0;
             // 
             // lblPageTitle
             // 
             lblPageTitle.AutoSize = true;
-            lblPageTitle.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblPageTitle.ForeColor = Color.FromArgb(21, 54, 91);
-            lblPageTitle.Location = new Point(6, 7);
+            lblPageTitle.Location = new Point(2, 0);
             lblPageTitle.Name = "lblPageTitle";
             lblPageTitle.Size = new Size(345, 46);
             lblPageTitle.TabIndex = 0;
@@ -66,235 +125,282 @@
             // lblPageDescription
             // 
             lblPageDescription.AutoSize = true;
-            lblPageDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPageDescription.Font = new Font("Segoe UI", 9F);
             lblPageDescription.ForeColor = Color.FromArgb(100, 116, 139);
-            lblPageDescription.Location = new Point(15, 55);
+            lblPageDescription.Location = new Point(5, 45);
             lblPageDescription.Name = "lblPageDescription";
-            lblPageDescription.Size = new Size(318, 20);
+            lblPageDescription.Size = new Size(334, 20);
             lblPageDescription.TabIndex = 1;
-            lblPageDescription.Text = "Quản lý hệ thống bảo dưỡng xe máy của bạn";
+            lblPageDescription.Text = "Thống kê tổng quan hệ thống bảo dưỡng xe máy";
+            // 
+            // tlpTheThongKe
+            // 
+            tlpTheThongKe.BackColor = Color.FromArgb(245, 247, 251);
+            tlpTheThongKe.ColumnCount = 4;
+            tlpTheThongKe.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpTheThongKe.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpTheThongKe.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpTheThongKe.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpTheThongKe.Controls.Add(pnlCardHangXe, 0, 0);
+            tlpTheThongKe.Controls.Add(pnlCardDongXe, 1, 0);
+            tlpTheThongKe.Controls.Add(pnlCardQuyChuan, 2, 0);
+            tlpTheThongKe.Controls.Add(pnlCardTaiKhoan, 3, 0);
+            tlpTheThongKe.Dock = DockStyle.Fill;
+            tlpTheThongKe.Location = new Point(18, 88);
+            tlpTheThongKe.Margin = new Padding(0, 2, 0, 8);
+            tlpTheThongKe.Name = "tlpTheThongKe";
+            tlpTheThongKe.RowCount = 1;
+            tlpTheThongKe.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpTheThongKe.Size = new Size(1294, 122);
+            tlpTheThongKe.TabIndex = 1;
             // 
             // pnlCardHangXe
             // 
-            pnlCardHangXe.BackColor = Color.White;
+            pnlCardHangXe.BackColor = Color.FromArgb(232, 241, 252);
             pnlCardHangXe.Controls.Add(lblCardHangXeValue);
             pnlCardHangXe.Controls.Add(lblCardHangXeTitle);
-            pnlCardHangXe.Location = new Point(14, 115);
+            pnlCardHangXe.Dock = DockStyle.Fill;
+            pnlCardHangXe.Location = new Point(6, 4);
+            pnlCardHangXe.Margin = new Padding(6, 4, 6, 8);
             pnlCardHangXe.Name = "pnlCardHangXe";
-            pnlCardHangXe.Padding = new Padding(5);
-            pnlCardHangXe.Size = new Size(190, 120);
-            pnlCardHangXe.TabIndex = 2;
+            pnlCardHangXe.Padding = new Padding(16, 12, 12, 10);
+            pnlCardHangXe.Size = new Size(311, 110);
+            pnlCardHangXe.TabIndex = 0;
             // 
             // lblCardHangXeValue
             // 
-            lblCardHangXeValue.AutoSize = true;
-            lblCardHangXeValue.BackColor = Color.Transparent;
-            lblCardHangXeValue.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCardHangXeValue.ForeColor = Color.FromArgb(21, 54, 91);
-            lblCardHangXeValue.Location = new Point(20, 48);
+            lblCardHangXeValue.Dock = DockStyle.Fill;
+            lblCardHangXeValue.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
+            lblCardHangXeValue.ForeColor = Color.FromArgb(29, 61, 94);
+            lblCardHangXeValue.Location = new Point(16, 42);
             lblCardHangXeValue.Name = "lblCardHangXeValue";
-            lblCardHangXeValue.Size = new Size(69, 54);
-            lblCardHangXeValue.TabIndex = 1;
-            lblCardHangXeValue.Text = "04";
+            lblCardHangXeValue.Size = new Size(283, 58);
+            lblCardHangXeValue.TabIndex = 0;
+            lblCardHangXeValue.Text = "--";
+            lblCardHangXeValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblCardHangXeTitle
             // 
-            lblCardHangXeTitle.AutoSize = true;
-            lblCardHangXeTitle.BackColor = Color.Transparent;
+            lblCardHangXeTitle.Dock = DockStyle.Top;
             lblCardHangXeTitle.Font = new Font("Segoe UI", 9F);
-            lblCardHangXeTitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblCardHangXeTitle.Location = new Point(20, 20);
+            lblCardHangXeTitle.ForeColor = Color.FromArgb(91, 108, 129);
+            lblCardHangXeTitle.Location = new Point(16, 12);
             lblCardHangXeTitle.Name = "lblCardHangXeTitle";
-            lblCardHangXeTitle.Size = new Size(118, 20);
-            lblCardHangXeTitle.TabIndex = 0;
+            lblCardHangXeTitle.Size = new Size(283, 30);
+            lblCardHangXeTitle.TabIndex = 1;
             lblCardHangXeTitle.Text = "Tổng số hãng xe";
+            lblCardHangXeTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlCardDongXe
             // 
-            pnlCardDongXe.BackColor = Color.White;
+            pnlCardDongXe.BackColor = Color.FromArgb(229, 245, 247);
             pnlCardDongXe.Controls.Add(lblCardDongXeValue);
             pnlCardDongXe.Controls.Add(lblCardDongXeTitle);
-            pnlCardDongXe.Location = new Point(219, 115);
+            pnlCardDongXe.Dock = DockStyle.Fill;
+            pnlCardDongXe.Location = new Point(329, 4);
+            pnlCardDongXe.Margin = new Padding(6, 4, 6, 8);
             pnlCardDongXe.Name = "pnlCardDongXe";
-            pnlCardDongXe.Padding = new Padding(5);
-            pnlCardDongXe.Size = new Size(190, 120);
-            pnlCardDongXe.TabIndex = 3;
+            pnlCardDongXe.Padding = new Padding(16, 12, 12, 10);
+            pnlCardDongXe.Size = new Size(311, 110);
+            pnlCardDongXe.TabIndex = 1;
             // 
             // lblCardDongXeValue
             // 
-            lblCardDongXeValue.AutoSize = true;
-            lblCardDongXeValue.BackColor = Color.Transparent;
-            lblCardDongXeValue.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCardDongXeValue.ForeColor = Color.FromArgb(21, 54, 91);
-            lblCardDongXeValue.Location = new Point(20, 48);
+            lblCardDongXeValue.Dock = DockStyle.Fill;
+            lblCardDongXeValue.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
+            lblCardDongXeValue.ForeColor = Color.FromArgb(29, 61, 94);
+            lblCardDongXeValue.Location = new Point(16, 42);
             lblCardDongXeValue.Name = "lblCardDongXeValue";
-            lblCardDongXeValue.Size = new Size(69, 54);
-            lblCardDongXeValue.TabIndex = 3;
-            lblCardDongXeValue.Text = "12";
+            lblCardDongXeValue.Size = new Size(283, 58);
+            lblCardDongXeValue.TabIndex = 0;
+            lblCardDongXeValue.Text = "--";
+            lblCardDongXeValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblCardDongXeTitle
             // 
-            lblCardDongXeTitle.AutoSize = true;
-            lblCardDongXeTitle.BackColor = Color.Transparent;
+            lblCardDongXeTitle.Dock = DockStyle.Top;
             lblCardDongXeTitle.Font = new Font("Segoe UI", 9F);
-            lblCardDongXeTitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblCardDongXeTitle.Location = new Point(20, 20);
+            lblCardDongXeTitle.ForeColor = Color.FromArgb(91, 108, 129);
+            lblCardDongXeTitle.Location = new Point(16, 12);
             lblCardDongXeTitle.Name = "lblCardDongXeTitle";
-            lblCardDongXeTitle.Size = new Size(120, 20);
-            lblCardDongXeTitle.TabIndex = 2;
+            lblCardDongXeTitle.Size = new Size(283, 30);
+            lblCardDongXeTitle.TabIndex = 1;
             lblCardDongXeTitle.Text = "Tổng số dòng xe";
+            lblCardDongXeTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlCardQuyChuan
             // 
-            pnlCardQuyChuan.BackColor = Color.White;
+            pnlCardQuyChuan.BackColor = Color.FromArgb(240, 235, 250);
             pnlCardQuyChuan.Controls.Add(lblCardQuyChuanValue);
             pnlCardQuyChuan.Controls.Add(lblCardQuyChuanTitle);
-            pnlCardQuyChuan.Location = new Point(424, 115);
+            pnlCardQuyChuan.Dock = DockStyle.Fill;
+            pnlCardQuyChuan.Location = new Point(652, 4);
+            pnlCardQuyChuan.Margin = new Padding(6, 4, 6, 8);
             pnlCardQuyChuan.Name = "pnlCardQuyChuan";
-            pnlCardQuyChuan.Padding = new Padding(5);
-            pnlCardQuyChuan.Size = new Size(190, 120);
-            pnlCardQuyChuan.TabIndex = 4;
+            pnlCardQuyChuan.Padding = new Padding(16, 12, 12, 10);
+            pnlCardQuyChuan.Size = new Size(311, 110);
+            pnlCardQuyChuan.TabIndex = 2;
             // 
             // lblCardQuyChuanValue
             // 
-            lblCardQuyChuanValue.AutoSize = true;
-            lblCardQuyChuanValue.BackColor = Color.Transparent;
-            lblCardQuyChuanValue.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCardQuyChuanValue.ForeColor = Color.FromArgb(21, 54, 91);
-            lblCardQuyChuanValue.Location = new Point(20, 48);
+            lblCardQuyChuanValue.Dock = DockStyle.Fill;
+            lblCardQuyChuanValue.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
+            lblCardQuyChuanValue.ForeColor = Color.FromArgb(29, 61, 94);
+            lblCardQuyChuanValue.Location = new Point(16, 42);
             lblCardQuyChuanValue.Name = "lblCardQuyChuanValue";
-            lblCardQuyChuanValue.Size = new Size(69, 54);
-            lblCardQuyChuanValue.TabIndex = 5;
-            lblCardQuyChuanValue.Text = "24";
+            lblCardQuyChuanValue.Size = new Size(283, 58);
+            lblCardQuyChuanValue.TabIndex = 0;
+            lblCardQuyChuanValue.Text = "--";
+            lblCardQuyChuanValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblCardQuyChuanTitle
             // 
-            lblCardQuyChuanTitle.AutoSize = true;
-            lblCardQuyChuanTitle.BackColor = Color.Transparent;
+            lblCardQuyChuanTitle.Dock = DockStyle.Top;
             lblCardQuyChuanTitle.Font = new Font("Segoe UI", 9F);
-            lblCardQuyChuanTitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblCardQuyChuanTitle.Location = new Point(20, 20);
+            lblCardQuyChuanTitle.ForeColor = Color.FromArgb(91, 108, 129);
+            lblCardQuyChuanTitle.Location = new Point(16, 12);
             lblCardQuyChuanTitle.Name = "lblCardQuyChuanTitle";
-            lblCardQuyChuanTitle.Size = new Size(156, 20);
-            lblCardQuyChuanTitle.TabIndex = 4;
+            lblCardQuyChuanTitle.Size = new Size(283, 30);
+            lblCardQuyChuanTitle.TabIndex = 1;
             lblCardQuyChuanTitle.Text = "Quy chuẩn bảo dưỡng";
+            lblCardQuyChuanTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnlCardTaiKhoan
             // 
-            pnlCardTaiKhoan.BackColor = Color.White;
+            pnlCardTaiKhoan.BackColor = Color.FromArgb(231, 245, 236);
             pnlCardTaiKhoan.Controls.Add(lblCardTaiKhoanValue);
             pnlCardTaiKhoan.Controls.Add(lblCardTaiKhoanTitle);
-            pnlCardTaiKhoan.Location = new Point(629, 115);
+            pnlCardTaiKhoan.Dock = DockStyle.Fill;
+            pnlCardTaiKhoan.Location = new Point(975, 4);
+            pnlCardTaiKhoan.Margin = new Padding(6, 4, 6, 8);
             pnlCardTaiKhoan.Name = "pnlCardTaiKhoan";
-            pnlCardTaiKhoan.Padding = new Padding(5);
-            pnlCardTaiKhoan.Size = new Size(190, 120);
-            pnlCardTaiKhoan.TabIndex = 5;
+            pnlCardTaiKhoan.Padding = new Padding(16, 12, 12, 10);
+            pnlCardTaiKhoan.Size = new Size(313, 110);
+            pnlCardTaiKhoan.TabIndex = 3;
             // 
             // lblCardTaiKhoanValue
             // 
-            lblCardTaiKhoanValue.AutoSize = true;
-            lblCardTaiKhoanValue.BackColor = Color.Transparent;
-            lblCardTaiKhoanValue.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCardTaiKhoanValue.ForeColor = Color.FromArgb(21, 54, 91);
-            lblCardTaiKhoanValue.Location = new Point(20, 48);
+            lblCardTaiKhoanValue.Dock = DockStyle.Fill;
+            lblCardTaiKhoanValue.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
+            lblCardTaiKhoanValue.ForeColor = Color.FromArgb(29, 61, 94);
+            lblCardTaiKhoanValue.Location = new Point(16, 42);
             lblCardTaiKhoanValue.Name = "lblCardTaiKhoanValue";
-            lblCardTaiKhoanValue.Size = new Size(92, 54);
-            lblCardTaiKhoanValue.TabIndex = 7;
-            lblCardTaiKhoanValue.Text = "128";
+            lblCardTaiKhoanValue.Size = new Size(285, 58);
+            lblCardTaiKhoanValue.TabIndex = 0;
+            lblCardTaiKhoanValue.Text = "--";
+            lblCardTaiKhoanValue.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblCardTaiKhoanTitle
             // 
-            lblCardTaiKhoanTitle.AutoSize = true;
-            lblCardTaiKhoanTitle.BackColor = Color.Transparent;
+            lblCardTaiKhoanTitle.Dock = DockStyle.Top;
             lblCardTaiKhoanTitle.Font = new Font("Segoe UI", 9F);
-            lblCardTaiKhoanTitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblCardTaiKhoanTitle.Location = new Point(20, 20);
+            lblCardTaiKhoanTitle.ForeColor = Color.FromArgb(91, 108, 129);
+            lblCardTaiKhoanTitle.Location = new Point(16, 12);
             lblCardTaiKhoanTitle.Name = "lblCardTaiKhoanTitle";
-            lblCardTaiKhoanTitle.Size = new Size(108, 20);
-            lblCardTaiKhoanTitle.TabIndex = 6;
+            lblCardTaiKhoanTitle.Size = new Size(285, 30);
+            lblCardTaiKhoanTitle.TabIndex = 1;
             lblCardTaiKhoanTitle.Text = "Tổng tài khoản";
+            lblCardTaiKhoanTitle.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // pnlRecentActivity
+            // tlpBieuDo
             // 
-            pnlRecentActivity.BackColor = Color.White;
-            pnlRecentActivity.BorderStyle = BorderStyle.FixedSingle;
-            pnlRecentActivity.Controls.Add(lblRecentActivityDescription);
-            pnlRecentActivity.Controls.Add(lblRecentActivityTitle);
-            pnlRecentActivity.Location = new Point(14, 251);
-            pnlRecentActivity.Name = "pnlRecentActivity";
-            pnlRecentActivity.Size = new Size(805, 240);
-            pnlRecentActivity.TabIndex = 7;
+            tlpBieuDo.ColumnCount = 2;
+            tlpBieuDo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpBieuDo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpBieuDo.Controls.Add(bieuDoDongXeTheoHang, 0, 0);
+            tlpBieuDo.Controls.Add(bieuDoTaiKhoan, 1, 0);
+            tlpBieuDo.Controls.Add(bieuDoQuyChuan, 0, 1);
+            tlpBieuDo.Controls.Add(bieuDoCuaHang, 1, 1);
+            tlpBieuDo.Dock = DockStyle.Fill;
+            tlpBieuDo.Location = new Point(18, 218);
+            tlpBieuDo.Margin = new Padding(0);
+            tlpBieuDo.Name = "tlpBieuDo";
+            tlpBieuDo.RowCount = 2;
+            tlpBieuDo.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpBieuDo.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpBieuDo.Size = new Size(1294, 247);
+            tlpBieuDo.TabIndex = 2;
             // 
-            // lblRecentActivityDescription
+            // bieuDoDongXeTheoHang
             // 
-            lblRecentActivityDescription.AutoSize = true;
-            lblRecentActivityDescription.BackColor = Color.Transparent;
-            lblRecentActivityDescription.Font = new Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRecentActivityDescription.ForeColor = Color.FromArgb(100, 116, 139);
-            lblRecentActivityDescription.Location = new Point(9, 37);
-            lblRecentActivityDescription.Name = "lblRecentActivityDescription";
-            lblRecentActivityDescription.Size = new Size(363, 17);
-            lblRecentActivityDescription.TabIndex = 1;
-            lblRecentActivityDescription.Text = "Các thay đổi gần nhất trong hệ thống sẽ xuất hiện tại đây";
+            bieuDoDongXeTheoHang.BackColor = Color.White;
+            bieuDoDongXeTheoHang.Dock = DockStyle.Fill;
+            bieuDoDongXeTheoHang.Font = new Font("Segoe UI", 9F);
+            bieuDoDongXeTheoHang.ForeColor = Color.FromArgb(35, 55, 78);
+            bieuDoDongXeTheoHang.Location = new Point(6, 6);
+            bieuDoDongXeTheoHang.Margin = new Padding(6);
+            bieuDoDongXeTheoHang.MinimumSize = new Size(240, 170);
+            bieuDoDongXeTheoHang.MoTa = "Top 8 hãng có nhiều dòng xe nhất";
+            bieuDoDongXeTheoHang.Name = "bieuDoDongXeTheoHang";
+            bieuDoDongXeTheoHang.Size = new Size(635, 170);
+            bieuDoDongXeTheoHang.TabIndex = 0;
+            bieuDoDongXeTheoHang.TieuDe = "Số dòng xe theo hãng";
             // 
-            // lblRecentActivityTitle
+            // bieuDoTaiKhoan
             // 
-            lblRecentActivityTitle.AutoSize = true;
-            lblRecentActivityTitle.BackColor = Color.Transparent;
-            lblRecentActivityTitle.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRecentActivityTitle.ForeColor = Color.FromArgb(21, 54, 91);
-            lblRecentActivityTitle.Location = new Point(9, 7);
-            lblRecentActivityTitle.Name = "lblRecentActivityTitle";
-            lblRecentActivityTitle.Size = new Size(165, 23);
-            lblRecentActivityTitle.TabIndex = 0;
-            lblRecentActivityTitle.Text = "Hoạt động gần đây";
+            bieuDoTaiKhoan.BackColor = Color.White;
+            bieuDoTaiKhoan.Dock = DockStyle.Fill;
+            bieuDoTaiKhoan.Font = new Font("Segoe UI", 9F);
+            bieuDoTaiKhoan.ForeColor = Color.FromArgb(35, 55, 78);
+            bieuDoTaiKhoan.LoaiBieuDo = LoaiBieuDoThongKe.Tron;
+            bieuDoTaiKhoan.Location = new Point(653, 6);
+            bieuDoTaiKhoan.Margin = new Padding(6);
+            bieuDoTaiKhoan.MinimumSize = new Size(240, 170);
+            bieuDoTaiKhoan.MoTa = "Phân bố theo vai trò";
+            bieuDoTaiKhoan.Name = "bieuDoTaiKhoan";
+            bieuDoTaiKhoan.Size = new Size(635, 170);
+            bieuDoTaiKhoan.TabIndex = 1;
+            bieuDoTaiKhoan.TieuDe = "Cơ cấu tài khoản";
+            // 
+            // bieuDoQuyChuan
+            // 
+            bieuDoQuyChuan.BackColor = Color.White;
+            bieuDoQuyChuan.Dock = DockStyle.Fill;
+            bieuDoQuyChuan.Font = new Font("Segoe UI", 9F);
+            bieuDoQuyChuan.ForeColor = Color.FromArgb(35, 55, 78);
+            bieuDoQuyChuan.Location = new Point(6, 129);
+            bieuDoQuyChuan.Margin = new Padding(6);
+            bieuDoQuyChuan.MinimumSize = new Size(240, 170);
+            bieuDoQuyChuan.MoTa = "Số lượng quy chuẩn theo số tháng";
+            bieuDoQuyChuan.Name = "bieuDoQuyChuan";
+            bieuDoQuyChuan.Size = new Size(635, 170);
+            bieuDoQuyChuan.TabIndex = 2;
+            bieuDoQuyChuan.TieuDe = "Quy chuẩn theo chu kỳ";
+            // 
+            // bieuDoCuaHang
+            // 
+            bieuDoCuaHang.BackColor = Color.White;
+            bieuDoCuaHang.Dock = DockStyle.Fill;
+            bieuDoCuaHang.Font = new Font("Segoe UI", 9F);
+            bieuDoCuaHang.ForeColor = Color.FromArgb(35, 55, 78);
+            bieuDoCuaHang.LoaiBieuDo = LoaiBieuDoThongKe.Tron;
+            bieuDoCuaHang.Location = new Point(653, 129);
+            bieuDoCuaHang.Margin = new Padding(6);
+            bieuDoCuaHang.MinimumSize = new Size(240, 170);
+            bieuDoCuaHang.MoTa = "Phân bố cửa hàng theo trạng thái";
+            bieuDoCuaHang.Name = "bieuDoCuaHang";
+            bieuDoCuaHang.Size = new Size(635, 170);
+            bieuDoCuaHang.TabIndex = 3;
+            bieuDoCuaHang.TieuDe = "Trạng thái cửa hàng";
             // 
             // UcDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 247, 251);
-            Controls.Add(pnlRecentActivity);
-            Controls.Add(pnlCardTaiKhoan);
-            Controls.Add(pnlCardQuyChuan);
-            Controls.Add(pnlCardDongXe);
-            Controls.Add(pnlCardHangXe);
-            Controls.Add(lblPageDescription);
-            Controls.Add(lblPageTitle);
+            Controls.Add(tlpTongQuan);
             Name = "UcDashboard";
-            Size = new Size(832, 503);
+            Size = new Size(1330, 481);
+            tlpTongQuan.ResumeLayout(false);
+            pnlTieuDe.ResumeLayout(false);
+            pnlTieuDe.PerformLayout();
+            tlpTheThongKe.ResumeLayout(false);
             pnlCardHangXe.ResumeLayout(false);
-            pnlCardHangXe.PerformLayout();
             pnlCardDongXe.ResumeLayout(false);
-            pnlCardDongXe.PerformLayout();
             pnlCardQuyChuan.ResumeLayout(false);
-            pnlCardQuyChuan.PerformLayout();
             pnlCardTaiKhoan.ResumeLayout(false);
-            pnlCardTaiKhoan.PerformLayout();
-            pnlRecentActivity.ResumeLayout(false);
-            pnlRecentActivity.PerformLayout();
+            tlpBieuDo.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
-
-        #endregion
-
-        private Label lblPageTitle;
-        private Label lblPageDescription;
-        private Panel pnlCardHangXe;
-        private Panel pnlCardDongXe;
-        private Panel pnlCardQuyChuan;
-        private Panel pnlCardTaiKhoan;
-        private Label lblCardHangXeValue;
-        private Label lblCardHangXeTitle;
-        private Label lblCardDongXeValue;
-        private Label lblCardDongXeTitle;
-        private Label lblCardQuyChuanValue;
-        private Label lblCardQuyChuanTitle;
-        private Label lblCardTaiKhoanValue;
-        private Label lblCardTaiKhoanTitle;
-        private Panel pnlRecentActivity;
-        private Label lblRecentActivityDescription;
-        private Label lblRecentActivityTitle;
     }
 }

@@ -36,7 +36,6 @@ namespace MotorbikeServices.GUI.Setup
             lblSubtitle = new Label();
             lblLogo = new Label();
             pnlSidebar = new Panel();
-            btnHoiAI = new Button();
             btnCuaHang = new Button();
             btnAccount = new Button();
             btnQuyChuan = new Button();
@@ -123,7 +122,6 @@ namespace MotorbikeServices.GUI.Setup
             // 
             pnlSidebar.BackColor = Color.FromArgb(25, 57, 94);
             pnlSidebar.Controls.Add(btnCuaHang);
-            pnlSidebar.Controls.Add(btnHoiAI);
             pnlSidebar.Controls.Add(btnAccount);
             pnlSidebar.Controls.Add(btnQuyChuan);
             pnlSidebar.Controls.Add(btnHangXe);
@@ -152,23 +150,7 @@ namespace MotorbikeServices.GUI.Setup
             btnCuaHang.TextAlign = ContentAlignment.MiddleLeft;
             btnCuaHang.UseVisualStyleBackColor = false;
             btnCuaHang.Click += btnCuaHang_Click;
-            // 
-            // btnHoiAI
-            // 
-            btnHoiAI.Cursor = Cursors.Hand;
-            btnHoiAI.FlatAppearance.BorderSize = 0;
-            btnHoiAI.FlatStyle = FlatStyle.Flat;
-            btnHoiAI.Font = new Font("Segoe UI", 9F);
-            btnHoiAI.ForeColor = Color.White;
-            btnHoiAI.Location = new Point(10, 305);
-            btnHoiAI.Name = "btnHoiAI";
-            btnHoiAI.Padding = new Padding(12, 0, 4, 0);
-            btnHoiAI.Size = new Size(240, 44);
-            btnHoiAI.TabIndex = 4;
-            btnHoiAI.Text = "♙   Trợ Lý AI";
-            btnHoiAI.TextAlign = ContentAlignment.MiddleLeft;
-            btnHoiAI.UseVisualStyleBackColor = false;
-            btnHoiAI.Click += btnHoiAI_Click;
+
             // 
             // btnAccount
             // 
@@ -294,7 +276,6 @@ namespace MotorbikeServices.GUI.Setup
         private Label lblMenuTitle;
         private Button btnQuyChuan;
         private Button btnAccount;
-        private Button btnHoiAI;
         private Button btnCuaHang;
     }
 }

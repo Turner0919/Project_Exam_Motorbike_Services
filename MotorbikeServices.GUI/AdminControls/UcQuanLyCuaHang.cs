@@ -1,8 +1,9 @@
-﻿
-using MotorbikeServices.BLL.DTOs;
+﻿using MotorbikeServices.BLL.DTOs;
 using MotorbikeServices.BLL.Services;
+
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,20 +19,170 @@ namespace MotorbikeServices.GUI.AdminControls
         {
             InitializeComponent();
 
+            CauHinhCotBang();
+
             DangKySuKien();
+
             KhoiTaoGiaoDien();
+
             LoadDanhSachCuaHang();
         }
 
-        // Đăng ký sự kiện
-        private void DangKySuKien()
+        private void CauHinhCotBang()
         {
-            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
-            cboTrangThai.SelectedIndexChanged += cboTrangThai_SelectedIndexChanged;
-            dgvCuaHang.CellContentClick += dgvCuaHang_CellContentClick;
+            dgvCuaHang.SuspendLayout();
+
+            // Xóa các cột được khai báo trong Designer.
+            dgvCuaHang.Columns.Clear();
+
+            // Tạo mới đầy đủ 7 cột.
+            DataGridViewTextBoxColumn cotTenCuaHang =
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "colTenCuaHang",
+                    HeaderText = "Tên cửa hàng",
+                    FillWeight = 145F,
+                    MinimumWidth = 130,
+                    ReadOnly = true,
+                    SortMode = DataGridViewColumnSortMode.NotSortable
+                };
+
+            DataGridViewTextBoxColumn cotTaiKhoan =
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "colTaiKhoan",
+                    HeaderText = "Tài khoản",
+                    FillWeight = 95F,
+                    MinimumWidth = 100,
+                    ReadOnly = true,
+                    SortMode = DataGridViewColumnSortMode.NotSortable
+                };
+
+            DataGridViewTextBoxColumn cotTinhTP =
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "colTinhTP",
+                    HeaderText = "Tỉnh / Thành phố",
+                    FillWeight = 110F,
+                    MinimumWidth = 120,
+                    ReadOnly = true,
+                    SortMode = DataGridViewColumnSortMode.NotSortable
+                };
+
+            DataGridViewTextBoxColumn cotPhuongXa =
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "colPhuongXa",
+                    HeaderText = "Phường / Xã",
+                    FillWeight = 110F,
+                    MinimumWidth = 110,
+                    ReadOnly = true,
+                    SortMode = DataGridViewColumnSortMode.NotSortable
+                };
+
+            DataGridViewTextBoxColumn cotDiaChi =
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "colDiaChi",
+                    HeaderText = "Địa chỉ",
+                    FillWeight = 140F,
+                    MinimumWidth = 150,
+                    ReadOnly = true,
+                    SortMode = DataGridViewColumnSortMode.NotSortable
+                };
+
+            DataGridViewTextBoxColumn cotTrangThai =
+                new DataGridViewTextBoxColumn
+                {
+                    Name = "colTrangThai",
+                    HeaderText = "Trạng thái",
+                    FillWeight = 125F,
+                    MinimumWidth = 145,
+                    ReadOnly = true,
+                    SortMode = DataGridViewColumnSortMode.NotSortable
+                };
+
+            DataGridViewButtonColumn cotThaoTac =
+                new DataGridViewButtonColumn
+                {
+                    Name = "colThaoTac",
+                    HeaderText = "Thao tác",
+                    Text = "Thay đổi",
+                    UseColumnTextForButtonValue = true,
+                    FlatStyle = FlatStyle.Flat,
+                    FillWeight = 85F,
+                    MinimumWidth = 95,
+                    ReadOnly = true,
+                    SortMode = DataGridViewColumnSortMode.NotSortable
+                };
+
+            cotThaoTac.DefaultCellStyle.BackColor =
+                Color.FromArgb(231, 240, 252);
+
+            cotThaoTac.DefaultCellStyle.ForeColor =
+                Color.FromArgb(52, 127, 193);
+
+            // Thêm đủ 7 cột vào bảng.
+            dgvCuaHang.Columns.AddRange(
+                new DataGridViewColumn[]
+                {
+            cotTenCuaHang,
+            cotTaiKhoan,
+            cotTinhTP,
+            cotPhuongXa,
+            cotDiaChi,
+            cotTrangThai,
+            cotThaoTac
+                });
+
+            // Cấu hình hiển thị.
+            dgvCuaHang.AutoGenerateColumns = false;
+
+            dgvCuaHang.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvCuaHang.ColumnHeadersVisible = true;
+
+            dgvCuaHang.RowHeadersVisible = false;
+
+            dgvCuaHang.ReadOnly = true;
+
+            dgvCuaHang.MultiSelect = false;
+
+            dgvCuaHang.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dgvCuaHang.RowTemplate.Height = 42;
+
+            dgvCuaHang.ResumeLayout();
         }
 
-        // Khởi tạo giao diện
+        // ==========================================
+        // ĐĂNG KÝ SỰ KIỆN
+        // ==========================================
+
+        private void DangKySuKien()
+        {
+            txtTimKiem.TextChanged +=
+                txtTimKiem_TextChanged;
+
+            cboTrangThai.SelectedIndexChanged +=
+                cboTrangThai_SelectedIndexChanged;
+
+            btnLamMoi.Click +=
+                btnLamMoi_Click;
+
+            dgvCuaHang.CellContentClick +=
+                dgvCuaHang_CellContentClick;
+
+            dgvCuaHang.CellFormatting +=
+                dgvCuaHang_CellFormatting;
+        }
+
+        // ==========================================
+        // KHỞI TẠO GIAO DIỆN
+        // ==========================================
+
         private void KhoiTaoGiaoDien()
         {
             lblTongSoValue.Text = "0";
@@ -39,67 +190,97 @@ namespace MotorbikeServices.GUI.AdminControls
             lblTamNgungValue.Text = "0";
 
             cboTrangThai.SelectedIndex = 0;
+
+            dgvCuaHang.ClearSelection();
         }
 
-        // Tải danh sách cửa hàng từ BLL
+        // ==========================================
+        // TẢI DANH SÁCH CỬA HÀNG
+        // ==========================================
+
         private void LoadDanhSachCuaHang()
         {
             try
             {
                 danhSachCuaHang =
-                    _nhanVienUseService.GetDanhSachCuaHang();
+                    _nhanVienUseService.GetDanhSachCuaHang()
+                    ?? new List<NhanVienUseDTO>();
 
                 CapNhatThongKe();
+
                 HienThiDanhSachCuaHang();
             }
             catch (Exception ex)
             {
+                lblTongSoValue.Text = "--";
+                lblDangHoatDongValue.Text = "--";
+                lblTamNgungValue.Text = "--";
+
+                dgvCuaHang.Rows.Clear();
+
                 MessageBox.Show(
-                    "Không thể tải danh sách cửa hàng:\n" + ex.Message,
-                    "Lỗi",
+                    "Không thể tải danh sách cửa hàng:\n\n" +
+                    ex.Message,
+                    "Lỗi dữ liệu",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
 
-        // Cập nhật ba thẻ thống kê
+        // ==========================================
+        // CẬP NHẬT THỐNG KÊ
+        // ==========================================
+
         private void CapNhatThongKe()
         {
-            lblTongSoValue.Text = danhSachCuaHang.Count.ToString();
+            int tongSo = danhSachCuaHang.Count;
+
+            int dangHoatDong = danhSachCuaHang.Count(c =>
+                c.TrangThai == "Đang hoạt động");
+
+            int tamNgung = danhSachCuaHang.Count(c =>
+                c.TrangThai == "Tạm ngừng hoạt động");
+
+            lblTongSoValue.Text =
+                tongSo.ToString("N0");
 
             lblDangHoatDongValue.Text =
-                danhSachCuaHang.Count(c =>
-                    c.TrangThai == "Đang hoạt động").ToString();
+                dangHoatDong.ToString("N0");
 
             lblTamNgungValue.Text =
-                danhSachCuaHang.Count(c =>
-                    c.TrangThai == "Tạm ngừng hoạt động").ToString();
+                tamNgung.ToString("N0");
         }
 
-        // Hiển thị danh sách sau khi tìm kiếm và lọc
+        // ==========================================
+        // TÌM KIẾM VÀ LỌC
+        // ==========================================
+
         private void HienThiDanhSachCuaHang()
         {
             string tuKhoa = txtTimKiem.Text.Trim();
-            string trangThai = cboTrangThai.Text;
 
-            var ketQua = danhSachCuaHang.AsEnumerable();
+            string trangThai =
+                cboTrangThai.SelectedItem?.ToString()
+                ?? "Tất cả trạng thái";
 
-            // Tìm theo tên cửa hàng hoặc tài khoản
+            IEnumerable<NhanVienUseDTO> ketQua =
+                danhSachCuaHang;
+
+            // Tìm kiếm theo nhiều thông tin.
             if (!string.IsNullOrWhiteSpace(tuKhoa))
             {
                 ketQua = ketQua.Where(c =>
-                    c.TenCuaHang.Contains(
-                        tuKhoa,
-                        StringComparison.OrdinalIgnoreCase)
-                    ||
-                    c.TenTaiKhoan.Contains(
-                        tuKhoa,
-                        StringComparison.OrdinalIgnoreCase));
+                    CoChuaTuKhoa(c.TenCuaHang, tuKhoa) ||
+                    CoChuaTuKhoa(c.TenTaiKhoan, tuKhoa) ||
+                    CoChuaTuKhoa(c.TinhTP, tuKhoa) ||
+                    CoChuaTuKhoa(c.PhuongXa, tuKhoa) ||
+                    CoChuaTuKhoa(c.SoCuaHang, tuKhoa) ||
+                    CoChuaTuKhoa(c.TenDuong, tuKhoa) ||
+                    CoChuaTuKhoa(c.TrangThai, tuKhoa));
             }
 
-            // Lọc theo trạng thái
-            if (trangThai != "Tất cả trạng thái"
-                && !string.IsNullOrWhiteSpace(trangThai))
+            // Lọc theo trạng thái.
+            if (trangThai != "Tất cả trạng thái")
             {
                 ketQua = ketQua.Where(c =>
                     c.TrangThai == trangThai);
@@ -109,11 +290,15 @@ namespace MotorbikeServices.GUI.AdminControls
 
             foreach (var cuaHang in ketQua)
             {
-                // Ghép số nhà và tên đường
+                // Ghép số nhà và tên đường.
                 string diaChi = string.Join(
                     " ",
-                    new[] { cuaHang.SoCuaHang, cuaHang.TenDuong }
-                        .Where(s => !string.IsNullOrWhiteSpace(s)));
+                    new[]
+                    {
+                        cuaHang.SoCuaHang,
+                        cuaHang.TenDuong
+                    }
+                    .Where(s => !string.IsNullOrWhiteSpace(s)));
 
                 int viTri = dgvCuaHang.Rows.Add(
                     cuaHang.TenCuaHang,
@@ -124,50 +309,138 @@ namespace MotorbikeServices.GUI.AdminControls
                     cuaHang.TrangThai,
                     "Thay đổi");
 
-                // Lưu NhanVienId vào Tag để sử dụng ở bước sau
-                dgvCuaHang.Rows[viTri].Tag = cuaHang.NhanVienId;
+                // Lưu NhanVienId để xử lý thao tác.
+                dgvCuaHang.Rows[viTri].Tag =
+                    cuaHang.NhanVienId;
             }
+
+            dgvCuaHang.ClearSelection();
         }
 
-        // Tìm kiếm cửa hàng
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        private bool CoChuaTuKhoa(
+            string giaTri,
+            string tuKhoa)
         {
-            HienThiDanhSachCuaHang();
+            return !string.IsNullOrWhiteSpace(giaTri)
+                && giaTri.Contains(
+                    tuKhoa,
+                    StringComparison.OrdinalIgnoreCase);
         }
 
-        // Lọc theo trạng thái
-        private void cboTrangThai_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HienThiDanhSachCuaHang();
-        }
+        // ==========================================
+        // SỰ KIỆN TÌM KIẾM
+        // ==========================================
 
-        // Xử lý nút thay đổi trạng thái - triển khai ở bước tiếp theo
-
-        private void dgvCuaHang_CellContentClick(
+        private void txtTimKiem_TextChanged(
             object sender,
-            DataGridViewCellEventArgs e)
+            EventArgs e)
         {
-            // Không xử lý tiêu đề hoặc chỉ số dòng không hợp lệ
+            HienThiDanhSachCuaHang();
+        }
+
+        // ==========================================
+        // SỰ KIỆN LỌC TRẠNG THÁI
+        // ==========================================
+
+        private void cboTrangThai_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
+        {
+            HienThiDanhSachCuaHang();
+        }
+
+        // ==========================================
+        // LÀM MỚI
+        // ==========================================
+
+        private void btnLamMoi_Click(
+            object sender,
+            EventArgs e)
+        {
+            txtTimKiem.Clear();
+
+            cboTrangThai.SelectedIndex = 0;
+
+            LoadDanhSachCuaHang();
+        }
+
+        // ==========================================
+        // ĐỊNH DẠNG TRẠNG THÁI VÀ NÚT THAO TÁC
+        // ==========================================
+
+        private void dgvCuaHang_CellFormatting(
+            object sender,
+            DataGridViewCellFormattingEventArgs e)
+        {
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            // Chỉ xử lý khi nhấn cột Thao tác
-            if (dgvCuaHang.Columns[e.ColumnIndex].Name != "colThaoTac")
+            string tenCot =
+                dgvCuaHang.Columns[e.ColumnIndex].Name;
+
+            // Màu trạng thái.
+            if (tenCot == "colTrangThai")
+            {
+                string trangThai =
+                    Convert.ToString(e.Value) ?? "";
+
+                if (trangThai == "Đang hoạt động")
+                {
+                    e.CellStyle.BackColor =
+                        Color.FromArgb(230, 245, 237);
+
+                    e.CellStyle.ForeColor =
+                        Color.FromArgb(35, 125, 75);
+                }
+                else if (trangThai == "Tạm ngừng hoạt động")
+                {
+                    e.CellStyle.BackColor =
+                        Color.FromArgb(255, 243, 224);
+
+                    e.CellStyle.ForeColor =
+                        Color.FromArgb(175, 104, 28);
+                }
+            }
+
+            // Căn giữa nút thao tác.
+            if (tenCot == "colThaoTac")
+            {
+                e.CellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+
+                e.CellStyle.ForeColor =
+                    Color.FromArgb(52, 127, 193);
+            }
+        }
+
+        // ==========================================
+        // THAY ĐỔI TRẠNG THÁI CỬA HÀNG
+        // ==========================================
+
+        private void dgvCuaHang_CellContentClick(
+    object sender,
+    DataGridViewCellEventArgs e)
+        {
+            // Không xử lý tiêu đề hoặc dòng không hợp lệ.
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            // Chỉ xử lý khi nhấn cột Thao tác.
+            if (e.ColumnIndex != colThaoTac.Index)
                 return;
 
             DataGridViewRow row = dgvCuaHang.Rows[e.RowIndex];
 
-            // Lấy ID cửa hàng đã lưu trong Tag
             if (row.Tag == null)
                 return;
 
             int nhanVienId = Convert.ToInt32(row.Tag);
 
-            // Lấy trạng thái hiện tại
+            // Cột trạng thái nằm ở vị trí thứ 6 (Index = 5).
+            // Dùng chỉ số thay vì tìm kiếm theo tên cột.
             string trangThaiHienTai =
-                row.Cells["colTrangThai"].Value?.ToString() ?? "";
+                Convert.ToString(row.Cells[5].Value) ?? "";
 
-            // Xác định trạng thái mới
             string trangThaiMoi;
 
             if (trangThaiHienTai == "Đang hoạt động")
@@ -189,20 +462,18 @@ namespace MotorbikeServices.GUI.AdminControls
                 return;
             }
 
-            // Xác nhận trước khi cập nhật
-            DialogResult ketQua = MessageBox.Show(
-                $"Bạn có chắc chắn muốn chuyển cửa hàng sang trạng thái:\n\n" +
-                $"{trangThaiMoi}?",
+            DialogResult xacNhan = MessageBox.Show(
+                "Bạn có chắc chắn muốn chuyển cửa hàng sang trạng thái:\n\n" +
+                trangThaiMoi + "?",
                 "Xác nhận thay đổi trạng thái",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            if (ketQua != DialogResult.Yes)
+            if (xacNhan != DialogResult.Yes)
                 return;
 
             try
             {
-                // Gọi BLL cập nhật database
                 var ketQuaCapNhat =
                     _nhanVienUseService.CapNhatTrangThaiCuaHang(
                         nhanVienId,
@@ -216,7 +487,6 @@ namespace MotorbikeServices.GUI.AdminControls
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
 
-                    // Tải lại danh sách và thống kê
                     LoadDanhSachCuaHang();
                 }
                 else
@@ -231,12 +501,12 @@ namespace MotorbikeServices.GUI.AdminControls
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Có lỗi khi cập nhật trạng thái cửa hàng:\n" + ex.Message,
+                    "Có lỗi khi cập nhật trạng thái cửa hàng:\n\n" +
+                    ex.Message,
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
-
     }
 }

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MotorbikeServices\MotorbikeServices.DAL.csproj" />
+    <ProjectReference Include="..\MotorbikeServices.DAL\MotorbikeServices.DAL.csproj" />
   </ItemGroup>
 
 </Project>

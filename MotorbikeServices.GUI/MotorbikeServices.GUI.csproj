@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MotorbikeServices.BLL\MotorbikeServices.BLL.csproj" />
-    <ProjectReference Include="..\MotorbikeServices\MotorbikeServices.DAL.csproj" />
+<ProjectReference Include="..\MotorbikeServices.DAL\MotorbikeServices.DAL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
