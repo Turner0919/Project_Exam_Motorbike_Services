@@ -341,6 +341,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(255, 128, 255);
             ClientSize = new Size(1663, 872);
             Controls.Add(txtBienSoXe);
             Controls.Add(txtHangXe);

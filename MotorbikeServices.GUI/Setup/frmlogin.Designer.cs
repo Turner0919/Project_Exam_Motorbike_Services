@@ -33,6 +33,7 @@
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel2 = new Panel();
+            pic1 = new PictureBox();
             linklblQuenMatKhau = new LinkLabel();
             btnDangNhap = new Button();
             cboSoHuu = new ComboBox();
@@ -52,6 +53,7 @@
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
@@ -62,7 +64,7 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.White;
             panel1.Controls.Add(tableLayoutPanel1);
-            panel1.Location = new Point(96, 40);
+            panel1.Location = new Point(60, 54);
             panel1.Name = "panel1";
             panel1.Size = new Size(726, 471);
             panel1.TabIndex = 0;
@@ -86,6 +88,7 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = SystemColors.ButtonFace;
+            panel2.Controls.Add(pic1);
             panel2.Controls.Add(linklblQuenMatKhau);
             panel2.Controls.Add(btnDangNhap);
             panel2.Controls.Add(cboSoHuu);
@@ -100,6 +103,20 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(357, 465);
             panel2.TabIndex = 0;
+            // 
+            // pic1
+            // 
+            pic1.BackColor = Color.FromArgb(192, 255, 255);
+            pic1.BackgroundImage = Properties.Resources.eye;
+            pic1.BackgroundImageLayout = ImageLayout.Center;
+            pic1.Image = Properties.Resources.eye;
+            pic1.Location = new Point(8, 295);
+            pic1.Name = "pic1";
+            pic1.Size = new Size(29, 28);
+            pic1.SizeMode = PictureBoxSizeMode.Zoom;
+            pic1.TabIndex = 9;
+            pic1.TabStop = false;
+            pic1.Click += pic1_Click;
             // 
             // linklblQuenMatKhau
             // 
@@ -130,7 +147,7 @@
             // 
             cboSoHuu.FormattingEnabled = true;
             cboSoHuu.Items.AddRange(new object[] { "User", "Admin" });
-            cboSoHuu.Location = new Point(14, 226);
+            cboSoHuu.Location = new Point(43, 227);
             cboSoHuu.Name = "cboSoHuu";
             cboSoHuu.Size = new Size(167, 28);
             cboSoHuu.TabIndex = 6;
@@ -140,7 +157,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label4.Location = new Point(14, 266);
+            label4.Location = new Point(43, 267);
             label4.Name = "label4";
             label4.Size = new Size(91, 25);
             label4.TabIndex = 5;
@@ -148,17 +165,17 @@
             // 
             // txtMatKhau
             // 
-            txtMatKhau.Location = new Point(14, 294);
+            txtMatKhau.Location = new Point(43, 295);
             txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new Size(304, 27);
+            txtMatKhau.Size = new Size(268, 27);
             txtMatKhau.TabIndex = 4;
             txtMatKhau.UseSystemPasswordChar = true;
             // 
             // txtTaiKhoan
             // 
-            txtTaiKhoan.Location = new Point(14, 151);
+            txtTaiKhoan.Location = new Point(43, 152);
             txtTaiKhoan.Name = "txtTaiKhoan";
-            txtTaiKhoan.Size = new Size(304, 27);
+            txtTaiKhoan.Size = new Size(268, 27);
             txtTaiKhoan.TabIndex = 3;
             txtTaiKhoan.TextChanged += txtTaiKhoan_TextChanged;
             // 
@@ -166,7 +183,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label3.Location = new Point(14, 198);
+            label3.Location = new Point(43, 199);
             label3.Name = "label3";
             label3.Size = new Size(76, 25);
             label3.TabIndex = 2;
@@ -176,7 +193,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            label2.Location = new Point(14, 123);
+            label2.Location = new Point(43, 124);
             label2.Name = "label2";
             label2.Size = new Size(91, 25);
             label2.TabIndex = 1;
@@ -250,10 +267,12 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(80, 0, 0, 0);
+            panel5.BackgroundImage = Properties.Resources.anhdaidien;
+            panel5.BackgroundImageLayout = ImageLayout.None;
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(0, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(920, 567);
+            panel5.Size = new Size(849, 595);
             panel5.TabIndex = 1;
             // 
             // errorProvider1
@@ -264,9 +283,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.picturelogin1;
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(920, 567);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Center;
+            ClientSize = new Size(849, 595);
             Controls.Add(panel1);
             Controls.Add(panel5);
             DoubleBuffered = true;
@@ -279,6 +298,7 @@
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -308,5 +328,6 @@
         private Panel panel4;
         private Panel panel5;
         private ErrorProvider errorProvider1;
+        private PictureBox pic1;
     }
 }

@@ -101,6 +101,7 @@
             dgvHoaDon.EnableHeadersVisualStyles = false;
             dgvHoaDon.Location = new Point(41, 130);
             dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Control;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
@@ -125,6 +126,7 @@
             Id.HeaderText = "Mã Hóa Đơn";
             Id.MinimumWidth = 6;
             Id.Name = "Id";
+            Id.ReadOnly = true;
             // 
             // TenCuaHang
             // 
@@ -132,6 +134,7 @@
             TenCuaHang.HeaderText = "Cửa Hàng";
             TenCuaHang.MinimumWidth = 6;
             TenCuaHang.Name = "TenCuaHang";
+            TenCuaHang.ReadOnly = true;
             // 
             // DiaChiCuaHang
             // 
@@ -139,6 +142,7 @@
             DiaChiCuaHang.HeaderText = "Địa Chỉ Cửa Hàng";
             DiaChiCuaHang.MinimumWidth = 6;
             DiaChiCuaHang.Name = "DiaChiCuaHang";
+            DiaChiCuaHang.ReadOnly = true;
             // 
             // NgayTao
             // 
@@ -148,6 +152,7 @@
             NgayTao.HeaderText = "Ngày Đặt";
             NgayTao.MinimumWidth = 6;
             NgayTao.Name = "NgayTao";
+            NgayTao.ReadOnly = true;
             // 
             // TongTien
             // 
@@ -155,6 +160,7 @@
             TongTien.HeaderText = "Tổng Tiền";
             TongTien.MinimumWidth = 6;
             TongTien.Name = "TongTien";
+            TongTien.ReadOnly = true;
             // 
             // TrangThai
             // 
@@ -162,6 +168,7 @@
             TrangThai.HeaderText = "Trạng Thái";
             TrangThai.MinimumWidth = 6;
             TrangThai.Name = "TrangThai";
+            TrangThai.ReadOnly = true;
             // 
             // label2
             // 
@@ -201,6 +208,7 @@
             dgvChiTiet.EnableHeadersVisualStyles = false;
             dgvChiTiet.Location = new Point(41, 452);
             dgvChiTiet.Name = "dgvChiTiet";
+            dgvChiTiet.ReadOnly = true;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = SystemColors.Control;
             dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
@@ -224,6 +232,7 @@
             dataGridViewTextBoxColumn1.HeaderText = "STT";
             dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -231,6 +240,7 @@
             dataGridViewTextBoxColumn2.HeaderText = "Tên Xe";
             dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // BienSo
             // 
@@ -238,6 +248,7 @@
             BienSo.HeaderText = "Biển Số";
             BienSo.MinimumWidth = 6;
             BienSo.Name = "BienSo";
+            BienSo.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -247,6 +258,7 @@
             dataGridViewTextBoxColumn4.HeaderText = "Dịch Vụ/Sản Phẩm";
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -254,6 +266,7 @@
             dataGridViewTextBoxColumn5.HeaderText = "Số Lượng";
             dataGridViewTextBoxColumn5.MinimumWidth = 6;
             dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // DonGia
             // 
@@ -261,6 +274,7 @@
             DonGia.HeaderText = "Đơn Giá";
             DonGia.MinimumWidth = 6;
             DonGia.Name = "DonGia";
+            DonGia.ReadOnly = true;
             // 
             // label3
             // 
